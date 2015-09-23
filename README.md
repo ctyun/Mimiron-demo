@@ -21,7 +21,7 @@
 
 </head>
 <body>
-  <div id="page-wrapper"> </div>
+  <div id="demo-wrapper"> </div>
 </body>
 </html>
 ```
@@ -31,20 +31,20 @@
 ### 2.1 引入jQuery
 在body中引入jQuery, 考虑到jQuery广泛应用在各种js类库中, 而且均被要求先于js类库引入, 所以我们并没有把jQuery打包到组件库里.
 ```
-<script src="dist/third/jquery.js"></script>
+<script src="../dist/third/jquery.js"></script>
 ```
 
 ### 2.2 引入JSX语法转义器
 为了书写jsx语法代码, 需要引入组件库之前先引入jsx语法转义器.
 ```
-<script src="dist/third/JSXTransformer.js"></script>
+<script src="../dist/third/JSXTransformer.js"></script>
 ```
 
 ### 2.3 引入组件库
 一切准备妥当, 可以引入组件库了.
 ```
-<link type="text/css" rel="stylesheet" href="dist/UI/css/main.css">
-<script src="dist/frame/components.js"></script>
+<link type="text/css" rel="stylesheet" href="../dist/UI/css/main.css">
+<script src="../dist/frame/components.js"></script>
 ```
 
 ### 2.4 使用第一个组件
