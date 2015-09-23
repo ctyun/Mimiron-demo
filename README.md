@@ -66,7 +66,7 @@ var ThisPage = React.createClass({
 });
 React.render(<ThisPage />, document.getElementById('demo-wrapper'));
 ```
-> 你可以参考*/base-demo/*目录,
+> 你可以参考*/base-demo/*目录,也可以参考我们在github上部署的[静态页面](http://ctyun.github.io/components-demo/base-demo/base-demo.html)
 ### 2.5 使用更多组件
 查看[API文档](http://等待补充), 了解更多的组件用法.
 
@@ -77,8 +77,8 @@ React.render(<ThisPage />, document.getElementById('demo-wrapper'));
 ### 3.1 引入主题
 我们针对后台页面页面, 开发了一套兼容bootstrap的主题, 在html中按下面方法引入样式:
 ```
-<link type="text/css" rel="stylesheet" href="dist/themes/style1/orange-blue.css" id="theme-change" class="style-change color-change">
-<link rel="stylesheet" href="dist/UI/css/font-awesome.css">
+<link type="text/css" rel="stylesheet" href="../dist/themes/style1/orange-blue.css" id="theme-change" class="style-change color-change">
+<link rel="stylesheet" href="../dist/UI/css/font-awesome.css">
 ```
 由于主题使用js对一些DOM节点进行了配置, 这个文件需要在React的DOM节点展开后进行引入, 因此, 在*main.js*中创建的组件渲染完毕的生命周期中进行如下操作:
 ```
@@ -111,9 +111,10 @@ React.render(<ThisPage />, document.getElementById('menu-wrapper'));
 ###3.3 设置路由, 编写具体的页面
 在html页面中引入路由, 路由配置和路由页面文件:
 ```
-  <script  type="text/jsx"  src="dist/frame/config.js"></script>
-  <script  type="text/jsx"  src="dist/app.js"></script>
-  <script  type="text/jsx"  src="dist/frame/router.js"></script>
+  <script  type="text/jsx"  src="../dist/frame/config.js"></script>
+  <script  type="text/jsx"  src="../dist/frame/router.js"></script>
+  <script src="../dist/util/tools.js"></script>
+  <script  type="text/jsx"  src="app.js"></script>
 ```
 打开*app.js*进行路由页面的配置
 ```
@@ -140,6 +141,7 @@ RouteConfig["#test2"]=function(){
 };
 ```
 我们在*#test1*页面中放置了Demo组件, 其中包括了几乎全部组件的展示.
+> 你可以参考*/bss-demo/*目录,也可以参考我们在github上部署的[静态页面](http://ctyun.github.io/components-demo/bss-demo/bss-demo.html)
 
 ### 3.4 配置服务器并测试
 左侧功能菜单配置方法请参考[这个API文档](http://const的API文档).
