@@ -6,8 +6,8 @@
 
 ## 1.准备工作
 
-### 1.1 下载组件库
-[点击这里下载组件库](http://等待补充)
+### 1.1 下载[组件库](https://github.com/ctyun/components-demo/archive/master.zip), 拷贝*dist*文件夹到你的工程WEB目录下.
+
 
 ### 1.2 新建页面
 在你正在使用的后端框架中新建一个页面, 或者像下面一样新建一个html文件:
@@ -26,7 +26,7 @@
 </html>
 ```
 
-## 2.引入文件
+## 2.使用基本组件
 
 ### 2.1 引入jQuery
 在body中引入jQuery, 考虑到jQuery广泛应用在各种js类库中, 而且均被要求先于js类库引入, 所以我们并没有把jQuery打包到组件库里.
@@ -66,7 +66,7 @@ var ThisPage = React.createClass({
 });
 React.render(<ThisPage />, document.getElementById('demo-wrapper'));
 ```
-
+> 你可以参考*/base-demo/*目录,
 ### 2.5 使用更多组件
 查看[API文档](http://等待补充), 了解更多的组件用法.
 
