@@ -49,7 +49,7 @@
 
 ### 2.4 使用第一个组件
 一切就绪, 可以开始使用组件库中丰富的组件了.
-首先在html(或者你使用的后端框架的模版页面里)的body中新建一个*<div id="demo-wrapper">*标签, 所有组件会被渲染到这个标签里.
+首先在html(或者你使用的后端框架的模版页面里)的body中新建一个`<div id="demo-wrapper">`标签, 所有组件会被渲染到这个标签里.
 然后新建一个*main.js*文件, 并在html文件中引用, 拼接组件的工作将在这里进行.
 在*main.js*中像这样使用组件:
 ```
@@ -67,6 +67,7 @@ var ThisPage = React.createClass({
 React.render(<ThisPage />, document.getElementById('demo-wrapper'));
 ```
 > 你可以参考*/base-demo/*目录,也可以参考我们在github上部署的[静态页面](http://ctyun.github.io/components-demo/base-demo/base-demo.html)
+
 ### 2.5 使用更多组件
 查看[API文档](http://等待补充), 了解更多的组件用法.
 
@@ -106,7 +107,7 @@ var ThisPage = React.createClass({
 });
 React.render(<ThisPage />, document.getElementById('menu-wrapper'));
 ```
-对应的, html页面中需要新建一个*<div id="menu-wrapper">*用于渲染导航条和功能菜单.
+对应的, html页面中需要新建一个`<div id="menu-wrapper">`用于渲染导航条和功能菜单.
 
 ###3.3 设置路由, 编写具体的页面
 在html页面中引入路由, 路由配置和路由页面文件:
