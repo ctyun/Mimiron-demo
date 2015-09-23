@@ -67,6 +67,7 @@ var ThisPage = React.createClass({
 React.render(<ThisPage />, document.getElementById('demo-wrapper'));
 ```
 > 你可以参考*/base-demo/*目录,也可以参考我们在github上部署的[静态页面](http://ctyun.github.io/components-demo/base-demo/base-demo.html)
+
 ### 2.5 使用更多组件
 查看[API文档](http://等待补充), 了解更多的组件用法.
 
