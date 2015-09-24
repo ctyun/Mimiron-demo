@@ -1,8 +1,8 @@
-# React组件库使用指导
+# Mimiron使用指导
 
 
 ## 0.说明
-本文档用于引导用户如何使用React组件库进行后台页面快速开发.
+本文档用于引导用户如何使用Mimiron进行后台页面快速开发.
 
 ## 1.准备工作
 
@@ -27,6 +27,8 @@
 ```
 
 ## 2.使用基本组件
+
+> 如果你有React经验, 可以跳过这节, 直接参考我们在github上部署的[结果页面](http://ctyun.github.io/Mimiron-demo/base-demo/base-demo.html)源码.
 
 ### 2.1 引入jQuery
 在body中引入jQuery, 考虑到jQuery广泛应用在各种js类库中, 而且均被要求先于js类库引入, 所以我们并没有把jQuery打包到组件库里.
@@ -66,14 +68,14 @@ var ThisPage = React.createClass({
 });
 React.render(<ThisPage />, document.getElementById('demo-wrapper'));
 ```
-> 你可以参考*/base-demo/*目录,也可以参考我们在github上部署的[静态页面](http://ctyun.github.io/components-demo/base-demo/base-demo.html)
+> 如果遇到困难, 可以参考我们在github上部署的[结果页面](http://ctyun.github.io/Mimiron-demo/base-demo/base-demo.html)
 
 ### 2.5 使用更多组件
 查看[API文档](http://等待补充), 了解更多的组件用法.
 
 
 ## 3. 使用组件库构建后台页面
->至此, 组件库基本用法已经介绍完毕, 你可以开始基于组件库进行组合和开发了. 这一节对组件库中几个特别的组件进行介绍, 帮助快速开发后台页面.
+>至此, 组件库基本用法已经介绍完毕, 你可以开始基于组件库进行组合和开发了. 这一节对组件库中几个特别的组件进行介绍, 帮助快速开发后台页面. 如果不想阅读, 也可以直接参考我们在github上部署的[结果页面](http://ctyun.github.io/Mimiron-demo/bss-demo/bss-demo.html)源码.
 
 ### 3.1 引入主题
 我们针对后台页面页面, 开发了一套兼容bootstrap的主题, 在html中按下面方法引入样式:
@@ -142,7 +144,7 @@ RouteConfig["#test2"]=function(){
 };
 ```
 我们在*#test1*页面中放置了Demo组件, 其中包括了几乎全部组件的展示.
-> 你可以参考*/bss-demo/*目录,也可以参考我们在github上部署的[静态页面](http://ctyun.github.io/components-demo/bss-demo/bss-demo.html)
+> 你可以参考*/bss-demo/*目录,也可以参考我们在github上部署的[静态页面](http://ctyun.github.io/Mimiron-demo/bss-demo/bss-demo.html)
 
 ### 3.4 配置服务器并测试
 左侧功能菜单配置方法请参考[这个API文档](http://const的API文档).
