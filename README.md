@@ -6,7 +6,7 @@
 
 ## 1.准备工作
 
-### 1.1 下载[组件库](https://github.com/ctyun/components-demo/archive/master.zip), 拷贝*dist*文件夹到你的工程WEB目录下.
+### 1.1 下载[组件库](https://github.com/ctyun/Mimiron-demo/archive/master.zip), 拷贝*dist*文件夹到你的工程WEB目录下.
 
 
 ### 1.2 新建页面
@@ -46,7 +46,7 @@
 一切准备妥当, 可以引入组件库了.
 ```
 <link type="text/css" rel="stylesheet" href="../dist/UI/css/main.css">
-<script src="../dist/frame/components.js"></script>
+<script src="../dist/React-Components-0.1.0.min.js"></script>
 ```
 
 ### 2.4 使用第一个组件
@@ -55,8 +55,7 @@
 然后新建一个*main.js*文件, 并在html文件中引用, 拼接组件的工作将在这里进行.
 在*main.js*中像这样使用组件:
 ```
-var React=require("react");
-var components=require("components");
+var React= components.React;
 var Button = components.Button;
 
 var ThisPage = React.createClass({
@@ -121,8 +120,7 @@ React.render(<ThisPage />, document.getElementById('menu-wrapper'));
 ```
 打开*app.js*进行路由页面的配置
 ```
-var React=require("react");
-var components=require("components");
+var React components.React;
 var Button = components.Button;
 var Demo = components.Demo;
 
