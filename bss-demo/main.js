@@ -1,5 +1,4 @@
-var React=require("react");
-var components=require("components");
+var React=components.React
 var TopBar = components.TopBar;
 var SideBar = components.SideBar;
 

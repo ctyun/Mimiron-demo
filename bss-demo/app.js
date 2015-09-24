@@ -1,5 +1,4 @@
-var React=require("react");
-var components=require("components");
+var React=components.React
 var Button = components.Button;
 var Demo = components.Demo;
 
