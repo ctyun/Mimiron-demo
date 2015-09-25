@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>components\tencentMap\map.js - react-df</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="react-df" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 0.1.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/Autocomplete.html">Autocomplete</a></li>
+                                <li><a href="../classes/AutoSelect.html">AutoSelect</a></li>
+                                <li><a href="../classes/BasicArea.html">BasicArea</a></li>
+                                <li><a href="../classes/BasicColumn.html">BasicColumn</a></li>
+                                <li><a href="../classes/BasicLine.html">BasicLine</a></li>
+                                <li><a href="../classes/BasicPie.html">BasicPie</a></li>
+                                <li><a href="../classes/BSSForm.html">BSSForm</a></li>
+                                <li><a href="../classes/BSSPanel.html">BSSPanel</a></li>
+                                <li><a href="../classes/Button.html">Button</a></li>
+                                <li><a href="../classes/CascadeSelect.html">CascadeSelect</a></li>
+                                <li><a href="../classes/Checkbox.html">Checkbox</a></li>
+                                <li><a href="../classes/CheckboxGroup.html">CheckboxGroup</a></li>
+                                <li><a href="../classes/DatePicker.html">DatePicker</a></li>
+                                <li><a href="../classes/ECharts.html">ECharts</a></li>
+                                <li><a href="../classes/ExpressionSelect.html">ExpressionSelect</a></li>
+                                <li><a href="../classes/Grid.html">Grid</a></li>
+                                <li><a href="../classes/Input.html">Input</a></li>
+                                <li><a href="../classes/IrregularLine.html">IrregularLine</a></li>
+                                <li><a href="../classes/message.html">message</a></li>
+                                <li><a href="../classes/MessageBox.html">MessageBox</a></li>
+                                <li><a href="../classes/Modal.html">Modal</a></li>
+                                <li><a href="../classes/PageButton.html">PageButton</a></li>
+                                <li><a href="../classes/PageSizeSelect.html">PageSizeSelect</a></li>
+                                <li><a href="../classes/QueryPanel.html">QueryPanel</a></li>
+                                <li><a href="../classes/Select.html">Select</a></li>
+                                <li><a href="../classes/StackedArea.html">StackedArea</a></li>
+                                <li><a href="../classes/StackedColumn.html">StackedColumn</a></li>
+                                <li><a href="../classes/StackedLine.html">StackedLine</a></li>
+                                <li><a href="../classes/TablePanel.html">TablePanel</a></li>
+                                <li><a href="../classes/Tabs.html">Tabs</a></li>
+                                <li><a href="../classes/TencentMap.html">TencentMap</a></li>
+                                <li><a href="../classes/Textarea.html">Textarea</a></li>
+                                <li><a href="../classes/ToolBarPanel.html">ToolBarPanel</a></li>
+                                <li><a href="../classes/TreeCommonMixin.html">TreeCommonMixin</a></li>
+                                <li><a href="../classes/Treeview.html">Treeview</a></li>
+                                <li><a href="../classes/TreeviewCell.html">TreeviewCell</a></li>
+                                <li><a href="../classes/TreeviewNode.html">TreeviewNode</a></li>
+                                <li><a href="../classes/TreeviewTextBox.html">TreeviewTextBox</a></li>
+                                <li><a href="../classes/window.html">window</a></li>
+                                <li><a href="../classes/WordCloud.html">WordCloud</a></li>
+                            </ul>
+                
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/BasicArea.html">BasicArea</a></li>
+                                <li><a href="../modules/BasicColumn.html">BasicColumn</a></li>
+                                <li><a href="../modules/BasicLine.html">BasicLine</a></li>
+                                <li><a href="../modules/BasicPie.html">BasicPie</a></li>
+                                <li><a href="../modules/BSSPanel.html">BSSPanel</a></li>
+                                <li><a href="../modules/ECharts.html">ECharts</a></li>
+                                <li><a href="../modules/Header.html">Header</a></li>
+                                <li><a href="../modules/html.html">html</a></li>
+                                <li><a href="../modules/IrregularLine.html">IrregularLine</a></li>
+                                <li><a href="../modules/message.html">message</a></li>
+                                <li><a href="../modules/MessageBox.html">MessageBox</a></li>
+                                <li><a href="../modules/Modal.html">Modal</a></li>
+                                <li><a href="../modules/PageButton.html">PageButton</a></li>
+                                <li><a href="../modules/PageSizeSelect.html">PageSizeSelect</a></li>
+                                <li><a href="../modules/QueryPanel.html">QueryPanel</a></li>
+                                <li><a href="../modules/StackedArea.html">StackedArea</a></li>
+                                <li><a href="../modules/StackedColumn.html">StackedColumn</a></li>
+                                <li><a href="../modules/StackedLine.html">StackedLine</a></li>
+                                <li><a href="../modules/TablePanel.html">TablePanel</a></li>
+                                <li><a href="../modules/Tabs.html">Tabs</a></li>
+                                <li><a href="../modules/TencentMap.html">TencentMap</a></li>
+                                <li><a href="../modules/ToolBarPanel.html">ToolBarPanel</a></li>
+                                <li><a href="../modules/Treeview.html">Treeview</a></li>
+                                <li><a href="../modules/WordCloud.html">WordCloud</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: components\tencentMap\map.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+ * 地图模块(使用腾讯地图)
+ * @module TencentMap
+ * @example
+ * var markers =  [{x:116,y:30,description:&#x27;This is a description&#x27;},{x:117,y:31,description:&#x27;This is a description&#x27;}] &lt;br/&gt;
+ * &lt;TencentMap id=&quot;map1&quot; mapData={markers} height={&quot;300px&quot;} width={&quot;300px&quot;} zoom={13} centerPoint={{x:116.397128,y:39.916527}}&gt;&lt;/TencentMap&gt;
+ * 
+ */
+var React = require(&#x27;react&#x27;);
+var $ = require(&#x27;jQuery&#x27;);
+
+/**
+ * 地图基础类
+ * @class TencentMap
+ * @constructor
+ * @param {String} id 组件id
+ * @param {String} height 高度 默认300px
+ * @param {String} width  宽度 默认100%
+ * @param {int} zoom  放大倍数，默认为7
+ * @param {Object} centerPoint  传入初始化地图中心点位置 x:经度,y:维度 eg:centerPoint={{x:116.397128,y:39.916527}} 默认中心点为北京天安门
+ * @param {Object} mapData 传入初始化位置标签 x:经度,y:维度,description:描述 eg:[{x:116,y:30,description:&#x27;This is a description&#x27;},{x:117,y:31,description:&#x27;This is a description&#x27;}]
+ * 
+ */
+var TencentMap = React.createClass({
+
+	statics:{
+		//保存地图表本身
+		map:[],
+		//保存地图组件引用
+		mapComponentRefs:[],
+		//是否已加载地图的脚本文件
+		loadMapScriptFlag:false,
+		//lock用于并发加载（就是同时加载多个map脚本）时提供代码块锁定功能
+		lock:false,
+
+	},
+
+	getInitialState: function() {
+		return {
+			//保存地图坐标数据
+			mapData:[],
+			//地图是否已经加载完毕
+			mapReady:false,
+			mapHeight:&quot;300px&quot;,
+			mapWidth:&quot;100%&quot;,
+			zoom:7
+		};
+	},
+
+	
+	/**
+	 * 初始化地图,初始化中心点为北京天安门
+	 * @private
+	 * @method initTencentMap
+	 */
+ 	initTencentMap : function() {
+	    
+	    var centerPoint;
+	    if(this.props.centerPoint){
+	    	//设置中心点
+	    	centerPoint = new qq.maps.LatLng(this.props.centerPoint.y,this.props.centerPoint.x);
+	    }else{
+	    	//默认中心点
+	    	centerPoint = new qq.maps.LatLng(39.916527,116.397128);
+	    }
+	    //设置放大倍数
+	    var zoom = this.props.zoom||this.state.zoom;
+
+	    var options = {
+	    	zoom: zoom,
+	    	center: centerPoint,
+	    	mapTypeId: qq.maps.MapTypeId.ROADMAP
+	    };
+
+	  	TencentMap.map[this.props.id] = new qq.maps.Map(document.getElementById(&quot;tencentMapDiv&quot;+this.props.id), options);
+
+	},
+
+	/**
+	 * 设置一组坐标点标签
+	 * @private
+	 * @method setNewMarks
+	 * @param {Array} markers 传入坐标标签数组 x:经度,y:维度,description:描述 eg:[{x:116,y:30,description:&#x27;This is a description&#x27;},{x:117,y:31,description:&#x27;This is a description&#x27;}]
+	 */
+	setNewMarks : function(markers){
+		var self = this;
+		markers.map(function(marker) {
+			self.setNewMark(marker);
+		})
+	},
+
+
+	/**
+	 * 设置坐标点标签
+	 * @private
+	 * @method setNewMark
+	 * @param {Object} markers 传入坐标标签数组 x:经度,y:维度,description:描述 eg:{x:116,y:30,description:&#x27;This is a description&#x27;}
+	 */
+	setNewMark : function(marker){
+
+  		var positionPoint=new qq.maps.LatLng(marker.y,marker.x);
+
+	    var _marker = new qq.maps.Marker({
+	        position: positionPoint,
+	        map: TencentMap.map[this.props.id]
+	    });
+
+	    if(marker.description){
+
+	    	var infoWin = new qq.maps.InfoWindow({
+	        	map: TencentMap.map[this.props.id]
+		    });
+
+		    qq.maps.event.addListener(_marker, &#x27;click&#x27;, function() {
+	            infoWin.open();
+	            infoWin.setContent(marker.description);
+	            infoWin.setPosition(positionPoint);
+	        });
+	    }
+
+	   
+
+	},
+	 /**
+	  * 加载地图脚本
+	  * @private
+	  * @method loadMapScript
+	  */
+	loadMapScript : function() {
+
+	 	if(!TencentMap.lock){
+	 		TencentMap.lock = true;
+
+	 		/**
+	 		 * window全局方法,在地图脚本加载完后回调，同时定义2个全局方法方便设置坐标点
+	 		 * @for window
+	 		 * @method loadMapScriptCallBack
+	 		 */
+	 		window.loadMapScriptCallBack=function(){
+
+	 			/**
+	 			 * window全局方法,设置新的位置标记
+	 			 * @for window
+	 			 * @method setNewMark
+	 			 * @param {String} mapId  地图控件的ID
+	 			 * @param {Object} marker 要标记的位置对象 x:经度,y:维度,description:描述 eg:{x:116,y:30,description:&#x27;This is a description&#x27;}
+	 			 */
+				window.setNewMark = function(mapId,marker){
+
+			  		var positionPoint=new qq.maps.LatLng(marker.y,marker.x);
+
+				    var _marker = new qq.maps.Marker({
+				        position: positionPoint,
+				        map: TencentMap.map[mapId]
+				    });
+
+				    if(marker.description){
+
+				    	var infoWin = new qq.maps.InfoWindow({
+				        	map: TencentMap.map[mapId]
+					    });
+
+					    qq.maps.event.addListener(_marker, &#x27;click&#x27;, function() {
+				            infoWin.open();
+				            infoWin.setContent(marker.description);
+				            infoWin.setPosition(positionPoint);
+				        });
+				    }
+
+				},
+
+				/**
+				 * window全局方法,设置一组新的位置标记
+				 * @for window
+				 * @method setNewMarks
+				 * @param {String} mapId   地图控件的ID
+				 * @param {Array} markers 要标记的位置对象数组 x:经度,y:维度,description:描述 eg:[{x:116,y:30,description:&#x27;This is a description&#x27;},{x:117,y:31,description:&#x27;This is a description&#x27;}]
+				 */
+				window.setNewMarks = function(mapId,markers){
+					markers.map(function(marker) {
+						setNewMark(mapId,marker);
+					})
+				},
+
+				//如果脚本已加载，则刷新全部地图组件
+				TencentMap.loadMapScriptFlag = true;
+				TencentMap.mapComponentRefs.map(function(mapRef) {
+					mapRef.setState({
+						mapReady:true
+					});
+				})
+			}
+
+			
+		  	var script = document.createElement(&quot;script&quot;);
+		  	script.type = &quot;text/javascript&quot;;
+		  	script.src = &quot;http://map.qq.com/api/js?v=2.exp&amp;callback=window.loadMapScriptCallBack&quot;;
+		  	document.body.appendChild(script);
+	 	}
+
+	 	//脚本已加载，直接刷新组件
+	 	if(TencentMap.loadMapScriptFlag){
+	 		this.setState({
+	 			mapReady:true
+	 		});
+	 	}
+		
+
+	},
+
+	//清除地图上的全部坐标点
+	clearAllMarks: function(){
+		//清除位置标记
+		var markersArray = this.state.mapData;
+		if (markersArray) {
+	        for (i in markersArray) {
+	            markersArray[i].setMap(null);
+	        }
+    	}
+	},
+
+	componentWillMount: function() {
+		
+		if(this.props.height){
+			this.state.mapHeight = this.props.height;
+		}
+
+		if(this.props.width){
+			this.state.mapWidth = this.props.width;
+		}
+	},
+	
+	componentDidMount: function() {
+		//加载脚本
+		this.loadMapScript();
+		//把当前组件引用添加到全局数组中，以便加载完脚本可以刷新
+		TencentMap.mapComponentRefs.push(this);
+	},
+
+	componentWillUpdate: function(nextProps, nextState) {
+
+		//初始化地图，这一步在加载完脚本后才执行
+		this.initTencentMap();
+	},
+
+
+	render: function() {
+		//判断地图是否已经加载成功，如果成功，则初始化地图坐标
+		if(this.state.mapReady){
+			//清楚地图上的坐标点
+			this.clearAllMarks();
+			//保存坐标点
+			this.state.mapData = this.props.mapData;
+			//设置坐标点
+			this.setNewMarks(this.props.mapData);
+		}
+		return (&lt;div&gt;
+				&lt;div className={this.props.cssClass} id={&quot;tencentMapDiv&quot;+this.props.id} style={{&quot;height&quot;:this.state.mapHeight,&quot;width&quot;:this.state.mapWidth}}&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;);
+	}
+
+});
+
+module.exports = TencentMap;
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

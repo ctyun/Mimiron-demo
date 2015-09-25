@@ -1,0 +1,3123 @@
+{
+    "project": {
+        "name": "react-df",
+        "description": "df is short for develop framework. we want to provide a series of tools helping develop and release project using React. Also, tools are sample configed.",
+        "version": "0.1.0"
+    },
+    "files": {
+        "components\\echarts\\components\\bar\\BasicColumn.js": {
+            "name": "components\\echarts\\components\\bar\\BasicColumn.js",
+            "modules": {
+                "BasicColumn": 1
+            },
+            "classes": {
+                "BasicColumn": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\echarts\\components\\bar\\StackedColumn.js": {
+            "name": "components\\echarts\\components\\bar\\StackedColumn.js",
+            "modules": {
+                "StackedColumn": 1
+            },
+            "classes": {
+                "StackedColumn": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\echarts\\components\\line\\BasicArea.js": {
+            "name": "components\\echarts\\components\\line\\BasicArea.js",
+            "modules": {
+                "BasicArea": 1
+            },
+            "classes": {
+                "BasicArea": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\echarts\\components\\line\\BasicLine.js": {
+            "name": "components\\echarts\\components\\line\\BasicLine.js",
+            "modules": {
+                "BasicLine": 1
+            },
+            "classes": {
+                "BasicLine": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\echarts\\components\\line\\IrregularLine.js": {
+            "name": "components\\echarts\\components\\line\\IrregularLine.js",
+            "modules": {
+                "IrregularLine": 1
+            },
+            "classes": {
+                "IrregularLine": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\echarts\\components\\line\\StackedArea.js": {
+            "name": "components\\echarts\\components\\line\\StackedArea.js",
+            "modules": {
+                "StackedArea": 1
+            },
+            "classes": {
+                "StackedArea": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\echarts\\components\\line\\StackedLine.js": {
+            "name": "components\\echarts\\components\\line\\StackedLine.js",
+            "modules": {
+                "StackedLine": 1
+            },
+            "classes": {
+                "StackedLine": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\echarts\\components\\pie\\BasicPie.js": {
+            "name": "components\\echarts\\components\\pie\\BasicPie.js",
+            "modules": {
+                "BasicPie": 1
+            },
+            "classes": {
+                "BasicPie": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\echarts\\components\\wordCloud\\WordCloud.js": {
+            "name": "components\\echarts\\components\\wordCloud\\WordCloud.js",
+            "modules": {
+                "WordCloud": 1
+            },
+            "classes": {
+                "WordCloud": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\echarts\\echarts.js": {
+            "name": "components\\echarts\\echarts.js",
+            "modules": {
+                "ECharts": 1
+            },
+            "classes": {
+                "ECharts": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\html\\autocomplete.js": {
+            "name": "components\\html\\autocomplete.js",
+            "modules": {
+                "html": 1
+            },
+            "classes": {
+                "Autocomplete": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\html\\autoselect.js": {
+            "name": "components\\html\\autoselect.js",
+            "modules": {},
+            "classes": {
+                "AutoSelect": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\html\\button.js": {
+            "name": "components\\html\\button.js",
+            "modules": {},
+            "classes": {
+                "Button": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\html\\cascade_select.js": {
+            "name": "components\\html\\cascade_select.js",
+            "modules": {},
+            "classes": {
+                "CascadeSelect": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\html\\checkbox.js": {
+            "name": "components\\html\\checkbox.js",
+            "modules": {},
+            "classes": {
+                "Checkbox": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\html\\checkboxgroup.js": {
+            "name": "components\\html\\checkboxgroup.js",
+            "modules": {},
+            "classes": {
+                "CheckboxGroup": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\html\\datepicker.js": {
+            "name": "components\\html\\datepicker.js",
+            "modules": {},
+            "classes": {
+                "DatePicker": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\html\\expression.js": {
+            "name": "components\\html\\expression.js",
+            "modules": {},
+            "classes": {
+                "ExpressionSelect": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\html\\form.js": {
+            "name": "components\\html\\form.js",
+            "modules": {},
+            "classes": {
+                "BSSForm": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\html\\input.js": {
+            "name": "components\\html\\input.js",
+            "modules": {},
+            "classes": {
+                "Input": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\html\\select.js": {
+            "name": "components\\html\\select.js",
+            "modules": {},
+            "classes": {
+                "Select": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\html\\textarea.js": {
+            "name": "components\\html\\textarea.js",
+            "modules": {},
+            "classes": {
+                "Textarea": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\message\\message.js": {
+            "name": "components\\message\\message.js",
+            "modules": {
+                "message": 1
+            },
+            "classes": {
+                "message": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\message\\messageBox.js": {
+            "name": "components\\message\\messageBox.js",
+            "modules": {
+                "MessageBox": 1
+            },
+            "classes": {
+                "MessageBox": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\message\\modal.js": {
+            "name": "components\\message\\modal.js",
+            "modules": {
+                "Modal": 1
+            },
+            "classes": {
+                "Modal": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\page\\grid.js": {
+            "name": "components\\page\\grid.js",
+            "modules": {},
+            "classes": {
+                "Grid": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\page\\page.js": {
+            "name": "components\\page\\page.js",
+            "modules": {
+                "PageButton": 1
+            },
+            "classes": {
+                "PageButton": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\page\\pagesizeselect.js": {
+            "name": "components\\page\\pagesizeselect.js",
+            "modules": {
+                "PageSizeSelect": 1
+            },
+            "classes": {
+                "PageSizeSelect": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\panel\\header.js": {
+            "name": "components\\panel\\header.js",
+            "modules": {
+                "Header": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\panel\\panel.js": {
+            "name": "components\\panel\\panel.js",
+            "modules": {
+                "BSSPanel": 1
+            },
+            "classes": {
+                "BSSPanel": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\panel\\query-panel.js": {
+            "name": "components\\panel\\query-panel.js",
+            "modules": {
+                "QueryPanel": 1
+            },
+            "classes": {
+                "QueryPanel": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\panel\\table-panel.js": {
+            "name": "components\\panel\\table-panel.js",
+            "modules": {
+                "TablePanel": 1
+            },
+            "classes": {
+                "TablePanel": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\panel\\tool-panel.js": {
+            "name": "components\\panel\\tool-panel.js",
+            "modules": {
+                "ToolBarPanel": 1
+            },
+            "classes": {
+                "ToolBarPanel": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\tabs\\tabs.js": {
+            "name": "components\\tabs\\tabs.js",
+            "modules": {
+                "Tabs": 1
+            },
+            "classes": {
+                "Tabs": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\tencentMap\\map.js": {
+            "name": "components\\tencentMap\\map.js",
+            "modules": {
+                "TencentMap": 1
+            },
+            "classes": {
+                "TencentMap": 1
+            },
+            "fors": {
+                "window": 1
+            },
+            "namespaces": {}
+        },
+        "components\\tree\\treecommon.js": {
+            "name": "components\\tree\\treecommon.js",
+            "modules": {
+                "Treeview": 1
+            },
+            "classes": {
+                "TreeCommonMixin": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\tree\\treeview.js": {
+            "name": "components\\tree\\treeview.js",
+            "modules": {},
+            "classes": {
+                "Treeview": 1,
+                "TreeviewNode": 1,
+                "TreeviewCell": 1,
+                "TreeviewTextBox": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "BasicColumn": {
+            "name": "BasicColumn",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "BasicColumn": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "components\\echarts\\components\\bar\\BasicColumn.js",
+            "line": 36,
+            "description": "BasicColumn Chart ,using EChart",
+            "author": "czdujianbin 2015-09-23 14:36:41",
+            "example": [
+                "\n```\nvar data = [\n   {\n       name : \"测试1\",\n      data : [90, 113, 140, 30, 70, 60]\n   },\n     {\n         name : \"测试2\",\n         data : [190, 213, 240, 230, 70, 260]\n     },\n ];\n\n var xAxisName = ['周一','周二','周三','周四','周五','周六','周日'];\n \n simple use:\n <BasicColumn data={data} xAxisName={xAxisName}/>\n\n Advance use:\n <BasicColumn title=\"曲线测试\" subtitle=\"这是一个副标题测试\" height=\"800px\" width=\"100%\" trigger=\"item\" theme=\"macarons\" data={data} xAxisName={xAxisName} smooth={true}/>\n```"
+            ]
+        },
+        "StackedColumn": {
+            "name": "StackedColumn",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "StackedColumn": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "components\\echarts\\components\\bar\\StackedColumn.js",
+            "line": 36,
+            "description": "StackedColumn Chart ,using EChart",
+            "author": "czdujianbin 2015-09-23 14:36:41",
+            "example": [
+                "\n```\nvar data = [\n   {\n       name : \"测试1\",\n      data : [90, 113, 140, 30, 70, 60]\n   },\n     {\n         name : \"测试2\",\n         data : [190, 213, 240, 230, 70, 260]\n     },\n ];\n\n var xAxisName = ['周一','周二','周三','周四','周五','周六','周日'];\n \n simple use:\n <StackedColumn data={data} xAxisName={xAxisName}/>\n\n Advance use:\n <StackedColumn title=\"曲线测试\" subtitle=\"这是一个副标题测试\" height=\"800px\" width=\"100%\" trigger=\"item\" theme=\"macarons\" data={data} xAxisName={xAxisName} smooth={true}/>\n```"
+            ]
+        },
+        "BasicArea": {
+            "name": "BasicArea",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "BasicArea": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "components\\echarts\\components\\line\\BasicArea.js",
+            "line": 36,
+            "description": "BasicArea Chart ,using EChart",
+            "author": "czdujianbin 2015-09-22 17:01:41",
+            "example": [
+                "\n```\nvar data = [\n   {\n       name : \"测试1\",\n      data : [90, 113, 140, 30, 70, 60]\n   },\n     {\n         name : \"测试2\",\n         data : [190, 213, 240, 230, 70, 260]\n     },\n ];\n\n var xAxisName = ['周一','周二','周三','周四','周五','周六','周日'];\n \n simple use:\n <BasicArea  data={data} xAxisName={xAxisName}/>\n\n Advance use:\n <BasicArea  title=\"曲线测试\" subtitle=\"这是一个副标题测试\" height=\"800px\" width=\"100%\" trigger=\"item\" theme=\"macarons\" data={data} xAxisName={xAxisName} smooth={true}/>\n```"
+            ]
+        },
+        "BasicLine": {
+            "name": "BasicLine",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "BasicLine": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "components\\echarts\\components\\line\\BasicLine.js",
+            "line": 36,
+            "description": "BasicLine Chart ,using EChart",
+            "author": "czdujianbin 2015-09-21 14:01:41",
+            "example": [
+                "\n```\nvar data = [\n   {\n       name : \"测试1\",\n      data : [90, 113, 140, 30, 70, 60]\n   },\n     {\n         name : \"测试2\",\n         data : [190, 213, 240, 230, 70, 260]\n     },\n ];\n\n var xAxisName = ['周一','周二','周三','周四','周五','周六','周日'];\n \n simple use:\n <BasicLine data={data} xAxisName={xAxisName}/>\n\n Advance use:\n <BasicLine title=\"曲线测试\" subtitle=\"这是一个副标题测试\" height=\"800px\" width=\"100%\" trigger=\"item\" theme=\"macarons\" data={data} xAxisName={xAxisName} smooth={true}/>\n```"
+            ]
+        },
+        "IrregularLine": {
+            "name": "IrregularLine",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "IrregularLine": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "components\\echarts\\components\\line\\IrregularLine.js",
+            "line": 36,
+            "description": "IrregularLine Chart ,using EChart",
+            "author": "czdujianbin 2015-09-23 14:01:41",
+            "example": [
+                "\n```\nvar data = [\n   {\n       name : \"测试1\",\n      data : [90, 113, 140, 30, 70, 60]\n   },\n     {\n         name : \"测试2\",\n         data : [190, 213, 240, 230, 70, 260]\n     },\n ];\n\n var xAxisName = ['周一','周二','周三','周四','周五','周六','周日'];\n \n simple use:\n <IrregularLine data={data} xAxisName={xAxisName}/>\n\n Advance use:\n <IrregularLine title=\"曲线测试\" subtitle=\"这是一个副标题测试\" height=\"800px\" width=\"100%\" trigger=\"item\" theme=\"macarons\" data={data} xAxisName={xAxisName} smooth={true}/>\n```"
+            ]
+        },
+        "StackedArea": {
+            "name": "StackedArea",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "StackedArea": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "components\\echarts\\components\\line\\StackedArea.js",
+            "line": 36,
+            "description": "StackedArea Chart ,using EChart",
+            "author": "czdujianbin 2015-09-22 17:01:41",
+            "example": [
+                "\n```\nvar data = [\n   {\n       name : \"测试1\",\n      data : [90, 113, 140, 30, 70, 60]\n   },\n     {\n         name : \"测试2\",\n         data : [190, 213, 240, 230, 70, 260]\n     },\n ];\n\n var xAxisName = ['周一','周二','周三','周四','周五','周六','周日'];\n \n simple use:\n <StackedArea data={data} xAxisName={xAxisName}/>\n\n Advance use:\n <StackedArea title=\"曲线测试\" subtitle=\"这是一个副标题测试\" height=\"800px\" width=\"100%\" trigger=\"item\" theme=\"macarons\" data={data} xAxisName={xAxisName} smooth={true}/>\n```"
+            ]
+        },
+        "StackedLine": {
+            "name": "StackedLine",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "StackedLine": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "components\\echarts\\components\\line\\StackedLine.js",
+            "line": 36,
+            "description": "StackedLine Chart ,using EChart",
+            "author": "czdujianbin 2015-09-21 10:01:41",
+            "example": [
+                "\n```\nvar data = [\n    {\n        name : \"测试1\",\n        data : [90, 113, 140, 30, 70, 60]\n    },\n    {\n        name : \"测试2\",\n        data : [190, 213, 240, 230, 70, 260]\n    },\n];\n\nvar xAxisName = ['周一','周二','周三','周四','周五','周六','周日'];\n\nsimple use:\n<StackedLine id=\"chart1\" data={data} xAxisName={xAxisName}/>\n\nAdvance use:\n<StackedLine id=\"test\" title=\"曲线测试\" subtitle=\"这是一个副标题测试\" height=\"800px\" width=\"100%\" trigger=\"item\" theme=\"macarons\" data={data} xAxisName={xAxisName} smooth={true}/>\n```"
+            ]
+        },
+        "BasicPie": {
+            "name": "BasicPie",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "BasicPie": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "components\\echarts\\components\\pie\\BasicPie.js",
+            "line": 38,
+            "description": "BasicPie Chart ,using EChart",
+            "author": "czdujianbin 2015-09-22 17:01:41",
+            "example": [
+                "\n```\n var data = [\n       {\n           name:'访问来源',\n           data:[\n               {value:335, name:'直接访问'},\n               {value:310, name:'邮件营销'},\n               {value:234, name:'联盟广告'},\n               {value:135, name:'视频广告'},\n               {value:1548, name:'搜索引擎'}\n           ]\n       }\n   ];\n\n var xAxisName = ['周一','周二','周三','周四','周五','周六','周日'];\n \n simple use:\n <BasicPie data={data} />\n\n Advance use:\n <BasicPie  title=\"BasicPie\" subtitle=\"BasicPie subtitle\" height=\"800px\" width=\"100%\"  theme=\"macarons\" data={data} />\n```"
+            ]
+        },
+        "WordCloud": {
+            "name": "WordCloud",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "WordCloud": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "components\\echarts\\components\\wordCloud\\WordCloud.js",
+            "line": 34,
+            "description": "WordCloud Chart ,using EChart",
+            "author": "czdujianbin 2015-09-21 14:01:41",
+            "example": [
+                "\n```\nvar data = [\n   {\n       name: \"Macys\",\n       value: 6181\n   },\n   {\n       name: \"Amy Schumer\",\n       value: 4386\n   }\n ];\n \n simple use:\n <WordCloud data={data} />\n\n Advance use:\n <WordCloud title=\"WordCloud\" subtitle=\"WordCloud subtitile\" height=\"800px\" width=\"100%\" theme=\"macarons\" data={data} />\n```"
+            ]
+        },
+        "ECharts": {
+            "name": "ECharts",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "ECharts": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "components\\echarts\\echarts.js",
+            "line": 91,
+            "description": "ECharts",
+            "example": [
+                "\n```\nvar option = {\n       title : {\n           text: '未来一周气温变化',\n           subtext: '纯属虚构'\n       },\n       tooltip : {\n           trigger: 'axis'\n       },\n       legend: {\n           data:['最高气温','最低气温']\n       },\n       toolbox: {\n           show : true,\n           feature : {\n               mark : {show: true},\n               dataView : {show: true, readOnly: false},\n               magicType : {show: true, type: ['line', 'bar']},\n               restore : {show: true},\n               saveAsImage : {show: true}\n           }\n       },\n       calculable : true,\n       xAxis : [\n           {\n               type : 'category',\n               boundaryGap : false,\n               data : ['周一','周二','周三','周四','周五','周六','周日']\n           }\n       ],\n       yAxis : [\n           {\n               type : 'value',\n               axisLabel : {\n                   formatter: '{value} °C'\n               }\n           }\n       ],\n       series : [\n           {\n               name:'最高气温',\n               type:'line',\n               data:[11, 11, 15, 13, 12, 13, 10],\n               markPoint : {\n                   data : [\n                       {type : 'max', name: '最大值'},\n                       {type : 'min', name: '最小值'}\n                   ]\n               },\n               markLine : {\n                   data : [\n                       {type : 'average', name: '平均值'}\n                   ]\n               }\n           },\n           {\n               name:'最低气温',\n               type:'line',\n               data:[1, -2, 2, 5, 3, 2, 0],\n               markPoint : {\n                   data : [\n                       {name : '周最低', value : -2, xAxis: 1, yAxis: -1.5}\n                   ]\n               },\n               markLine : {\n                   data : [\n                       {type : 'average', name : '平均值'}\n                   ]\n               }\n           }\n       ]\n   };\n           \nsimple use:\n<ECharts id=\"chart1\" height=\"800px\" width=\"100%\" option={option}/>\n\n```"
+            ]
+        },
+        "html": {
+            "name": "html",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "Autocomplete": 1,
+                "AutoSelect": 1,
+                "Button": 1,
+                "CascadeSelect": 1,
+                "Checkbox": 1,
+                "CheckboxGroup": 1,
+                "DatePicker": 1,
+                "ExpressionSelect": 1,
+                "BSSForm": 1,
+                "Input": 1,
+                "Select": 1,
+                "Textarea": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "components\\html\\textarea.js",
+            "line": 6
+        },
+        "message": {
+            "name": "message",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "message": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "components\\message\\message.js",
+            "line": 10,
+            "description": "MessageBox MessageBox方法集合",
+            "deprecated": true
+        },
+        "MessageBox": {
+            "name": "MessageBox",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "MessageBox": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "components\\message\\messageBox.js",
+            "line": 16,
+            "description": "消息提示框组件",
+            "example": [
+                "\n```\n<Button btnName=\"触发MessageBox\" doAction={MessageBox.show.bind(null,\"i am title\",\"i am message\")} cssClass=\"btn-info\" />\n!!请勿实例化此组件,仅可使用show方法显示提示框!!\n```"
+            ]
+        },
+        "Modal": {
+            "name": "Modal",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "Modal": 1,
+                "Grid": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "components\\page\\grid.js",
+            "line": 7,
+            "description": "Modal组件"
+        },
+        "PageButton": {
+            "name": "PageButton",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "PageButton": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "components\\page\\page.js",
+            "line": 52,
+            "description": "Created by chenth on 15-7-10.\n表格分页组件",
+            "example": [
+                "\n```\n使用说明\n<PageButton  doList={this.doList} pageSize={this.state.pageSize}  page={this.state.offset} totalRows={this.state.totalRows}/>\n＊doList:回调ajax请求的方法，加载列表数据\n＊pageSize：页面大小\n＊page:当前页面\n＊totalRows:总行数\n```"
+            ]
+        },
+        "PageSizeSelect": {
+            "name": "PageSizeSelect",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "PageSizeSelect": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "components\\page\\pagesizeselect.js",
+            "line": 18,
+            "description": "Created by chenth on 15-7-10.\n 页面大小选择组件",
+            "example": [
+                "\n```\n 使用方法\n 参考TablePanel 组件\n 使用说明\n  <PageSizeSelect onselect={this._selectPageSize} />\n  其中onselect事件是回调分页所在parent中执行分页查询的方法，该方法会把所选的当前的分页大小传过去\n```"
+            ]
+        },
+        "Header": {
+            "name": "Header",
+            "submodules": {},
+            "elements": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "components\\panel\\header.js",
+            "line": 3,
+            "params": [
+                {
+                    "name": "root",
+                    "description": "根节点名称",
+                    "type": "String"
+                },
+                {
+                    "name": "pageTitle",
+                    "description": "本页标题",
+                    "type": "String"
+                }
+            ]
+        },
+        "BSSPanel": {
+            "name": "BSSPanel",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "BSSPanel": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "components\\panel\\panel.js",
+            "line": 45,
+            "description": "Created by chenth on 15-7-24.\n基本的面板组件",
+            "example": [
+                "\n[点我打开百度](http://www.baidu.com/)\n```\n\nvar React = require('react');\n\nvar components=require(\"components\");\nvar BSSPanel=components.BSSPanel;\nvar QueryPanel=components.QueryPanel;\nvar Input=components.Input;\nvar ToolBarPanel=components.ToolBarPanel;\nvar Button=components.Button;\n\n\nvar BSSPanelDemo=React.createClass(\n    render:function(){\n        return ( <BSSPanel pageTitle = \"示例Panel\">\n                <QueryPanel submitAction={queryMetadata} jsonFormat={true} okButtonName=\"查询(请看console)\">\n                <Input disName=\" 示范输入:\" name=\"demoInput\"/>\n                </QueryPanel>\n                <ToolBarPanel>\n                <Button btnName=\"增删查改\"/>\n                </ToolBarPanel>\n                </BSSPanel>);\n    }\n);\n\n使用说明\n<BSSPanel pageTitle = \"示例Panel\">\n<QueryPanel submitAction={queryMetadata} jsonFormat={true} okButtonName=\"查询(请看console)\">\n<Input disName=\" 示范输入:\" name=\"demoInput\"/>\n</QueryPanel>\n<ToolBarPanel>\n<Button btnName=\"增删查改\"/>\n</ToolBarPanel>\n</BSSPanel>\n```"
+            ]
+        },
+        "QueryPanel": {
+            "name": "QueryPanel",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "QueryPanel": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "components\\panel\\query-panel.js",
+            "line": 30,
+            "description": "Created by chenth on 15-7-24.\n查询面板,包装了form表单",
+            "example": [
+                "\n```\n使用方法\nvar React = require('react');\nvar components=require(\"components\");\nvar QueryPanel=components.QueryPanel;\nvar Input=components.Input;\nvar AutocompleteDemo=React.createClass(\n    render:function(){\n    return (<QueryPanel submitAction={queryMetadata} jsonFormat={true} okButtonName=\"查询(请看console)\">\n               <Input disName=\" 示范输入:\" name=\"demoInput\"/>\n          </QueryPanel>);\n    }\n);\n使用说明\n<QueryPanel submitAction={queryMetadata} jsonFormat={true} okButtonName=\"查询(请看console)\">\n     <Input disName=\" 示范输入:\" name=\"demoInput\"/>\n </QueryPanel>\n\n```"
+            ]
+        },
+        "TablePanel": {
+            "name": "TablePanel",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "TablePanel": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "components\\panel\\table-panel.js",
+            "line": 51,
+            "description": "Created by chenth on 15-7-24.\n封装表格面板组件",
+            "example": [
+                "\n```\n使用方法\nvar React = require('react');\nvar components=require(\"components\");\nvar TablePanel=components.TablePanel;\nvar TablePanelDemo=React.createClass(\n    render:function(){\n    tableProps:{\n        title:['选项','标题1','标题2','标题3'],\n        jsonKey:['id','t1','t2','t3'],\n        data:[{id:1,\n          t1:'测试1',\n          t2:'测试2',\n          t3:'测试3'}],\n        doList:function(){},\n        pageSize:10,\n        offset:1, //page:this.state.offset\n        totalRows:1,\n        checkType:\"radio\",\n    }\n        return (<TablePanel {...tableProps}/>);\n    }\n);\n\n使用说明\ntableProps:{\n        title:['选项','标题1','标题2','标题3'],\n       jsonKey:['id','t1','t2','t3'],\n        data:[{id:1,\n          t1:'测试1',\n          t2:'测试2',\n          t3:'测试3'}],\n        doList:function(){},\n        pageSize:10,\n        offset:1, //page:this.state.offset\n        totalRows:1,\n        checkType:\"radio\",\n    }\n```"
+            ]
+        },
+        "ToolBarPanel": {
+            "name": "ToolBarPanel",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "ToolBarPanel": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "components\\panel\\tool-panel.js",
+            "line": 25,
+            "description": "Created by chenth on 15-7-24.\n工具栏面板",
+            "example": [
+                "\n```\n使用方法\nvar React = require('react');\nvar components=require(\"components\");\nvar ToolBarPanel=components.ToolBarPanel;\nvar Button=components.Button;\nvar ToolBarPanelDemo=React.createClass(\n    render:function(){\n        return ( <ToolBarPanel><Button btnName=\"增删查改\"/></ToolBarPanel>);\n    }\n);\n使用说明\n <ToolBarPanel>\n<Button btnName=\"增删查改\"/>\n</ToolBarPanel>\n```"
+            ]
+        },
+        "Tabs": {
+            "name": "Tabs",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "Tabs": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "components\\tabs\\tabs.js",
+            "line": 7
+        },
+        "TencentMap": {
+            "name": "TencentMap",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "TencentMap": 1,
+                "window": 1
+            },
+            "fors": {
+                "window": 1
+            },
+            "namespaces": {},
+            "tag": "module",
+            "file": "components\\tencentMap\\map.js",
+            "line": 12,
+            "description": "地图模块(使用腾讯地图)",
+            "example": [
+                "\nvar markers =  [{x:116,y:30,description:'This is a description'},{x:117,y:31,description:'This is a description'}] <br/>\n<TencentMap id=\"map1\" mapData={markers} height={\"300px\"} width={\"300px\"} zoom={13} centerPoint={{x:116.397128,y:39.916527}}></TencentMap>\n"
+            ]
+        },
+        "Treeview": {
+            "name": "Treeview",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "TreeCommonMixin": 1,
+                "Treeview": 1,
+                "TreeviewNode": 1,
+                "TreeviewCell": 1,
+                "TreeviewTextBox": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "components\\tree\\treeview.js",
+            "line": 732,
+            "description": "This is a Treeview component.",
+            "author": "WangYG 2015年8月3日 08:48:41",
+            "example": [
+                " \n```\n  使用说明\n  data: (object)树中展现的数据, 格式请参考demo.js, 每个节点可以有如下属性:\n   -\"name\":显示的名称.\n   -\"uid\":唯一的Id,注意,此ID必须唯一, 如果留空,则自动生成一个.\n   -\"selectType\":该节点的选择类型,可以为\"checkbox\"(节点可以多选,默认值),\"radio\"(在该级下单选),\"none\"(不显示选择框)\n   -\"isSelected\":(string)该节点默认被选中,默认值为\"none\",可选:\"all\",\"part\",\"none\"\n   -\"isExpanded\":(boolean)该节点默认被展开,默认值为flase.\n  selectType: (string)\n   -\"none\":树的每个节点前没有可操作的元素\n   -\"checkbox\":树的每个节点前有一个勾选框\n   -\"radio\":树的每个节点成为单选项\n  onElementCheck: (function)节点被勾选(取消勾选)时的回调函数.\n   -return parms:\n       -uid:目标节点的uid值,如果输入的data中没有标记uid,会返回一个唯一的随机字符串.\n       -status:目标节点操作状态, 'check'为勾选操作, 'unckeck'为取消勾选.\n       -name: 目标节点显示的内容\n  onElementFlod: (function)节点被展开(收起)时的回调函数.\n   -return params:\n       -uid:目标节点的uid值,如果输入的data中没有标记uid,会返回一个唯一的随机字符串.\n       -status:目标节点操作状态, 'flod'为收起操作, 'unckeck'为展开操作.\n  expandLevel: (int)展开级别\n  maxHeight:(string) 比如:\"300px\"\n\n   var tree1Data = {\n       treedata: [\n           {\n               \"name\": \"Top Level\",\n               \"uid\": \"uid1\",\n               \"children\": [\n                   {\n                       \"name\": \"Level 2: A\",\n                       \"uid\": \"uid2\",\n                       \"children\": [\n                           {\n                               \"name\": \"Son of A\"\n                           },\n                           {\n                               \"name\": \"Daughter of A\"\n                           }\n                       ]\n                   },\n                   {\n                       \"name\": \"Level 2: B\"\n                   },\n                   {\n                       \"name\": \"Level 2: C\",\n                       \"children\": [\n                           {\n                               \"name\": \"Son of C\"\n                           }\n                       ]\n                   }\n               ]\n           }\n       ]\n   }\n   <Treeview data={tree1Data} selectType=\"checkbox\"/>\n ```"
+            ]
+        }
+    },
+    "classes": {
+        "BasicColumn": {
+            "name": "BasicColumn",
+            "shortname": "BasicColumn",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "BasicColumn",
+            "namespace": "",
+            "file": "components\\echarts\\components\\bar\\BasicColumn.js",
+            "line": 36,
+            "description": "BasicColumn Chart",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "height",
+                    "description": "\nchart's height",
+                    "type": "String"
+                },
+                {
+                    "name": "width",
+                    "description": "\nchart's width",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "\nData array in the series. <br/>\nIn line and column, length of the array is equal to the length of category axis text label array xAxisName, and there is one-to-one correspondence between them. <br/>\nThe array item is usually value, such as:[12, 34, 56, ..., 10, 23] <br/>\nWhen the data corresponding to a category does not exist (ps: 'no data' is not equal to 0), you can use '-' to indicate 'no data'. <br/>\nIn line, 'no data' is showed by a breakpoint; in column, 'no data' is showed by a missing column, such as:[12, '-', 56, ..., 10, 23]",
+                    "type": "Object"
+                },
+                {
+                    "name": "xAxisName",
+                    "description": "\ncategory axis: specifies the category list.",
+                    "type": "Object"
+                },
+                {
+                    "name": "title",
+                    "description": "\nTitle, at most one title control is allowed in one chart.",
+                    "type": "String"
+                },
+                {
+                    "name": "subtitle",
+                    "description": "\nsubtitle text, '\\n' represents a line feed.",
+                    "type": "String"
+                },
+                {
+                    "name": "smooth",
+                    "description": "\nsmoothed line, value(true/false), while smooth is true, lineStyle.type can not be dashed.",
+                    "type": "String"
+                },
+                {
+                    "name": "trigger",
+                    "description": "\nType of trigger. Defaults to 'item'.Valid values are: 'item' | 'axis'.",
+                    "type": "String"
+                },
+                {
+                    "name": "tooltipFormatter\ntooltip's",
+                    "description": "formatter: {string} (Template).(Template: a (series name), b(category value), c (value) ) eg : tooltipFormatter=\"Temperature : <br/>{b}km : {c}°C\"",
+                    "type": "String"
+                },
+                {
+                    "name": "maxPoints\nconfigure",
+                    "description": "how many points will be showed in a chart",
+                    "type": "Integer"
+                }
+            ],
+            "return": {
+                "description": "return basic line chart component",
+                "type": "Object"
+            }
+        },
+        "StackedColumn": {
+            "name": "StackedColumn",
+            "shortname": "StackedColumn",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "StackedColumn",
+            "namespace": "",
+            "file": "components\\echarts\\components\\bar\\StackedColumn.js",
+            "line": 36,
+            "description": "StackedColumn Chart",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "height",
+                    "description": "\nchart's height",
+                    "type": "String"
+                },
+                {
+                    "name": "width",
+                    "description": "\nchart's width",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "\nData array in the series. <br/>\nIn line and column, length of the array is equal to the length of category axis text label array xAxisName, and there is one-to-one correspondence between them. <br/>\nThe array item is usually value, such as:[12, 34, 56, ..., 10, 23] <br/>\nWhen the data corresponding to a category does not exist (ps: 'no data' is not equal to 0), you can use '-' to indicate 'no data'. <br/>\nIn line, 'no data' is showed by a breakpoint; in column, 'no data' is showed by a missing column, such as:[12, '-', 56, ..., 10, 23]",
+                    "type": "Object"
+                },
+                {
+                    "name": "xAxisName",
+                    "description": "\ncategory axis: specifies the category list.",
+                    "type": "Object"
+                },
+                {
+                    "name": "title",
+                    "description": "\nTitle, at most one title control is allowed in one chart.",
+                    "type": "String"
+                },
+                {
+                    "name": "subtitle",
+                    "description": "\nsubtitle text, '\\n' represents a line feed.",
+                    "type": "String"
+                },
+                {
+                    "name": "smooth",
+                    "description": "\nsmoothed line, value(true/false), while smooth is true, lineStyle.type can not be dashed.",
+                    "type": "String"
+                },
+                {
+                    "name": "trigger",
+                    "description": "\nType of trigger. Defaults to 'item'.Valid values are: 'item' | 'axis'.",
+                    "type": "String"
+                },
+                {
+                    "name": "tooltipFormatter\ntooltip's",
+                    "description": "formatter: {string} (Template).(Template: a (series name), b(category value), c (value) ) eg : tooltipFormatter=\"Temperature : <br/>{b}km : {c}°C\"",
+                    "type": "String"
+                },
+                {
+                    "name": "maxPoints\nconfigure",
+                    "description": "how many points will be showed in a chart",
+                    "type": "Integer"
+                }
+            ],
+            "return": {
+                "description": "return basic line chart component",
+                "type": "Object"
+            }
+        },
+        "BasicArea": {
+            "name": "BasicArea",
+            "shortname": "BasicArea",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "BasicArea",
+            "namespace": "",
+            "file": "components\\echarts\\components\\line\\BasicArea.js",
+            "line": 36,
+            "description": "BasicArea Chart",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "height",
+                    "description": "\nchart's height",
+                    "type": "String"
+                },
+                {
+                    "name": "width",
+                    "description": "\nchart's width",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "\nData array in the series. <br/>\nIn line and column, length of the array is equal to the length of category axis text label array xAxisName, and there is one-to-one correspondence between them. <br/>\nThe array item is usually value, such as:[12, 34, 56, ..., 10, 23] <br/>\nWhen the data corresponding to a category does not exist (ps: 'no data' is not equal to 0), you can use '-' to indicate 'no data'. <br/>\nIn line, 'no data' is showed by a breakpoint; in column, 'no data' is showed by a missing column, such as:[12, '-', 56, ..., 10, 23]",
+                    "type": "Object"
+                },
+                {
+                    "name": "xAxisName",
+                    "description": "\ncategory axis: specifies the category list.",
+                    "type": "Object"
+                },
+                {
+                    "name": "title",
+                    "description": "\nTitle, at most one title control is allowed in one chart.",
+                    "type": "String"
+                },
+                {
+                    "name": "subtitle",
+                    "description": "\nsubtitle text, '\\n' represents a line feed.",
+                    "type": "String"
+                },
+                {
+                    "name": "smooth",
+                    "description": "\nsmoothed line, value(true/false), while smooth is true, lineStyle.type can not be dashed.",
+                    "type": "String"
+                },
+                {
+                    "name": "trigger",
+                    "description": "\nType of trigger. Defaults to 'item'.Valid values are: 'item' | 'axis'.",
+                    "type": "String"
+                },
+                {
+                    "name": "tooltipFormatter\ntooltip's",
+                    "description": "formatter: {string} (Template).(Template: a (series name), b(category value), c (value) ) eg : tooltipFormatter=\"Temperature : <br/>{b}km : {c}°C\"",
+                    "type": "String"
+                },
+                {
+                    "name": "maxPoints\nconfigure",
+                    "description": "how many points will be showed in a chart",
+                    "type": "Integer"
+                }
+            ],
+            "return": {
+                "description": "return basic line chart component",
+                "type": "Object"
+            }
+        },
+        "BasicLine": {
+            "name": "BasicLine",
+            "shortname": "BasicLine",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "BasicLine",
+            "namespace": "",
+            "file": "components\\echarts\\components\\line\\BasicLine.js",
+            "line": 36,
+            "description": "Basic Line Chart",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "height",
+                    "description": "\nchart's height",
+                    "type": "String"
+                },
+                {
+                    "name": "width",
+                    "description": "\nchart's width",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "\nData array in the series. <br/>\nIn line and column, length of the array is equal to the length of category axis text label array xAxisName, and there is one-to-one correspondence between them. <br/>\nThe array item is usually value, such as:[12, 34, 56, ..., 10, 23] <br/>\nWhen the data corresponding to a category does not exist (ps: 'no data' is not equal to 0), you can use '-' to indicate 'no data'. <br/>\nIn line, 'no data' is showed by a breakpoint; in column, 'no data' is showed by a missing column, such as:[12, '-', 56, ..., 10, 23]",
+                    "type": "Object"
+                },
+                {
+                    "name": "xAxisName",
+                    "description": "\ncategory axis: specifies the category list.",
+                    "type": "Object"
+                },
+                {
+                    "name": "title",
+                    "description": "\nTitle, at most one title control is allowed in one chart.",
+                    "type": "String"
+                },
+                {
+                    "name": "subtitle",
+                    "description": "\nsubtitle text, '\\n' represents a line feed.",
+                    "type": "String"
+                },
+                {
+                    "name": "smooth",
+                    "description": "\nsmoothed line, value(true/false), while smooth is true, lineStyle.type can not be dashed.",
+                    "type": "String"
+                },
+                {
+                    "name": "trigger",
+                    "description": "\nType of trigger. Defaults to 'item'.Valid values are: 'item' | 'axis'.",
+                    "type": "String"
+                },
+                {
+                    "name": "tooltipFormatter\ntooltip's",
+                    "description": "formatter: {string} (Template).(Template: a (series name), b(category value), c (value) ) eg : tooltipFormatter=\"Temperature : <br/>{b}km : {c}°C\"",
+                    "type": "String"
+                },
+                {
+                    "name": "maxPoints\nconfigure",
+                    "description": "how many points will be showed in a chart",
+                    "type": "Integer"
+                }
+            ],
+            "return": {
+                "description": "return basic line chart component",
+                "type": "Object"
+            }
+        },
+        "IrregularLine": {
+            "name": "IrregularLine",
+            "shortname": "IrregularLine",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "IrregularLine",
+            "namespace": "",
+            "file": "components\\echarts\\components\\line\\IrregularLine.js",
+            "line": 36,
+            "description": "Irregular Line Chart",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "height",
+                    "description": "\nchart's height",
+                    "type": "String"
+                },
+                {
+                    "name": "width",
+                    "description": "\nchart's width",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "\nData array in the series. <br/>\nIn line and column, length of the array is equal to the length of category axis text label array xAxisName, and there is one-to-one correspondence between them. <br/>\nThe array item is usually value, such as:[12, 34, 56, ..., 10, 23] <br/>\nWhen the data corresponding to a category does not exist (ps: 'no data' is not equal to 0), you can use '-' to indicate 'no data'. <br/>\nIn line, 'no data' is showed by a breakpoint; in column, 'no data' is showed by a missing column, such as:[12, '-', 56, ..., 10, 23]",
+                    "type": "Object"
+                },
+                {
+                    "name": "xAxisName",
+                    "description": "\ncategory axis: specifies the category list.",
+                    "type": "Object"
+                },
+                {
+                    "name": "title",
+                    "description": "\nTitle, at most one title control is allowed in one chart.",
+                    "type": "String"
+                },
+                {
+                    "name": "subtitle",
+                    "description": "\nsubtitle text, '\\n' represents a line feed.",
+                    "type": "String"
+                },
+                {
+                    "name": "smooth",
+                    "description": "\nsmoothed line, value(true/false), while smooth is true, lineStyle.type can not be dashed.",
+                    "type": "String"
+                },
+                {
+                    "name": "tooltipFormatter\ntooltip's",
+                    "description": "formatter: {string} (Template).(Template: a (series name), b(category value), c (value) ) eg : tooltipFormatter=\"Temperature : <br/>{b}km : {c}°C\"",
+                    "type": "String"
+                },
+                {
+                    "name": "maxPoints\nconfigure",
+                    "description": "how many points will be showed in a chart",
+                    "type": "Integer"
+                }
+            ],
+            "return": {
+                "description": "return basic line chart component",
+                "type": "Object"
+            }
+        },
+        "StackedArea": {
+            "name": "StackedArea",
+            "shortname": "StackedArea",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "StackedArea",
+            "namespace": "",
+            "file": "components\\echarts\\components\\line\\StackedArea.js",
+            "line": 36,
+            "description": "StackedArea Chart",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "height",
+                    "description": "\nchart's height",
+                    "type": "String"
+                },
+                {
+                    "name": "width",
+                    "description": "\nchart's width",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "\nData array in the series. <br/>\nIn line and column, length of the array is equal to the length of category axis text label array xAxisName, and there is one-to-one correspondence between them. <br/>\nThe array item is usually value, such as:[12, 34, 56, ..., 10, 23] <br/>\nWhen the data corresponding to a category does not exist (ps: 'no data' is not equal to 0), you can use '-' to indicate 'no data'. <br/>\nIn line, 'no data' is showed by a breakpoint; in column, 'no data' is showed by a missing column, such as:[12, '-', 56, ..., 10, 23]",
+                    "type": "Object"
+                },
+                {
+                    "name": "xAxisName",
+                    "description": "\ncategory axis: specifies the category list.",
+                    "type": "Object"
+                },
+                {
+                    "name": "title",
+                    "description": "\nTitle, at most one title control is allowed in one chart.",
+                    "type": "String"
+                },
+                {
+                    "name": "subtitle",
+                    "description": "\nsubtitle text, '\\n' represents a line feed.",
+                    "type": "String"
+                },
+                {
+                    "name": "smooth",
+                    "description": "\nsmoothed line, value(true/false), while smooth is true, lineStyle.type can not be dashed.",
+                    "type": "String"
+                },
+                {
+                    "name": "trigger",
+                    "description": "\nType of trigger. Defaults to 'item'.Valid values are: 'item' | 'axis'.",
+                    "type": "String"
+                },
+                {
+                    "name": "tooltipFormatter\ntooltip's",
+                    "description": "formatter: {string} (Template).(Template: a (series name), b(category value), c (value) ) eg : tooltipFormatter=\"Temperature : <br/>{b}km : {c}°C\"",
+                    "type": "String"
+                },
+                {
+                    "name": "maxPoints\nconfigure",
+                    "description": "how many points will be showed in a chart",
+                    "type": "Integer"
+                }
+            ],
+            "return": {
+                "description": "return basic line chart component",
+                "type": "Object"
+            }
+        },
+        "StackedLine": {
+            "name": "StackedLine",
+            "shortname": "StackedLine",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "StackedLine",
+            "namespace": "",
+            "file": "components\\echarts\\components\\line\\StackedLine.js",
+            "line": 36,
+            "description": "StackedLine Chart",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "height",
+                    "description": "\nchart's height",
+                    "type": "String"
+                },
+                {
+                    "name": "width",
+                    "description": "\nchart's width",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "\nData array in the series. <br/>\nIn line and column, length of the array is equal to the length of category axis text label array xAxisName, and there is one-to-one correspondence between them. <br/>\nThe array item is usually value, such as:[12, 34, 56, ..., 10, 23] <br/>\nWhen the data corresponding to a category does not exist (ps: 'no data' is not equal to 0), you can use '-' to indicate 'no data'. <br/>\nIn line, 'no data' is showed by a breakpoint; in column, 'no data' is showed by a missing column, such as:[12, '-', 56, ..., 10, 23]",
+                    "type": "Object"
+                },
+                {
+                    "name": "xAxisName",
+                    "description": "\ncategory axis: specifies the category list.",
+                    "type": "Object"
+                },
+                {
+                    "name": "title",
+                    "description": "\nTitle, at most one title control is allowed in one chart.",
+                    "type": "String"
+                },
+                {
+                    "name": "subtitle",
+                    "description": "\nsubtitle text, '\\n' represents a line feed.",
+                    "type": "String"
+                },
+                {
+                    "name": "smooth",
+                    "description": "\nsmoothed line, value(true/false), while smooth is true, lineStyle.type can not be dashed.",
+                    "type": "String"
+                },
+                {
+                    "name": "trigger",
+                    "description": "\nType of trigger. Defaults to 'item'.Valid values are: 'item' | 'axis'.",
+                    "type": "String"
+                },
+                {
+                    "name": "tooltipFormatter\ntooltip's",
+                    "description": "formatter: {string} (Template).(Template: a (series name), b(category value), c (value) ) eg : tooltipFormatter=\"Temperature : <br/>{b}km : {c}°C\"",
+                    "type": "String"
+                },
+                {
+                    "name": "maxPoints\nconfigure",
+                    "description": "how many points will be showed in a chart",
+                    "type": "Integer"
+                }
+            ],
+            "return": {
+                "description": "return stacked line chart component",
+                "type": "Object"
+            }
+        },
+        "BasicPie": {
+            "name": "BasicPie",
+            "shortname": "BasicPie",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "BasicPie",
+            "namespace": "",
+            "file": "components\\echarts\\components\\pie\\BasicPie.js",
+            "line": 38,
+            "description": "Basic Pie Chart",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "height",
+                    "description": "\nchart's height",
+                    "type": "String"
+                },
+                {
+                    "name": "width",
+                    "description": "\nchart's width",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "\nData array in the series. <br/>",
+                    "type": "Object"
+                },
+                {
+                    "name": "title",
+                    "description": "\nTitle, at most one title control is allowed in one chart.",
+                    "type": "String"
+                },
+                {
+                    "name": "subtitle",
+                    "description": "\nsubtitle text, '\\n' represents a line feed.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "return basic line chart component",
+                "type": "Object"
+            }
+        },
+        "WordCloud": {
+            "name": "WordCloud",
+            "shortname": "WordCloud",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "WordCloud",
+            "namespace": "",
+            "file": "components\\echarts\\components\\wordCloud\\WordCloud.js",
+            "line": 34,
+            "description": "Basic Line Chart",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "height",
+                    "description": "\nchart's height",
+                    "type": "String"
+                },
+                {
+                    "name": "width",
+                    "description": "\nchart's width",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "\nData array in the series. <br/>",
+                    "type": "Object"
+                },
+                {
+                    "name": "title",
+                    "description": "\nTitle, at most one title control is allowed in one chart.",
+                    "type": "String"
+                },
+                {
+                    "name": "subtitle",
+                    "description": "\nsubtitle text, '\\n' represents a line feed.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "return basic line chart component",
+                "type": "Object"
+            }
+        },
+        "ECharts": {
+            "name": "ECharts",
+            "shortname": "ECharts",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ECharts",
+            "namespace": "",
+            "file": "components\\echarts\\echarts.js",
+            "line": 91,
+            "description": "ECharts",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "id",
+                    "description": "component id",
+                    "type": "String"
+                },
+                {
+                    "name": "height",
+                    "description": "component's height",
+                    "type": "String"
+                },
+                {
+                    "name": "width",
+                    "description": "component's width",
+                    "type": "String"
+                },
+                {
+                    "name": "option",
+                    "description": "the setting of this component",
+                    "type": "Object"
+                }
+            ]
+        },
+        "Autocomplete": {
+            "name": "Autocomplete",
+            "shortname": "Autocomplete",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "html",
+            "namespace": "",
+            "file": "components\\html\\autocomplete.js",
+            "line": 13,
+            "description": "自动完成\n```\n使用方法\nvar React = require('react');\nvar components=require(\"components\");\nvar Autocomplete=components.Autocomplete;\nvar AutocompleteDemo=React.createClass(\n    render:function(){\n        return (<Autocomplete name=\"动态下拉\" url=\"/api/test/ajax\" />);\n    }\n);\n```"
+        },
+        "AutoSelect": {
+            "name": "AutoSelect",
+            "shortname": "AutoSelect",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "html",
+            "namespace": "",
+            "file": "components\\html\\autoselect.js",
+            "line": 7,
+            "description": "```\n使用方法\nvar React = components.React;\nvar AutoSelect=components.AutoSelect;\nvar AutoSelectDemo=React.createClass(\n    render:function(){\n        return (<AutoSelect url=\"api/test/autoselect\" disName=\"动态select\" onSelect={this.autoSeleect} defaultValue=\"333\" />);\n    }\n);\n使用说明\n通过url自动加载select\n <AutoSelect url=\"api/test/autoselect\" disName=\"动态select\" onSelect={this.autoSeleect} defaultValue=\"333\" />\n disName:显示在左边的名称\n url:动态换取下拉列表后台请求url,请求方式get, 返回数据格式为：[{value:'1',text:'显示2'},{value:'2',text:'显示1'}]\n defaultValue:默认要显示的值\n onSelect：选重下拉列表的值所触发的事件\n```",
+            "uses": [
+                "Select"
+            ]
+        },
+        "Button": {
+            "name": "Button",
+            "shortname": "Button",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "html",
+            "namespace": "",
+            "file": "components\\html\\button.js",
+            "line": 7,
+            "description": "按钮组件\n```\n使用方法\nvar React = components.React;\nvar Button=components.Button;\nvar ButtonDemo=React.createClass(\n    render:function(){\n        return ( <Button actions=[] code=\"\" btnName=\"增加\" disabled={this.state.dis} disabledName=\"正在请求......\" doAction={this._doAction}/>);\n    }\n);\n\n使用说明\n<Button actions=[] code=\"\" btnName=\"增加\" disabled={this.state.dis} disabledName=\"正在请求......\" doAction={this._doAction}/>\ndisabled:些属性判断按钮是否可用disabled：true此按钮不可用\ndisabledName：不可用时显示的名称\ndoAction:当点击该按钮时调用parent中的方法去执行\nid:按钮的id, 用于直接操作DOM, 一般不应传入此参数\ncssClass(String):按钮的显示样式,与Bootstrap相同,可选值包括:\nbtn-default : 白色按钮样式;\nbtn-primary : 蓝色按钮, 如果不传入此参数,取此值为默认值;\nbtn-success : 绿色按钮, 一般表示成功;\nbtn-info    : 浅蓝色按钮, 一般表示信息;\nbtn-warning : 橙色按钮, 一般表示警告;\nbtn-danger  : 红色按钮, 一般表示严重警告;\nbtn-lg      : 尺寸设置为大;\nbtn-sm      : 尺寸设置为小;\nbtn-xs      : 尺寸设置为极小;\nbtn-block   : 尺寸将填充满父元素;\nactive      : 按钮将直接显示为已被按下.\n允许同时传入颜色和尺寸两个参数, 比如:\"btn-danger btn-xs\", 除此之外, 还有一些不常用的取值请参考Bootstrap官方网站.\ncustomClass(String): 按照用户自定义的style进行显示, 自定义style代码需要放入css/style.css\nactions:该菜单所有的操作编码\ncode:当前按钮的操作编码\n```"
+        },
+        "CascadeSelect": {
+            "name": "CascadeSelect",
+            "shortname": "CascadeSelect",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "html",
+            "namespace": "",
+            "file": "components\\html\\cascade_select.js",
+            "line": 7,
+            "description": "二级联动select\n```\n使用方法\nvar React = require('react');\nvar components=require(\"components\");\nvar CascadeSelect=components.CascadeSelect;\nvar CascadeSelectDemo=React.createClass(\n    render:function(){\n        return (<CascadeSelect firstDisName=\"一级\" secondDisName=\"二级\"  firsDefaultValue=\"2\" data={[{value:'1',text:'显示2'},{value:'2',text:'显示1'}]} url=\"api/test/autoselect\"  />);\n    }\n);\n使用说明\n<CascadeSelect firstDisName=\"一级\" secondDisName=\"二级\"  firsDefaultValue=\"2\" data={[{value:'1',text:'显示2'},{value:'2',text:'显示1'}]} url=\"api/test/autoselect\"  />\nfirstDisName:一级显示名称\nsecondDisName:二级显示名称\nfirsDefaultValue:一级显示值\ndata:一级下拉填充数据\nurl:一级下拉选择时，二级下拉联动时后台请求的url\n```"
+        },
+        "Checkbox": {
+            "name": "Checkbox",
+            "shortname": "Checkbox",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [
+                "CheckboxGroup"
+            ],
+            "module": "html",
+            "namespace": "",
+            "file": "components\\html\\checkbox.js",
+            "line": 8,
+            "description": "```\n注意: 需要放在CheckboxGroup中使用\n<Checkbox id=\"1\" dispName=\"checkbox1\" value=\"1\" onClick={this.checkboxClick}/>\n```"
+        },
+        "CheckboxGroup": {
+            "name": "CheckboxGroup",
+            "shortname": "CheckboxGroup",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "html",
+            "namespace": "",
+            "file": "components\\html\\checkboxgroup.js",
+            "line": 8,
+            "description": "```\n <CheckboxGroup name=\"demo-checkboxgroup\" inline={false} multi={true}>\n       <Checkbox id=\"1\" dispName=\"checkbox1\" value=\"1\" onClick={this.checkboxClick}/>\n       <Checkbox id=\"2\" dispName=\"checkbox2\" value=\"2\" onClick={this.checkboxClick}/>\n   </CheckboxGroup>\n```",
+            "uses": [
+                "Checkbox"
+            ]
+        },
+        "DatePicker": {
+            "name": "DatePicker",
+            "shortname": "DatePicker",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "html",
+            "namespace": "",
+            "file": "components\\html\\datepicker.js",
+            "line": 7,
+            "description": "日期选择组件\n```\n使用方法\nvar React = require('react');\nvar components=require(\"components\");\nvar DataPicker=components.DataPicker;\nvar DataPickerDemo=React.createClass(\n    render:function(){\n        return (<DataPicker id=\"startTime_id\"  name=\"时间\" dateFormat=\"yy-mm\"/>);\n    }\n);\n使用说明\n<DataPicker id=\"startTime_id\"  name=\"时间\" dateFormat=\"yy-mm\"/>\n id:该组件的id要唯一\n name:日期组件显示的名称\n dateFormat：日期格式类型 yy-mm格式化为年－月,yy-mm-dd格化为年－月－日\n 要想获取该日期所选择的值，调用DatePicker.getDataValue()方法\n```"
+        },
+        "ExpressionSelect": {
+            "name": "ExpressionSelect",
+            "shortname": "ExpressionSelect",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "html",
+            "namespace": "",
+            "file": "components\\html\\expression.js",
+            "line": 7,
+            "description": "查询表达式列表组件\n```\n使用方法\nvar React = require('react');\nvar components=require(\"components\");\nvar ExpressionSelect=components.ExpressionSelect;\nvar ExpressionSelectDemo=React.createClass(\n    render:function(){\n        return (<ExpressionSelect onSelect={_onSelect} />);\n    }\n);\n使用说明\n<ExpressionSelect onSelect={_onSelect} />\nonSelect 选择表达式回调事件\n```"
+        },
+        "BSSForm": {
+            "name": "BSSForm",
+            "shortname": "BSSForm",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "html",
+            "namespace": "",
+            "file": "components\\html\\form.js",
+            "line": 9,
+            "description": "表单组件\n```\n使用方法\nvar React = require('react');\nvar components=require(\"components\");\nvar BSSForm=components.BSSForm;\nvar BSSFormDemo=React.createClass(\n    render:function(){\n        return ( <BSSForm submitAction={this.submitAction} jsonFormat=true disabledName＝\"不可用\" disabledSubmitBtn＝“false” okButtonName=\"保存\"></BSSForm>);\n    }\n);\n使用说明\n\n* <BSSForm submitAction={this.submitAction} jsonFormat=true disabledName＝\"不可用\" disabledSubmitBtn＝“false” okButtonName=\"保存\"></BSSForm>\nsubmitAction(必须）\n  form表单按钮提交时回调方法\n jsonFormat  true|false\n   form表单序列化数据是否为json格式\nokButtonName\n  此参数非必须\n form表单按钮名称默认为查询\n disabledSubmitBtn:true|false 默认为false\n     此参数非必须\n  是否在提交form表达时禁用提交按钮\n disabledName:\n  此参数非必须\n  禁用提交按钮时显示的名称\n\n此组件使用可参考QueryPanel使用\n```"
+        },
+        "Input": {
+            "name": "Input",
+            "shortname": "Input",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "html",
+            "namespace": "",
+            "file": "components\\html\\input.js",
+            "line": 27,
+            "description": "input输入组件\n  ```\n  使用方法\n var React = require('react');\n var components=require(\"components\");\n var Input=components.Input;\n var InputDemo=React.createClass(\n     render:function(){\n         return (<Input disName=\"名称\" doChange={this._doChange}  />);\n     }\n );\n  使用说明\n  <Input disName=\"名称\" doChange={this._doChange}  />\n  disName:要显示的名称\n  doChange:值改变时调用的事件\n  onClick:点击时调用的事件\n  value:默认值\n  ```"
+        },
+        "Select": {
+            "name": "Select",
+            "shortname": "Select",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [
+                "AutoSelect"
+            ],
+            "module": "html",
+            "namespace": "",
+            "file": "components\\html\\select.js",
+            "line": 5,
+            "description": "下拉列表组件\n```\n使用方法\nvar React = require('react');\nvar components=require(\"components\");\nvar Select=components.Select;\nvar SelectDemo=React.createClass(\n    render:function(){\n        return (<Select data={this.state.selectData} defaultValue=\"2\" onSelect={this._onSelect}/>);\n    }\n);\n\n使用说明\n <Select data={this.state.selectData} defaultValue=\"2\" onSelect={this._onSelect}/>\n disName:显示在左边的名称\n data:select的下拉列表要显示的值,数据格式为：[{value:'1',text:'显示2'},{value:'2',text:'显示1'}]\n defaultValue:默认要显示的值\n onSelect：选重下拉列表的值所触发的事件\n multiple:true\n 支持多选\n noEmptyMsg:true\n 不显示默认提示\n```"
+        },
+        "Textarea": {
+            "name": "Textarea",
+            "shortname": "Textarea",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "html",
+            "namespace": "",
+            "file": "components\\html\\textarea.js",
+            "line": 6,
+            "description": "文本区\n```\n <Textarea rows=\"4\" onChange={this.textareaChange}>\n       12234\n   </Textarea>\n```"
+        },
+        "message": {
+            "name": "message",
+            "shortname": "message",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "message",
+            "namespace": "",
+            "file": "components\\message\\message.js",
+            "line": 10,
+            "description": "这是一个MessageBox对象，提供显示消息的方法"
+        },
+        "MessageBox": {
+            "name": "MessageBox",
+            "shortname": "MessageBox",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "MessageBox",
+            "namespace": "",
+            "file": "components\\message\\messageBox.js",
+            "line": 16,
+            "description": "消息提示框组件"
+        },
+        "Modal": {
+            "name": "Modal",
+            "shortname": "Modal",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Modal",
+            "namespace": "",
+            "file": "components\\message\\modal.js",
+            "line": 7,
+            "description": "Modal组件",
+            "example": [
+                "\n```\n <Modal title=\"i am title\" body={this._modalBody} footer={this._ModalFooter}/>\n\ttargetName:需要在触发模态框的元素需给属性data-toggle=\"modal\" data-target=\"#targetName\" 或者使用jquery:$(\"#targetName\").modal\n title:标题\n body:中间显示的内容\n footer:底部显示的内容,一般来说至少需要一个确认按钮一个取消按钮\n```"
+            ]
+        },
+        "Grid": {
+            "name": "Grid",
+            "shortname": "Grid",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Modal",
+            "namespace": "",
+            "file": "components\\page\\grid.js",
+            "line": 7
+        },
+        "PageButton": {
+            "name": "PageButton",
+            "shortname": "PageButton",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "PageButton",
+            "namespace": "",
+            "file": "components\\page\\page.js",
+            "line": 52
+        },
+        "PageSizeSelect": {
+            "name": "PageSizeSelect",
+            "shortname": "PageSizeSelect",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "PageSizeSelect",
+            "namespace": "",
+            "file": "components\\page\\pagesizeselect.js",
+            "line": 18
+        },
+        "BSSPanel": {
+            "name": "BSSPanel",
+            "shortname": "BSSPanel",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "BSSPanel",
+            "namespace": "",
+            "file": "components\\panel\\panel.js",
+            "line": 45
+        },
+        "QueryPanel": {
+            "name": "QueryPanel",
+            "shortname": "QueryPanel",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "QueryPanel",
+            "namespace": "",
+            "file": "components\\panel\\query-panel.js",
+            "line": 30
+        },
+        "TablePanel": {
+            "name": "TablePanel",
+            "shortname": "TablePanel",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "TablePanel",
+            "namespace": "",
+            "file": "components\\panel\\table-panel.js",
+            "line": 51
+        },
+        "ToolBarPanel": {
+            "name": "ToolBarPanel",
+            "shortname": "ToolBarPanel",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ToolBarPanel",
+            "namespace": "",
+            "file": "components\\panel\\tool-panel.js",
+            "line": 25
+        },
+        "Tabs": {
+            "name": "Tabs",
+            "shortname": "Tabs",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Tabs",
+            "namespace": "",
+            "file": "components\\tabs\\tabs.js",
+            "line": 7,
+            "description": "标签页组件",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "maxHeight",
+                    "description": "最大高度, Tab超过此高度会在右边出现滚动条",
+                    "type": "String"
+                },
+                {
+                    "name": "Tab",
+                    "description": "传入标签, 格式参考Tab组件",
+                    "type": "Children"
+                }
+            ],
+            "example": [
+                "\n<Tabs maxHeight=\"300px\">\n       <Tab title=\"111\" id=\"1\">\n           <p>456</p><p>456</p><p>456</p><p>456</p><p>456</p><p>456</p>\n       </Tab>\n       <Tab title=\"222\" id=\"2\" isActive={true}>\n           <p>789</p>\n       </Tab>\n   </Tabs>"
+            ]
+        },
+        "TencentMap": {
+            "name": "TencentMap",
+            "shortname": "TencentMap",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "TencentMap",
+            "namespace": "",
+            "file": "components\\tencentMap\\map.js",
+            "line": 12,
+            "description": "地图基础类",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "id",
+                    "description": "组件id",
+                    "type": "String"
+                },
+                {
+                    "name": "height",
+                    "description": "高度 默认300px",
+                    "type": "String"
+                },
+                {
+                    "name": "width",
+                    "description": "宽度 默认100%",
+                    "type": "String"
+                },
+                {
+                    "name": "zoom",
+                    "description": "放大倍数，默认为7",
+                    "type": "Int"
+                },
+                {
+                    "name": "centerPoint",
+                    "description": "传入初始化地图中心点位置 x:经度,y:维度 eg:centerPoint={{x:116.397128,y:39.916527}} 默认中心点为北京天安门",
+                    "type": "Object"
+                },
+                {
+                    "name": "mapData",
+                    "description": "传入初始化位置标签 x:经度,y:维度,description:描述 eg:[{x:116,y:30,description:'This is a description'},{x:117,y:31,description:'This is a description'}]",
+                    "type": "Object"
+                }
+            ]
+        },
+        "window": {
+            "name": "window",
+            "shortname": "window",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "TencentMap",
+            "namespace": ""
+        },
+        "TreeCommonMixin": {
+            "name": "TreeCommonMixin",
+            "shortname": "TreeCommonMixin",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Treeview",
+            "namespace": "",
+            "file": "components\\tree\\treecommon.js",
+            "line": 8,
+            "description": "这是TreeCommonMixin的说明"
+        },
+        "Treeview": {
+            "name": "Treeview",
+            "shortname": "Treeview",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Treeview",
+            "namespace": "",
+            "file": "components\\tree\\treeview.js",
+            "line": 76,
+            "description": "A treeview to show data list"
+        },
+        "TreeviewNode": {
+            "name": "TreeviewNode",
+            "shortname": "TreeviewNode",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Treeview",
+            "namespace": "",
+            "file": "components\\tree\\treeview.js",
+            "line": 559,
+            "description": "TreeviewNode component"
+        },
+        "TreeviewCell": {
+            "name": "TreeviewCell",
+            "shortname": "TreeviewCell",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Treeview",
+            "namespace": "",
+            "file": "components\\tree\\treeview.js",
+            "line": 673,
+            "description": "TreeviewCell component"
+        },
+        "TreeviewTextBox": {
+            "name": "TreeviewTextBox",
+            "shortname": "TreeviewTextBox",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Treeview",
+            "namespace": "",
+            "file": "components\\tree\\treeview.js",
+            "line": 732,
+            "description": "TreeviewTextBox component"
+        }
+    },
+    "elements": {},
+    "classitems": [
+        {
+            "file": "components\\html\\autocomplete.js",
+            "line": 38,
+            "description": "返回所有已选中的值",
+            "static": 1,
+            "itemtype": "method",
+            "name": "getValue",
+            "return": {
+                "description": "返回所有的已选择的值",
+                "type": "String"
+            },
+            "class": "Autocomplete",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\autocomplete.js",
+            "line": 56,
+            "itemtype": "property",
+            "name": "url ajax请求URL",
+            "type": "String",
+            "class": "Autocomplete",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\autocomplete.js",
+            "line": 63,
+            "itemtype": "property",
+            "name": "id id",
+            "type": "String",
+            "class": "Autocomplete",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\autocomplete.js",
+            "line": 69,
+            "itemtype": "property",
+            "name": "name 显示的名称",
+            "type": "String",
+            "required": 1,
+            "class": "Autocomplete",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\autoselect.js",
+            "line": 45,
+            "itemtype": "property",
+            "name": "url 取数据的URL",
+            "type": "String",
+            "class": "AutoSelect",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\autoselect.js",
+            "line": 53,
+            "itemtype": "property",
+            "name": "onSelect 选中选项时的回调函数, 包含一个参数:选中的value",
+            "type": "Function",
+            "class": "AutoSelect",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\button.js",
+            "line": 56,
+            "itemtype": "property",
+            "name": "doAction 点击按钮时的回调函数",
+            "type": "Function",
+            "class": "Button",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\button.js",
+            "line": 64,
+            "itemtype": "property",
+            "name": "type 按钮类型,一般不需要传入",
+            "type": "String",
+            "default": "\"button\"",
+            "class": "Button",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\button.js",
+            "line": 73,
+            "itemtype": "property",
+            "name": "disabled 是否禁用",
+            "type": "Boolean",
+            "class": "Button",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\button.js",
+            "line": 77,
+            "description": "```\n可选值包括:\n            btn-default : 白色按钮样式;\n            btn-primary : 蓝色按钮, 如果不传入此参数,取此值为默认值;\n            btn-success : 绿色按钮, 一般表示成功;\n            btn-info    : 浅蓝色按钮, 一般表示信息;\n            btn-warning : 橙色按钮, 一般表示警告;\n            btn-danger  : 红色按钮, 一般表示严重警告;\n            btn-lg      : 尺寸设置为大;\n            btn-sm      : 尺寸设置为小;\n            btn-xs      : 尺寸设置为极小;\n            btn-block   : 尺寸将填充满父元素;\n            active      : 按钮将直接显示为已被按下.\n          ```",
+            "itemtype": "property",
+            "name": "cssClass 用于指定css样式的Class",
+            "type": "String",
+            "default": "\"btn-primary\"",
+            "class": "Button",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\button.js",
+            "line": 101,
+            "itemtype": "property",
+            "name": "btnName 显示名称",
+            "type": "String",
+            "class": "Button",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\button.js",
+            "line": 106,
+            "itemtype": "property",
+            "name": "actions 该菜单所拥有的的操作",
+            "type": "Function",
+            "class": "Button",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\button.js",
+            "line": 110,
+            "itemtype": "property",
+            "name": "code 该按钮对应的操作编码",
+            "type": "{[type]}",
+            "class": "Button",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\checkbox.js",
+            "line": 19,
+            "itemtype": "property",
+            "name": "id 对应html中的id",
+            "type": "String",
+            "class": "Checkbox",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\checkbox.js",
+            "line": 23,
+            "itemtype": "property",
+            "name": "value 对应html中的value",
+            "type": "String",
+            "class": "Checkbox",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\checkbox.js",
+            "line": 27,
+            "description": "**注意: 在父组件CheckboxGroup中传入`multi`参数会覆盖其中所有Checkbox的`type`, 按照正常使用情况, 不应该给Checkbox传入type!**\n```\n可选值:\n\"checkbox\":  复选框\n\"radio\"   :  单选框\n```",
+            "itemtype": "property",
+            "name": "type 类型",
+            "type": "String",
+            "class": "Checkbox",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\checkbox.js",
+            "line": 37,
+            "description": "**注意: 在父组件CheckboxGroup中传入`name`参数会覆盖其中所有Checkbox的`name`, 按照正常使用情况, 不应该给Checkbox传入name!**",
+            "itemtype": "property",
+            "name": "name 对应html的name",
+            "type": "String",
+            "class": "Checkbox",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\checkbox.js",
+            "line": 42,
+            "itemtype": "property",
+            "name": "dispName 显示的文字",
+            "type": "String",
+            "class": "Checkbox",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\checkbox.js",
+            "line": 46,
+            "description": "```\n携带两个参数:\n1. 点击项的name\n2. 点击项的value\n```",
+            "itemtype": "property",
+            "name": "onClick 进行选择时的回调函数",
+            "type": "Function",
+            "class": "Checkbox",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\checkboxgroup.js",
+            "line": 22,
+            "description": "覆盖所有子组件Checkbox的name",
+            "itemtype": "property",
+            "name": "name 所有选项的name",
+            "type": "String",
+            "class": "CheckboxGroup",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\checkboxgroup.js",
+            "line": 27,
+            "itemtype": "property",
+            "name": "inline 是否内联显示",
+            "type": "Boolean",
+            "default": "false",
+            "class": "CheckboxGroup",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\checkboxgroup.js",
+            "line": 32,
+            "itemtype": "property",
+            "name": "multi 是否为多选",
+            "type": "Boolean",
+            "default": "true",
+            "class": "CheckboxGroup",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\datepicker.js",
+            "line": 33,
+            "static": 1,
+            "itemtype": "method",
+            "name": "",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "日期控件所在id"
+                }
+            ],
+            "return": {
+                "description": "返回选择的日期值",
+                "type": "String"
+            },
+            "class": "DatePicker",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\input.js",
+            "line": 53,
+            "description": "不携带参数",
+            "itemtype": "property",
+            "name": "onClick 点击事件",
+            "type": "Function",
+            "class": "Input",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\input.js",
+            "line": 58,
+            "description": "默认样式\n```\n可选值:\n\"input-nm\":  普通(宽120px)\n\"input-md\":  较小(宽70px)\n\"input-xs\":  非常小(宽30px)\n```",
+            "itemtype": "property",
+            "name": "cssClass 用于css样式的class",
+            "type": "String",
+            "defualt": "\"input-nm\"",
+            "class": "Input",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\input.js",
+            "line": 71,
+            "itemtype": "property",
+            "name": "isPassword  是否为密码框",
+            "type": "Boolean",
+            "default": "false",
+            "class": "Input",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\input.js",
+            "line": 89,
+            "itemtype": "property",
+            "name": "value 默认值",
+            "type": "String",
+            "class": "Input",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\input.js",
+            "line": 144,
+            "itemtype": "property",
+            "name": "errorMsg 错误提示信息",
+            "type": "String",
+            "uses": [
+                "BSSForm"
+            ],
+            "class": "Input",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\input.js",
+            "line": 148,
+            "description": "```\n可选值:\n\"number\" : 数字\n```",
+            "itemtype": "property",
+            "name": "reg 正则规则",
+            "type": "String",
+            "class": "Input",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\textarea.js",
+            "line": 24,
+            "itemtype": "property",
+            "name": "name 显示在左边的名称",
+            "type": "String",
+            "default": "\"\"",
+            "class": "Textarea",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\textarea.js",
+            "line": 29,
+            "itemtype": "property",
+            "name": "rows 行数",
+            "type": "String",
+            "default": "\"3\"",
+            "class": "Textarea",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\textarea.js",
+            "line": 34,
+            "itemtype": "property",
+            "name": "onChange 文本编辑时的回调函数",
+            "type": "Function",
+            "class": "Textarea",
+            "module": "html"
+        },
+        {
+            "file": "components\\message\\message.js",
+            "line": 18,
+            "description": "弹出提示框",
+            "static": 1,
+            "itemtype": "method",
+            "name": "alert",
+            "params": [
+                {
+                    "name": "text",
+                    "description": "要显示的文字",
+                    "type": "String"
+                },
+                {
+                    "name": "title",
+                    "description": "要显示的对话框标题",
+                    "type": "String"
+                },
+                {
+                    "name": "fn",
+                    "description": "回调函数",
+                    "type": "Function"
+                }
+            ],
+            "class": "message",
+            "module": "message"
+        },
+        {
+            "file": "components\\message\\message.js",
+            "line": 59,
+            "description": "显示等待对话框",
+            "static": 1,
+            "itemtype": "method",
+            "name": "jqwait",
+            "params": [
+                {
+                    "name": "text",
+                    "description": "对话框中的提示文字",
+                    "type": "String"
+                },
+                {
+                    "name": "title",
+                    "description": "对话框的标题",
+                    "type": "String"
+                },
+                {
+                    "name": "fn",
+                    "description": "回调函数",
+                    "type": "Function"
+                }
+            ],
+            "class": "message",
+            "module": "message"
+        },
+        {
+            "file": "components\\message\\message.js",
+            "line": 94,
+            "description": "关闭对话框",
+            "static": 1,
+            "itemtype": "method",
+            "name": "close",
+            "class": "message",
+            "module": "message"
+        },
+        {
+            "file": "components\\message\\message.js",
+            "line": 107,
+            "description": "打开对话框",
+            "static": 1,
+            "itemtype": "method",
+            "name": "jqopen",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "要打开的链接",
+                    "type": "Strig"
+                },
+                {
+                    "name": "id",
+                    "description": "对话框的id标识，用于生成随机id",
+                    "type": "Strig"
+                },
+                {
+                    "name": "options",
+                    "description": "对话框设置选项",
+                    "type": "Strig"
+                },
+                {
+                    "name": "title",
+                    "description": "对话框标题",
+                    "type": "Strig"
+                }
+            ],
+            "class": "message",
+            "module": "message"
+        },
+        {
+            "file": "components\\message\\message.js",
+            "line": 141,
+            "description": "显示确认对话框",
+            "static": 1,
+            "itemtype": "method",
+            "name": "jqconfirm",
+            "params": [
+                {
+                    "name": "text",
+                    "description": "要显示对话框的文字",
+                    "type": "String"
+                },
+                {
+                    "name": "title",
+                    "description": "要显示对话框的标题",
+                    "type": "String"
+                },
+                {
+                    "name": "fn1",
+                    "description": "点击确定的回调函数",
+                    "type": "String"
+                },
+                {
+                    "name": "fn2",
+                    "description": "点击取消的回调函数",
+                    "type": "String"
+                }
+            ],
+            "class": "message",
+            "module": "message"
+        },
+        {
+            "file": "components\\message\\messageBox.js",
+            "line": 24,
+            "description": "显示对话框",
+            "static": 1,
+            "itemtype": "method",
+            "name": "show",
+            "params": [
+                {
+                    "name": "title",
+                    "description": "对话框标题",
+                    "type": "String"
+                },
+                {
+                    "name": "message",
+                    "description": "对话框内容",
+                    "type": "String"
+                }
+            ],
+            "class": "MessageBox",
+            "module": "MessageBox"
+        },
+        {
+            "file": "components\\message\\modal.js",
+            "line": 21,
+            "description": "显示对话框",
+            "static": 1,
+            "itemtype": "method",
+            "name": "show",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "对话框ID",
+                    "type": "String"
+                }
+            ],
+            "class": "Modal",
+            "module": "Modal"
+        },
+        {
+            "file": "components\\message\\modal.js",
+            "line": 31,
+            "description": "隐藏对话框",
+            "static": 1,
+            "itemtype": "method",
+            "name": "hide",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "对话框ID",
+                    "type": "String"
+                }
+            ],
+            "class": "Modal",
+            "module": "Modal"
+        },
+        {
+            "file": "components\\page\\page.js",
+            "line": 20,
+            "description": "替代react-bootstrap中的组件",
+            "params": [
+                {
+                    "name": "props.children",
+                    "description": "",
+                    "type": "Jsx"
+                }
+            ],
+            "return": {
+                "description": "void"
+            },
+            "class": "PageButton",
+            "module": "PageButton"
+        },
+        {
+            "file": "components\\page\\page.js",
+            "line": 34,
+            "description": "替代react-bootstrap中的组件",
+            "params": [
+                {
+                    "name": "onSelect",
+                    "description": "点击按钮的回调事件",
+                    "type": "Function"
+                },
+                {
+                    "name": "props.children",
+                    "description": "",
+                    "type": "Jsx"
+                }
+            ],
+            "class": "PageButton",
+            "module": "PageButton"
+        },
+        {
+            "file": "components\\panel\\query-panel.js",
+            "line": 40,
+            "description": "表达提交回调方法",
+            "params": [
+                {
+                    "name": "param",
+                    "description": ""
+                }
+            ],
+            "class": "QueryPanel",
+            "module": "QueryPanel"
+        },
+        {
+            "file": "components\\tencentMap\\map.js",
+            "line": 51,
+            "description": "初始化地图,初始化中心点为北京天安门",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "initTencentMap",
+            "class": "TencentMap",
+            "module": "TencentMap"
+        },
+        {
+            "file": "components\\tencentMap\\map.js",
+            "line": 79,
+            "description": "设置一组坐标点标签",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "setNewMarks",
+            "params": [
+                {
+                    "name": "markers",
+                    "description": "传入坐标标签数组 x:经度,y:维度,description:描述 eg:[{x:116,y:30,description:'This is a description'},{x:117,y:31,description:'This is a description'}]",
+                    "type": "Array"
+                }
+            ],
+            "class": "TencentMap",
+            "module": "TencentMap"
+        },
+        {
+            "file": "components\\tencentMap\\map.js",
+            "line": 93,
+            "description": "设置坐标点标签",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "setNewMark",
+            "params": [
+                {
+                    "name": "markers",
+                    "description": "传入坐标标签数组 x:经度,y:维度,description:描述 eg:{x:116,y:30,description:'This is a description'}",
+                    "type": "Object"
+                }
+            ],
+            "class": "TencentMap",
+            "module": "TencentMap"
+        },
+        {
+            "file": "components\\tencentMap\\map.js",
+            "line": 124,
+            "description": "加载地图脚本",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "loadMapScript",
+            "class": "TencentMap",
+            "module": "TencentMap"
+        },
+        {
+            "file": "components\\tencentMap\\map.js",
+            "line": 134,
+            "description": "window全局方法,在地图脚本加载完后回调，同时定义2个全局方法方便设置坐标点",
+            "itemtype": "method",
+            "name": "loadMapScriptCallBack",
+            "class": "window",
+            "module": "TencentMap"
+        },
+        {
+            "file": "components\\tencentMap\\map.js",
+            "line": 141,
+            "description": "window全局方法,设置新的位置标记",
+            "itemtype": "method",
+            "name": "setNewMark",
+            "params": [
+                {
+                    "name": "mapId",
+                    "description": "地图控件的ID",
+                    "type": "String"
+                },
+                {
+                    "name": "marker",
+                    "description": "要标记的位置对象 x:经度,y:维度,description:描述 eg:{x:116,y:30,description:'This is a description'}",
+                    "type": "Object"
+                }
+            ],
+            "class": "window",
+            "module": "TencentMap"
+        },
+        {
+            "file": "components\\tencentMap\\map.js",
+            "line": 172,
+            "description": "window全局方法,设置一组新的位置标记",
+            "itemtype": "method",
+            "name": "setNewMarks",
+            "params": [
+                {
+                    "name": "mapId",
+                    "description": "地图控件的ID",
+                    "type": "String"
+                },
+                {
+                    "name": "markers",
+                    "description": "要标记的位置对象数组 x:经度,y:维度,description:描述 eg:[{x:116,y:30,description:'This is a description'},{x:117,y:31,description:'This is a description'}]",
+                    "type": "Array"
+                }
+            ],
+            "class": "window",
+            "module": "TencentMap"
+        },
+        {
+            "file": "components\\tree\\treecommon.js",
+            "line": 15,
+            "description": "Invoked once before the component is mounted.\nThe return value will be used as the initial value of this.state.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "getInitialState",
+            "return": {
+                "description": "返回初始化属性",
+                "type": "Object"
+            },
+            "class": "TreeCommonMixin",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treecommon.js",
+            "line": 39,
+            "description": "组件将要加载时执行",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "componentWillMount",
+            "class": "TreeCommonMixin",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treecommon.js",
+            "line": 47,
+            "description": "组件将要卸载前执行",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "componentWillUnmount",
+            "class": "TreeCommonMixin",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treecommon.js",
+            "line": 56,
+            "description": "generate uid",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "generateUid",
+            "class": "TreeCommonMixin",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treecommon.js",
+            "line": 69,
+            "description": "populate id field if not present",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "normalizeItems",
+            "class": "TreeCommonMixin",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treecommon.js",
+            "line": 83,
+            "description": "创建事件回掉",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "on",
+            "class": "TreeCommonMixin",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treecommon.js",
+            "line": 95,
+            "description": "执行事件",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "fire",
+            "class": "TreeCommonMixin",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treecommon.js",
+            "line": 110,
+            "description": "Get key col name from ColModel",
+            "access": "private",
+            "tagname": "",
+            "example": [
+                " sortCondition: { name:'id', direction:'asc|des|up|down' }"
+            ],
+            "itemtype": "method",
+            "name": "getKeyColNameFromColModel",
+            "class": "TreeCommonMixin",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treecommon.js",
+            "line": 131,
+            "access": "private",
+            "tagname": "sort dataArray using sortCondition",
+            "example": [
+                " sortCondition: { name:'id', direction:'asc|des|up|down' }"
+            ],
+            "itemtype": "method",
+            "name": "sortData",
+            "class": "TreeCommonMixin",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treeview.js",
+            "line": 86,
+            "description": "用于保存树的json对象数组，传入的值为[json对象]",
+            "static": 1,
+            "itemtype": "property",
+            "name": "treedata",
+            "type": "Array",
+            "default": "[]",
+            "class": "Treeview",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treeview.js",
+            "line": 97,
+            "description": "targetTreedata 目标树，注意, static方法不能给static方法提供返回值",
+            "static": 1,
+            "itemtype": "property",
+            "name": "targetTreedata",
+            "type": "Array",
+            "default": "null",
+            "class": "Treeview",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treeview.js",
+            "line": 106,
+            "description": "返回所有已选中的值",
+            "static": 1,
+            "itemtype": "method",
+            "name": "getAllCheckedNodes",
+            "params": [
+                {
+                    "name": "uid",
+                    "description": "树的根节点",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "返回所有的已选择的值",
+                "type": "Array"
+            },
+            "class": "Treeview",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treeview.js",
+            "line": 125,
+            "description": "建立树结构",
+            "static": 1,
+            "itemtype": "method",
+            "name": "pushNodes",
+            "params": [
+                {
+                    "name": "treedata",
+                    "description": "树的json值",
+                    "type": "String"
+                },
+                {
+                    "name": "checked",
+                    "description": "已选择的节点",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "返回所有的已选择的值",
+                "type": "Array"
+            },
+            "class": "Treeview",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treeview.js",
+            "line": 144,
+            "description": "在树中查找指定节点",
+            "static": 1,
+            "itemtype": "method",
+            "name": "findTreedata",
+            "params": [
+                {
+                    "name": "uid",
+                    "description": "要查找节点uid",
+                    "type": "String"
+                },
+                {
+                    "name": "treedata",
+                    "description": "要查找的树",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "返回所有的已选择的值",
+                "type": "Array"
+            },
+            "class": "Treeview",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treeview.js",
+            "line": 164,
+            "description": "定义属性",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "getAttributes",
+            "return": {
+                "description": "返回所有的初始定义的属性",
+                "type": "Array"
+            },
+            "class": "Treeview",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treeview.js",
+            "line": 184,
+            "description": "定义外部属性默认值",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "getDefaultProps",
+            "return": {
+                "description": "返回所有的可通过外部传入属性的默认值",
+                "type": "Object"
+            },
+            "class": "Treeview",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treeview.js",
+            "line": 197,
+            "description": "组件要加载前执行",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "componentWillMount",
+            "class": "Treeview",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treeview.js",
+            "line": 207,
+            "description": "组件接收到参数时执行",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "componentWillReceiveProps",
+            "class": "Treeview",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treeview.js",
+            "line": 237,
+            "description": "组件完成加载后执行",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "componentDidMount",
+            "class": "Treeview",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treeview.js",
+            "line": 248,
+            "description": "将nodes节点的属性复制到children节点上,递归执行",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "copyProps",
+            "params": [
+                {
+                    "name": "nodes",
+                    "description": "要复制的源节点",
+                    "type": "String"
+                },
+                {
+                    "name": "children",
+                    "description": "要复制的目标节点",
+                    "type": "String"
+                }
+            ],
+            "class": "Treeview",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treeview.js",
+            "line": 270,
+            "description": "为treedata添加唯一的id",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "prepareTreedata",
+            "params": [
+                {
+                    "name": "treedata",
+                    "description": "要添加的树",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "返回已修改好的树",
+                "type": "Object"
+            },
+            "class": "Treeview",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treeview.js",
+            "line": 291,
+            "description": "处理子树节点",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "processTreedataItem",
+            "params": [
+                {
+                    "name": "treedata",
+                    "description": "要修改的子树",
+                    "type": "Object"
+                },
+                {
+                    "name": "level",
+                    "description": "要处理的子树层级",
+                    "type": "Integer"
+                }
+            ],
+            "return": {
+                "description": "返回已修改好的树",
+                "type": "Object"
+            },
+            "class": "Treeview",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treeview.js",
+            "line": 322,
+            "description": "处理子树节点",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "getNodesFromTreeItem",
+            "params": [
+                {
+                    "name": "item",
+                    "description": "要获取的子树",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "返回指定节点的子树",
+                "type": "Object"
+            },
+            "class": "Treeview",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treeview.js",
+            "line": 358,
+            "description": "update select status under item",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "updateTreeSelectStatus",
+            "params": [
+                {
+                    "name": "item",
+                    "description": "item under update",
+                    "type": "Object"
+                },
+                {
+                    "name": "changedItem",
+                    "description": "the item that has change of status originally",
+                    "type": "Object"
+                },
+                {
+                    "name": "inheritStatus",
+                    "description": "optional, status to be updated to (inherited from parent)",
+                    "type": "String"
+                }
+            ],
+            "class": "Treeview",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treeview.js",
+            "line": 415,
+            "description": "处理节点点击事件",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "onNodeClick",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "点击事件",
+                    "type": "Event"
+                }
+            ],
+            "class": "Treeview",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treeview.js",
+            "line": 521,
+            "description": "React render",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "render",
+            "return": {
+                "description": "返回组件",
+                "type": "Object"
+            },
+            "class": "Treeview",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treeview.js",
+            "line": 568,
+            "description": "定义属性",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "getAttributes",
+            "return": {
+                "description": "返回所有的初始定义的属性",
+                "type": "Array"
+            },
+            "class": "TreeviewNode",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treeview.js",
+            "line": 589,
+            "description": "React render",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "render",
+            "return": {
+                "description": "返回组件",
+                "type": "Object"
+            },
+            "class": "TreeviewNode",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treeview.js",
+            "line": 681,
+            "description": "定义属性",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "getAttributes",
+            "return": {
+                "description": "返回所有的初始定义的属性",
+                "type": "Array"
+            },
+            "class": "TreeviewCell",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treeview.js",
+            "line": 696,
+            "description": "React render",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "render",
+            "return": {
+                "description": "返回组件",
+                "type": "Object"
+            },
+            "class": "TreeviewCell",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treeview.js",
+            "line": 740,
+            "description": "定义属性",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "getAttributes",
+            "return": {
+                "description": "返回所有的初始定义的属性",
+                "type": "Array"
+            },
+            "class": "TreeviewTextBox",
+            "module": "Treeview"
+        },
+        {
+            "file": "components\\tree\\treeview.js",
+            "line": 756,
+            "description": "React render",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "render",
+            "return": {
+                "description": "返回组件",
+                "type": "Object"
+            },
+            "class": "TreeviewTextBox",
+            "module": "Treeview"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " components\\html\\datepicker.js:33"
+        },
+        {
+            "message": "unknown tag: defualt",
+            "line": " components\\html\\input.js:58"
+        },
+        {
+            "message": "Missing item type\n替代react-bootstrap中的组件",
+            "line": " components\\page\\page.js:20"
+        },
+        {
+            "message": "Missing item type\n替代react-bootstrap中的组件",
+            "line": " components\\page\\page.js:34"
+        },
+        {
+            "message": "Missing item type\n表达提交回调方法",
+            "line": " components\\panel\\query-panel.js:40"
+        }
+    ]
+}
