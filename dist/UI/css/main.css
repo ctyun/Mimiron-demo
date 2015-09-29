@@ -749,7 +749,8 @@ body{
   cursor: pointer;
 }
 
-.page-content, #sidebar{
+#page-wrapper, #sidebar{
 	overflow: auto;
 	min-height: auto;
 }
+

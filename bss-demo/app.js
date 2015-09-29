@@ -5,11 +5,13 @@ var Demo = components.Demo;
 
 var Test=React.createClass({
     render:function(){
+    	console.log("in #test1");
         return (<div><Demo /></div>);
     }
 });
 var Test2=React.createClass({
     render:function(){
+    	console.log("in #test2");
         return (<div>test2</div>);
     }
 });

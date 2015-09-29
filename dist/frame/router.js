@@ -1,9 +1,15 @@
+/**
+ * @module Route
+ */
+
+/**
+ * `路由组件的第二部分, 在路由配置文件(app.js)之后使用<script>标签引入`
+ * @class BSS.Router
+ */
 var BSS = {};
 BSS.Router = function() {
-	function Router() {
-
-    }
-Router.prototype.setup = function(routemap, defaultFunc) {
+	function Router() {}
+	Router.prototype.setup = function(routemap, defaultFunc) {
 		var that = this;
 		this.routemap = [];
 		this.defaultFunc = defaultFunc;
@@ -15,8 +21,8 @@ Router.prototype.setup = function(routemap, defaultFunc) {
 				func : routemap[rule]
 			});
 		}
-};
-Router.prototype.start = function() {
+	};
+	Router.prototype.start = function() {
 		console.log(window.location.hash);
 		var hash = location.hash, route, matchResult;
 		for ( var routeIndex in this.routemap) {
