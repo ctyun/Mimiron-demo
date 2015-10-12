@@ -93,7 +93,6 @@
                                 <li><a href="../modules/message.html">message</a></li>
                                 <li><a href="../modules/page.html">page</a></li>
                                 <li><a href="../modules/panel.html">panel</a></li>
-                                <li><a href="../modules/TablePanel.html">TablePanel</a></li>
                                 <li><a href="../modules/tabs.html">tabs</a></li>
                                 <li><a href="../modules/TencentMap.html">TencentMap</a></li>
                                 <li><a href="../modules/tree.html">tree</a></li>
@@ -288,7 +287,13 @@ var Input=React.createClass({
          * &#x60;&#x60;&#x60;
          * @property {String} reg 正则规则
          */
-        return &lt;span&gt;{name}&lt;input  id={this.props.id} name={this.props.name} errorMsg={this.props.errorMsg} reg={this.props.reg} className={className} onChange={this._onChange} onClick={this.props.onClick}   value={v}  type={this.props.isPassword?&quot;password&quot;:null}/&gt;&lt;/span&gt;;
+        /**
+         * @property {String} name 同html中的name
+         */
+        /**
+         * @property {String} placeholder 同html
+         */
+        return &lt;span&gt;{name}&lt;input  id={this.props.id} name={this.props.name} errorMsg={this.props.errorMsg} reg={this.props.reg} className={className} onChange={this._onChange} onClick={this.props.onClick}   value={v}  type={this.props.isPassword?&quot;password&quot;:null} placeholder={this.props.placeholder}/&gt;&lt;/span&gt;;
     }
 });
 module.exports=Input;

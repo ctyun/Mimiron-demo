@@ -93,7 +93,6 @@
                                 <li><a href="../modules/message.html">message</a></li>
                                 <li><a href="../modules/page.html">page</a></li>
                                 <li><a href="../modules/panel.html">panel</a></li>
-                                <li><a href="../modules/TablePanel.html">TablePanel</a></li>
                                 <li><a href="../modules/tabs.html">tabs</a></li>
                                 <li><a href="../modules/TencentMap.html">TencentMap</a></li>
                                 <li><a href="../modules/tree.html">tree</a></li>
@@ -145,8 +144,6 @@ require(&quot;jquery-ui&quot;);
  * &#x60;&#x60;&#x60;
  * 使用方法
  * var React = require(&#x27;react&#x27;);
- * var components=require(&quot;components&quot;);
- *var DataPicker=components.DataPicker;
  * var DataPickerDemo=React.createClass(
  *     render:function(){
  *         return (&lt;DataPicker id=&quot;startTime_id&quot;  name=&quot;时间&quot; dateFormat=&quot;yy-mm&quot;/&gt;);
@@ -169,7 +166,7 @@ var DatePicker=React.createClass({
         /**
          * @static
          * @method
-         * @param id  日期控件所在id
+         * @param id  日期控件所在id 
          * @returns {string} 返回选择的日期值
          */
         getDataValue:function(id){
@@ -189,14 +186,19 @@ var DatePicker=React.createClass({
 
         };
     },
+    getDefaultProps: function(){
+        return{
+            id:&#x27;DataPicker&#x27;,
+        }
+    },
     componentDidMount:function(){
         var node=this.getDOMNode();
         this.state.elem=node;
+        $(&#x27;#&#x27;+this.props.id).datepicker({dateFormat:foramt,changeMonth: true,
+            changeYear: true
+        });
     },
     render:function(){
-        if(this.props.id){
-            DatePicker.id=this.props.id;
-        };
         var foramt=&quot;yy-mm-dd&quot;;
         if(this.props.dateFormat){
             foramt=this.props.dateFormat;
@@ -208,6 +210,7 @@ var DatePicker=React.createClass({
         $(&#x27;#&#x27;+this.props.id).datepicker({dateFormat:foramt,changeMonth: true,
             changeYear: true
             });
+        console.log(this.props.id);
         return (&lt;span&gt;{name}&lt;input type=&#x27;text&#x27;  className=&quot;form-control input-md&quot; id={this.props.id}  /&gt;&lt;/span&gt;);
     }
 });

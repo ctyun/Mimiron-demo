@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>MessageBox - Mimiron</title>
+    <title>components\html\cascadeselect.js - Mimiron</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -129,132 +129,75 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1>MessageBox Class</h1>
-<div class="box meta">
+<h1 class="file-heading">File: components\html\cascadeselect.js</h1>
 
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+ * @module html
+ */
+var React=require(&quot;react/addons&quot;);
+var Select=require(&quot;./select&quot;);
+var AjaxUtils = require(&#x27;../utils/ajax&#x27;);
+/**
+ * 二级联动select
+ * &#x60;&#x60;&#x60;
+ * 使用方法
+ * var React = require(&#x27;react&#x27;);
+ * var components=require(&quot;components&quot;);
+ * var CascadeSelect=components.CascadeSelect;
+ * var CascadeSelectDemo=React.createClass(
+ *     render:function(){
+ *         return (&lt;CascadeSelect firstDisName=&quot;一级&quot; secondDisName=&quot;二级&quot;  firsDefaultValue=&quot;2&quot; data={[{value:&#x27;1&#x27;,text:&#x27;显示2&#x27;},{value:&#x27;2&#x27;,text:&#x27;显示1&#x27;}]} url=&quot;api/test/autoselect&quot;  /&gt;);
+ *     }
+ * );
+ *使用说明
+ *&lt;CascadeSelect firstDisName=&quot;一级&quot; secondDisName=&quot;二级&quot;  firsDefaultValue=&quot;2&quot; data={[{value:&#x27;1&#x27;,text:&#x27;显示2&#x27;},{value:&#x27;2&#x27;,text:&#x27;显示1&#x27;}]} url=&quot;api/test/autoselect&quot;  /&gt;
+ *firstDisName:一级显示名称
+ * secondDisName:二级显示名称
+ * firsDefaultValue:一级显示值
+ * data:一级下拉填充数据
+ * url:一级下拉选择时，二级下拉联动时后台请求的url
+ * &#x60;&#x60;&#x60;
+ * @class CascadeSelect
+ */
+var CascadeSelect=React.createClass({
+getInitialState : function(){
+    return {
+        data:[], //显示的数据
+        url:this.props.url, //ajax 调用后台的url
+        secondDefaultValue:&quot;&quot; //连动select默认值
+    };
+},
+_fetch:function(value){
+    var path=getPath();
+    var self=this;
+    AjaxUtils.get(this.state.url,function(d){
+        self.setState({
+            data:d,
+            secondDefaultValue:&quot;&quot;
+        })
+    });
+},
+_cascadeSelect:function(v){
+    this.setState({
+        data:[],
+        secondDefaultValue:&quot;&quot;
+    });
 
-        <div class="foundat">
-            Defined in: <a href="../files/components_message_messageBox.js.html#l10"><code>components\message\messageBox.js:10</code></a>
-        </div>
-
-            Module: <a href="../modules/message.html">message</a>
-
-</div>
-
-
-<div class="box intro">
-    <p>消息提示框组件</p>
-<pre class="code prettyprint"><code>&lt;Button btnName=&quot;触发MessageBox&quot; doAction={MessageBox.show.bind(null,&quot;i am title&quot;,&quot;i am message&quot;)} cssClass=&quot;btn-info&quot; /&gt;
-!!请勿实例化此组件,仅可使用show方法显示提示框!!
-</code></pre>
-
-</div>
-
-
-<div id="classdocs" class="tabview">
-    <ul class="api-class-tabs">
-        <li class="api-class-tab index"><a href="#index">Index</a></li>
-
-            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
-    </ul>
-
-    <div>
-        <div id="index" class="api-class-tabpanel index">
-            <h2 class="off-left">Item Index</h2>
-
-                <div class="index-section methods">
-                    <h3>Methods</h3>
-
-                    <ul class="index-list methods">
-                            <li class="index-item method">
-                                <a href="#method_show">show</a>
-
-                                    <span class="flag static">static</span>
-                            </li>
-                    </ul>
-                </div>
-
-
-
-        </div>
-
-            <div id="methods" class="api-class-tabpanel">
-                <h2 class="off-left">Methods</h2>
-
-<div id="method_show" class="method item">
-    <h3 class="name"><code>show</code></h3>
-
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-                <li class="arg">
-                        <code>title</code>
-                </li>
-                <li class="arg">
-                        <code>message</code>
-                </li>
-            </ul><span class="paren">)</span>
-        </div>
-
-
-
-
-
-        <span class="flag static">static</span>
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/components_message_messageBox.js.html#l22"><code>components\message\messageBox.js:22</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        <p>显示对话框</p>
-
-    </div>
-
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-                <li class="param">
-                        <code class="param-name">title</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-
-
-                    <div class="param-description">
-                        <p>对话框标题</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">message</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-
-
-                    <div class="param-description">
-                        <p>对话框内容</p>
-
-                    </div>
-
-                </li>
-            </ul>
-        </div>
-
-
-
-</div>
-            </div>
-
-
-
-    </div>
+    this._fetch(v);
+},
+onSelect:function(v){
+    if(this.props.onSelect){
+        this.props.onSelect(v);
+    }
+},
+render:function(){
+        return (&lt;div&gt;&lt;Select disName={this.props.firstDisName} onSelect={this._cascadeSelect} defaultValue={this.props.firsDefaultValue} data={this.props.data} /&gt;&lt;Select disName={this.props.secondDisName} onSelect={this._onSelect} defaultValue={this.state.secondDefaultValue} data={this.state.data} /&gt;&lt;/div&gt;)
+    }
+});
+module.exports=CascadeSelect;
+    </pre>
 </div>
                     </div>
                 </div>

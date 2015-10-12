@@ -50,7 +50,6 @@ YUI.add("yuidoc-meta", function(Y) {
     "modules": [
         "BSSFrame",
         "ECharts",
-        "TablePanel",
         "TencentMap",
         "html",
         "message",
@@ -85,10 +84,6 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "panel",
             "name": "panel"
-        },
-        {
-            "displayName": "TablePanel",
-            "name": "TablePanel"
         },
         {
             "displayName": "tabs",

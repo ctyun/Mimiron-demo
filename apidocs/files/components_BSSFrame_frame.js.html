@@ -93,7 +93,6 @@
                                 <li><a href="../modules/message.html">message</a></li>
                                 <li><a href="../modules/page.html">page</a></li>
                                 <li><a href="../modules/panel.html">panel</a></li>
-                                <li><a href="../modules/TablePanel.html">TablePanel</a></li>
                                 <li><a href="../modules/tabs.html">tabs</a></li>
                                 <li><a href="../modules/TencentMap.html">TencentMap</a></li>
                                 <li><a href="../modules/tree.html">tree</a></li>
@@ -142,27 +141,26 @@ var React = require(&#x27;react&#x27;);
 var TopBar = require(&quot;./topbar&quot;);
 var SideBar = require(&quot;./sidebar&quot;);
 /**
- * 用于天翼云业务管理系统的页面框架
+ * 用于天翼云业务管理系统的页面框架, 还没确定最终用法, 直接看代码吧.
  * @class BSSFrame
- * @deprecated 直接使用Topbar和Sidebar.
  */
 var BSSFrame = React.createClass({
 	displayName: &#x27;Frame&#x27;,
 	getDefaultProps: function(){
         return{
         	userName:&quot;TEST&quot;,
-        	menu:null,
         }
     },
-    _logout: function(){
-    	alert(&quot;place logout function here&quot;);
-    },
+    componentDidMount: function(){
+	    Tools.loadScript([&quot;../js/dist/frame/theme.js&quot;]);
+	},
 	render: function(){
 		return(&lt;div&gt;
-			&lt;TopBar logout={this._logout} userName={this.props.userName}/&gt;
+			&lt;TopBar userName={this.props.userName}/&gt;
 			&lt;div id=&quot;wrapper&quot;&gt;
-				&lt;SideBar list={this.props.menu} /&gt;
+				&lt;SideBar /&gt;
 				&lt;div id=&quot;page-wrapper&quot;&gt;
+					{this.props.children}
 				&lt;/div&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;)
