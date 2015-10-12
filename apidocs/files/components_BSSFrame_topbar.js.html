@@ -93,7 +93,6 @@
                                 <li><a href="../modules/message.html">message</a></li>
                                 <li><a href="../modules/page.html">page</a></li>
                                 <li><a href="../modules/panel.html">panel</a></li>
-                                <li><a href="../modules/TablePanel.html">TablePanel</a></li>
                                 <li><a href="../modules/tabs.html">tabs</a></li>
                                 <li><a href="../modules/TencentMap.html">TencentMap</a></li>
                                 <li><a href="../modules/tree.html">tree</a></li>
@@ -139,6 +138,8 @@
  */
 
 var React = require(&#x27;react&#x27;);
+var Ajax = require(&quot;../utils/ajax&quot;);
+var API = require(&quot;../const/API&quot;);
 
 /**
  * 导航条组件
@@ -155,9 +156,7 @@ var TopBar = React.createClass({
         	/**
         	 * @property {Function} logout 注销按钮的回调函数
         	 */
-        	logout:function(){
-        		return;
-        	},
+        	logout:null,
         	/**
         	 * @property {String} userName 显示的用户名
         	 * @default &quot;GUEST&quot;
@@ -170,8 +169,17 @@ var TopBar = React.createClass({
         	title:&quot;电信云公司业务系统&quot;,
         }
     },
-    _logout: function(){
-    	return;
+    _logout: function(e){
+    	e.preventDefault();
+    	if(this.props.logout){
+    		this.props.logout()
+    		return
+    	}else{
+    		Ajax.get(API.LOGOUT,function(d){
+    			window.location.href = &quot;/login&quot;;
+    		});
+
+    	}
     },
     render: function () {
         return (&lt;div&gt;
@@ -186,7 +194,7 @@ var TopBar = React.createClass({
 		                    &lt;li className=&quot;dropdown topbar-user&quot;&gt;&lt;a data-hover=&quot;dropdown&quot; href=&quot;#&quot; className=&quot;dropdown-toggle&quot;&gt;&lt;span&gt;{this.props.userName}&lt;/span&gt;&amp;nbsp;&lt;span className=&quot;caret&quot;&gt;&lt;/span&gt;&lt;/a&gt;
 		                        &lt;ul className=&quot;dropdown-menu dropdown-user pull-left&quot;&gt;
 		                            &lt;li&gt;&lt;a href=&quot;extra-profile.html&quot;&gt;&lt;i className=&quot;fa fa-user&quot;&gt;&lt;/i&gt;个人设置&lt;/a&gt;&lt;/li&gt;
-		                            &lt;li&gt;&lt;a onClick={this.props.logout}&gt;&lt;i className=&quot;fa fa-key&quot;&gt;&lt;/i&gt;注销&lt;/a&gt;&lt;/li&gt;
+		                            &lt;li&gt;&lt;a href=&quot;#&quot; onClick={this._logout}&gt;&lt;i className=&quot;fa fa-key&quot;&gt;&lt;/i&gt;注销&lt;/a&gt;&lt;/li&gt;
 		                        &lt;/ul&gt;
 		                    &lt;/li&gt;
 		                    &lt;li className=&quot;dropdown hidden-xs&quot;&gt;&lt;a id=&quot;theme-setting&quot; href=&quot;javascript:;&quot; data-hover=&quot;dropdown&quot;&gt;&lt;i

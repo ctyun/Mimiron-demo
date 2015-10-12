@@ -93,7 +93,6 @@
                                 <li><a href="../modules/message.html">message</a></li>
                                 <li><a href="../modules/page.html">page</a></li>
                                 <li><a href="../modules/panel.html">panel</a></li>
-                                <li><a href="../modules/TablePanel.html">TablePanel</a></li>
                                 <li><a href="../modules/tabs.html">tabs</a></li>
                                 <li><a href="../modules/TencentMap.html">TencentMap</a></li>
                                 <li><a href="../modules/tree.html">tree</a></li>
@@ -153,7 +152,7 @@ var Link = React.createClass({
         }
     },
 	render: function(){
-		return(&lt;a href={this.props.to}&gt;
+		return(&lt;a href={this.props.to} onClick={this._onClick}&gt;
 				{this.props.children}
 			&lt;/a&gt;)
 	}
@@ -172,83 +171,80 @@ var SideBar = React.createClass({
     displayName: &#x27;SideBar&#x27;,
     getInitialState:function(){
 		return {
-			menu:null
+            selectFlag:false,
+			menu:null,
+            list:[{&quot;id&quot;:&quot;bc373cb764484ab69dc27d827ec0e539&quot;,&quot;name&quot;:&quot;签到查询管理&quot;,&quot;url&quot;:&quot;&quot;,&quot;parentId&quot;:&quot;-1&quot;,&quot;level&quot;:null,&quot;children&quot;:[{&quot;id&quot;:&quot;0c7e6c00307b4063934cc6e293e580dd&quot;,&quot;name&quot;:&quot;签到查询&quot;,&quot;url&quot;:&quot;/mp/sign&quot;,&quot;parentId&quot;:&quot;bc373cb764484ab69dc27d827ec0e539&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}}],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;576ac42df3574c2b97b1eda80e553451&quot;,&quot;name&quot;:&quot;通用报表查询&quot;,&quot;url&quot;:&quot;&quot;,&quot;parentId&quot;:&quot;-1&quot;,&quot;level&quot;:null,&quot;children&quot;:[{&quot;id&quot;:&quot;75ff6fc071dd44d69b3677522eb26df0&quot;,&quot;name&quot;:&quot;统计报表&quot;,&quot;url&quot;:&quot;&quot;,&quot;parentId&quot;:&quot;576ac42df3574c2b97b1eda80e553451&quot;,&quot;level&quot;:null,&quot;children&quot;:[{&quot;id&quot;:&quot;75cee05cb0ac4047b44797d8ce31a21c&quot;,&quot;name&quot;:&quot;云公司列收统计表&quot;,&quot;url&quot;:&quot;/showReport/b857b799e2c646199efeaf4ca46993c9&quot;,&quot;parentId&quot;:&quot;75ff6fc071dd44d69b3677522eb26df0&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;c7909c55be7d4b43be5a11b00dca45a1&quot;,&quot;name&quot;:&quot;合同列收&quot;,&quot;url&quot;:&quot;/showReport/c3573aabc59f4324afc3fcbe8109460b&quot;,&quot;parentId&quot;:&quot;75ff6fc071dd44d69b3677522eb26df0&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;479527286c4343d7b12e31e1e39f6650&quot;,&quot;name&quot;:&quot;电商日发展量统计&quot;,&quot;url&quot;:&quot;/showReport/212550b3f1bd4e5e9f9cde1470b36046&quot;,&quot;parentId&quot;:&quot;75ff6fc071dd44d69b3677522eb26df0&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;b6b1a11956354d7c890c39f56156d68e&quot;,&quot;name&quot;:&quot;客户列收统计表&quot;,&quot;url&quot;:&quot;/showReport/304ffddde6954447b770abb489719e69&quot;,&quot;parentId&quot;:&quot;75ff6fc071dd44d69b3677522eb26df0&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;b4bbf43e86d04939ab144fc32efaebc2&quot;,&quot;name&quot;:&quot;加班餐月统计表&quot;,&quot;url&quot;:&quot;/showReport/e33972f5ccd340fd81e29e7284184c3f&quot;,&quot;parentId&quot;:&quot;75ff6fc071dd44d69b3677522eb26df0&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;99eb01f394c8496c904e1a49ec40d39e&quot;,&quot;name&quot;:&quot;O2O结算报表&quot;,&quot;url&quot;:&quot;/showReport/3eed9d09d86b456d8d0fc05dada24682&quot;,&quot;parentId&quot;:&quot;75ff6fc071dd44d69b3677522eb26df0&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;70865455a6244300b18de7f4d2b52fa6&quot;,&quot;name&quot;:&quot;到期用户统计&quot;,&quot;url&quot;:&quot;/showReport/52fb732fcd1a46daba796f15b918688a&quot;,&quot;parentId&quot;:&quot;75ff6fc071dd44d69b3677522eb26df0&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;f36145ed72fd495596db9f9fc74a317a&quot;,&quot;name&quot;:&quot;报表组(正在测试)&quot;,&quot;url&quot;:&quot;/showReportGroup/1&quot;,&quot;parentId&quot;:&quot;75ff6fc071dd44d69b3677522eb26df0&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}}],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;1c84d894db2747579f407262c53c8e2b&quot;,&quot;name&quot;:&quot;报表组管理&quot;,&quot;url&quot;:&quot;/report/manageReportGroup&quot;,&quot;parentId&quot;:&quot;576ac42df3574c2b97b1eda80e553451&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;3d24158fb8c3424e922d7fe18987af18&quot;,&quot;name&quot;:&quot;报表元数据管理&quot;,&quot;url&quot;:&quot;/report/metadata&quot;,&quot;parentId&quot;:&quot;576ac42df3574c2b97b1eda80e553451&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;9e0e3e45c1da487e9dae4640113fb0ec&quot;,&quot;name&quot;:&quot;通用报表配置管理&quot;,&quot;url&quot;:&quot;/report/config&quot;,&quot;parentId&quot;:&quot;576ac42df3574c2b97b1eda80e553451&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;f617cdec57414b46b24a836272ddae86&quot;,&quot;name&quot;:&quot;通用报表模板管理&quot;,&quot;url&quot;:&quot;/report/manage&quot;,&quot;parentId&quot;:&quot;576ac42df3574c2b97b1eda80e553451&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}}],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;0fe92edb3aee463baa98d0d98d733832&quot;,&quot;name&quot;:&quot;基础管理&quot;,&quot;url&quot;:&quot;&quot;,&quot;parentId&quot;:&quot;-1&quot;,&quot;level&quot;:null,&quot;children&quot;:[{&quot;id&quot;:&quot;1c5d0409bde94898a7533b21f0ef3337&quot;,&quot;name&quot;:&quot;用户组管理&quot;,&quot;url&quot;:&quot;/group/query&quot;,&quot;parentId&quot;:&quot;0fe92edb3aee463baa98d0d98d733832&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;ac4686b108884fb5879098f6fa635e22&quot;,&quot;name&quot;:&quot;菜单管理&quot;,&quot;url&quot;:&quot;/module/query&quot;,&quot;parentId&quot;:&quot;0fe92edb3aee463baa98d0d98d733832&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;66901e23eba74d00b3f03ba4aff3a7b5&quot;,&quot;name&quot;:&quot;日志管理&quot;,&quot;url&quot;:&quot;/log/querySystemOpertationLogInit&quot;,&quot;parentId&quot;:&quot;0fe92edb3aee463baa98d0d98d733832&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;0524f63884f3440e9c1c5a9d2280357c&quot;,&quot;name&quot;:&quot;角色管理&quot;,&quot;url&quot;:&quot;/role/query&quot;,&quot;parentId&quot;:&quot;0fe92edb3aee463baa98d0d98d733832&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;e572fcbd2b5c42e0b3ce6281e4e2fb7e&quot;,&quot;name&quot;:&quot;代码管理&quot;,&quot;url&quot;:&quot;/codeInfo/query&quot;,&quot;parentId&quot;:&quot;0fe92edb3aee463baa98d0d98d733832&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;2ed2a975faba41f3a6d8440f2772e3ef&quot;,&quot;name&quot;:&quot;用户管理&quot;,&quot;url&quot;:&quot;/user/query&quot;,&quot;parentId&quot;:&quot;0fe92edb3aee463baa98d0d98d733832&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;1e2ecc37fedb4fc6b74f73bd828e4600&quot;,&quot;name&quot;:&quot;部门管理&quot;,&quot;url&quot;:&quot;/department/query&quot;,&quot;parentId&quot;:&quot;0fe92edb3aee463baa98d0d98d733832&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}}],&quot;btnRight&quot;:{}}],
 		}
 	},
     componentWillMount: function(){
-    	Ajax.get(API.SIDE_BAR_MENU,function(){
-    		//FIXME
-    	});
-        /**
-         * &#x60;&#x60;&#x60;
-         * 示例:
-         * [{&quot;id&quot;:&quot;bc373cb764484ab69dc27d827ec0e539&quot;,&quot;name&quot;:&quot;签到查询管理&quot;,&quot;url&quot;:&quot;&quot;,&quot;parentId&quot;:&quot;-1&quot;,&quot;level&quot;:null,&quot;children&quot;:[{&quot;id&quot;:&quot;0c7e6c00307b4063934cc6e293e580dd&quot;,&quot;name&quot;:&quot;签到查询&quot;,&quot;url&quot;:&quot;/mp/sign&quot;,&quot;parentId&quot;:&quot;bc373cb764484ab69dc27d827ec0e539&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}}],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;576ac42df3574c2b97b1eda80e553451&quot;,&quot;name&quot;:&quot;通用报表查询&quot;,&quot;url&quot;:&quot;&quot;,&quot;parentId&quot;:&quot;-1&quot;,&quot;level&quot;:null,&quot;children&quot;:[{&quot;id&quot;:&quot;75ff6fc071dd44d69b3677522eb26df0&quot;,&quot;name&quot;:&quot;统计报表&quot;,&quot;url&quot;:&quot;&quot;,&quot;parentId&quot;:&quot;576ac42df3574c2b97b1eda80e553451&quot;,&quot;level&quot;:null,&quot;children&quot;:[{&quot;id&quot;:&quot;75cee05cb0ac4047b44797d8ce31a21c&quot;,&quot;name&quot;:&quot;云公司列收统计表&quot;,&quot;url&quot;:&quot;/showReport/b857b799e2c646199efeaf4ca46993c9&quot;,&quot;parentId&quot;:&quot;75ff6fc071dd44d69b3677522eb26df0&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;c7909c55be7d4b43be5a11b00dca45a1&quot;,&quot;name&quot;:&quot;合同列收&quot;,&quot;url&quot;:&quot;/showReport/c3573aabc59f4324afc3fcbe8109460b&quot;,&quot;parentId&quot;:&quot;75ff6fc071dd44d69b3677522eb26df0&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;479527286c4343d7b12e31e1e39f6650&quot;,&quot;name&quot;:&quot;电商日发展量统计&quot;,&quot;url&quot;:&quot;/showReport/212550b3f1bd4e5e9f9cde1470b36046&quot;,&quot;parentId&quot;:&quot;75ff6fc071dd44d69b3677522eb26df0&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;b6b1a11956354d7c890c39f56156d68e&quot;,&quot;name&quot;:&quot;客户列收统计表&quot;,&quot;url&quot;:&quot;/showReport/304ffddde6954447b770abb489719e69&quot;,&quot;parentId&quot;:&quot;75ff6fc071dd44d69b3677522eb26df0&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;b4bbf43e86d04939ab144fc32efaebc2&quot;,&quot;name&quot;:&quot;加班餐月统计表&quot;,&quot;url&quot;:&quot;/showReport/e33972f5ccd340fd81e29e7284184c3f&quot;,&quot;parentId&quot;:&quot;75ff6fc071dd44d69b3677522eb26df0&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;99eb01f394c8496c904e1a49ec40d39e&quot;,&quot;name&quot;:&quot;O2O结算报表&quot;,&quot;url&quot;:&quot;/showReport/3eed9d09d86b456d8d0fc05dada24682&quot;,&quot;parentId&quot;:&quot;75ff6fc071dd44d69b3677522eb26df0&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;70865455a6244300b18de7f4d2b52fa6&quot;,&quot;name&quot;:&quot;到期用户统计&quot;,&quot;url&quot;:&quot;/showReport/52fb732fcd1a46daba796f15b918688a&quot;,&quot;parentId&quot;:&quot;75ff6fc071dd44d69b3677522eb26df0&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;f36145ed72fd495596db9f9fc74a317a&quot;,&quot;name&quot;:&quot;报表组(正在测试)&quot;,&quot;url&quot;:&quot;/showReportGroup/1&quot;,&quot;parentId&quot;:&quot;75ff6fc071dd44d69b3677522eb26df0&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}}],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;1c84d894db2747579f407262c53c8e2b&quot;,&quot;name&quot;:&quot;报表组管理&quot;,&quot;url&quot;:&quot;/report/manageReportGroup&quot;,&quot;parentId&quot;:&quot;576ac42df3574c2b97b1eda80e553451&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;3d24158fb8c3424e922d7fe18987af18&quot;,&quot;name&quot;:&quot;报表元数据管理&quot;,&quot;url&quot;:&quot;/report/metadata&quot;,&quot;parentId&quot;:&quot;576ac42df3574c2b97b1eda80e553451&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;9e0e3e45c1da487e9dae4640113fb0ec&quot;,&quot;name&quot;:&quot;通用报表配置管理&quot;,&quot;url&quot;:&quot;/report/config&quot;,&quot;parentId&quot;:&quot;576ac42df3574c2b97b1eda80e553451&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;f617cdec57414b46b24a836272ddae86&quot;,&quot;name&quot;:&quot;通用报表模板管理&quot;,&quot;url&quot;:&quot;/report/manage&quot;,&quot;parentId&quot;:&quot;576ac42df3574c2b97b1eda80e553451&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}}],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;0fe92edb3aee463baa98d0d98d733832&quot;,&quot;name&quot;:&quot;基础管理&quot;,&quot;url&quot;:&quot;&quot;,&quot;parentId&quot;:&quot;-1&quot;,&quot;level&quot;:null,&quot;children&quot;:[{&quot;id&quot;:&quot;1c5d0409bde94898a7533b21f0ef3337&quot;,&quot;name&quot;:&quot;用户组管理&quot;,&quot;url&quot;:&quot;/group/query&quot;,&quot;parentId&quot;:&quot;0fe92edb3aee463baa98d0d98d733832&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;ac4686b108884fb5879098f6fa635e22&quot;,&quot;name&quot;:&quot;菜单管理&quot;,&quot;url&quot;:&quot;/module/query&quot;,&quot;parentId&quot;:&quot;0fe92edb3aee463baa98d0d98d733832&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;66901e23eba74d00b3f03ba4aff3a7b5&quot;,&quot;name&quot;:&quot;日志管理&quot;,&quot;url&quot;:&quot;/log/querySystemOpertationLogInit&quot;,&quot;parentId&quot;:&quot;0fe92edb3aee463baa98d0d98d733832&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;0524f63884f3440e9c1c5a9d2280357c&quot;,&quot;name&quot;:&quot;角色管理&quot;,&quot;url&quot;:&quot;/role/query&quot;,&quot;parentId&quot;:&quot;0fe92edb3aee463baa98d0d98d733832&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;e572fcbd2b5c42e0b3ce6281e4e2fb7e&quot;,&quot;name&quot;:&quot;代码管理&quot;,&quot;url&quot;:&quot;/codeInfo/query&quot;,&quot;parentId&quot;:&quot;0fe92edb3aee463baa98d0d98d733832&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;2ed2a975faba41f3a6d8440f2772e3ef&quot;,&quot;name&quot;:&quot;用户管理&quot;,&quot;url&quot;:&quot;/user/query&quot;,&quot;parentId&quot;:&quot;0fe92edb3aee463baa98d0d98d733832&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;1e2ecc37fedb4fc6b74f73bd828e4600&quot;,&quot;name&quot;:&quot;部门管理&quot;,&quot;url&quot;:&quot;/department/query&quot;,&quot;parentId&quot;:&quot;0fe92edb3aee463baa98d0d98d733832&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}}],&quot;btnRight&quot;:{}}]
-         * 
-         * &#x60;&#x60;&#x60;
-         * @property {Array} list 目录结构
-         */
-    	var list = this.props.list || [{&quot;id&quot;:&quot;bc373cb764484ab69dc27d827ec0e539&quot;,&quot;name&quot;:&quot;签到查询管理&quot;,&quot;url&quot;:&quot;&quot;,&quot;parentId&quot;:&quot;-1&quot;,&quot;level&quot;:null,&quot;children&quot;:[{&quot;id&quot;:&quot;0c7e6c00307b4063934cc6e293e580dd&quot;,&quot;name&quot;:&quot;签到查询&quot;,&quot;url&quot;:&quot;/mp/sign&quot;,&quot;parentId&quot;:&quot;bc373cb764484ab69dc27d827ec0e539&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}}],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;576ac42df3574c2b97b1eda80e553451&quot;,&quot;name&quot;:&quot;通用报表查询&quot;,&quot;url&quot;:&quot;&quot;,&quot;parentId&quot;:&quot;-1&quot;,&quot;level&quot;:null,&quot;children&quot;:[{&quot;id&quot;:&quot;75ff6fc071dd44d69b3677522eb26df0&quot;,&quot;name&quot;:&quot;统计报表&quot;,&quot;url&quot;:&quot;&quot;,&quot;parentId&quot;:&quot;576ac42df3574c2b97b1eda80e553451&quot;,&quot;level&quot;:null,&quot;children&quot;:[{&quot;id&quot;:&quot;75cee05cb0ac4047b44797d8ce31a21c&quot;,&quot;name&quot;:&quot;云公司列收统计表&quot;,&quot;url&quot;:&quot;/showReport/b857b799e2c646199efeaf4ca46993c9&quot;,&quot;parentId&quot;:&quot;75ff6fc071dd44d69b3677522eb26df0&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;c7909c55be7d4b43be5a11b00dca45a1&quot;,&quot;name&quot;:&quot;合同列收&quot;,&quot;url&quot;:&quot;/showReport/c3573aabc59f4324afc3fcbe8109460b&quot;,&quot;parentId&quot;:&quot;75ff6fc071dd44d69b3677522eb26df0&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;479527286c4343d7b12e31e1e39f6650&quot;,&quot;name&quot;:&quot;电商日发展量统计&quot;,&quot;url&quot;:&quot;/showReport/212550b3f1bd4e5e9f9cde1470b36046&quot;,&quot;parentId&quot;:&quot;75ff6fc071dd44d69b3677522eb26df0&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;b6b1a11956354d7c890c39f56156d68e&quot;,&quot;name&quot;:&quot;客户列收统计表&quot;,&quot;url&quot;:&quot;/showReport/304ffddde6954447b770abb489719e69&quot;,&quot;parentId&quot;:&quot;75ff6fc071dd44d69b3677522eb26df0&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;b4bbf43e86d04939ab144fc32efaebc2&quot;,&quot;name&quot;:&quot;加班餐月统计表&quot;,&quot;url&quot;:&quot;/showReport/e33972f5ccd340fd81e29e7284184c3f&quot;,&quot;parentId&quot;:&quot;75ff6fc071dd44d69b3677522eb26df0&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;99eb01f394c8496c904e1a49ec40d39e&quot;,&quot;name&quot;:&quot;O2O结算报表&quot;,&quot;url&quot;:&quot;/showReport/3eed9d09d86b456d8d0fc05dada24682&quot;,&quot;parentId&quot;:&quot;75ff6fc071dd44d69b3677522eb26df0&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;70865455a6244300b18de7f4d2b52fa6&quot;,&quot;name&quot;:&quot;到期用户统计&quot;,&quot;url&quot;:&quot;/showReport/52fb732fcd1a46daba796f15b918688a&quot;,&quot;parentId&quot;:&quot;75ff6fc071dd44d69b3677522eb26df0&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;f36145ed72fd495596db9f9fc74a317a&quot;,&quot;name&quot;:&quot;报表组(正在测试)&quot;,&quot;url&quot;:&quot;/showReportGroup/1&quot;,&quot;parentId&quot;:&quot;75ff6fc071dd44d69b3677522eb26df0&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}}],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;1c84d894db2747579f407262c53c8e2b&quot;,&quot;name&quot;:&quot;报表组管理&quot;,&quot;url&quot;:&quot;/report/manageReportGroup&quot;,&quot;parentId&quot;:&quot;576ac42df3574c2b97b1eda80e553451&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;3d24158fb8c3424e922d7fe18987af18&quot;,&quot;name&quot;:&quot;报表元数据管理&quot;,&quot;url&quot;:&quot;/report/metadata&quot;,&quot;parentId&quot;:&quot;576ac42df3574c2b97b1eda80e553451&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;9e0e3e45c1da487e9dae4640113fb0ec&quot;,&quot;name&quot;:&quot;通用报表配置管理&quot;,&quot;url&quot;:&quot;/report/config&quot;,&quot;parentId&quot;:&quot;576ac42df3574c2b97b1eda80e553451&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;f617cdec57414b46b24a836272ddae86&quot;,&quot;name&quot;:&quot;通用报表模板管理&quot;,&quot;url&quot;:&quot;/report/manage&quot;,&quot;parentId&quot;:&quot;576ac42df3574c2b97b1eda80e553451&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}}],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;0fe92edb3aee463baa98d0d98d733832&quot;,&quot;name&quot;:&quot;基础管理&quot;,&quot;url&quot;:&quot;&quot;,&quot;parentId&quot;:&quot;-1&quot;,&quot;level&quot;:null,&quot;children&quot;:[{&quot;id&quot;:&quot;1c5d0409bde94898a7533b21f0ef3337&quot;,&quot;name&quot;:&quot;用户组管理&quot;,&quot;url&quot;:&quot;/group/query&quot;,&quot;parentId&quot;:&quot;0fe92edb3aee463baa98d0d98d733832&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;ac4686b108884fb5879098f6fa635e22&quot;,&quot;name&quot;:&quot;菜单管理&quot;,&quot;url&quot;:&quot;/module/query&quot;,&quot;parentId&quot;:&quot;0fe92edb3aee463baa98d0d98d733832&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;66901e23eba74d00b3f03ba4aff3a7b5&quot;,&quot;name&quot;:&quot;日志管理&quot;,&quot;url&quot;:&quot;/log/querySystemOpertationLogInit&quot;,&quot;parentId&quot;:&quot;0fe92edb3aee463baa98d0d98d733832&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;0524f63884f3440e9c1c5a9d2280357c&quot;,&quot;name&quot;:&quot;角色管理&quot;,&quot;url&quot;:&quot;/role/query&quot;,&quot;parentId&quot;:&quot;0fe92edb3aee463baa98d0d98d733832&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;e572fcbd2b5c42e0b3ce6281e4e2fb7e&quot;,&quot;name&quot;:&quot;代码管理&quot;,&quot;url&quot;:&quot;/codeInfo/query&quot;,&quot;parentId&quot;:&quot;0fe92edb3aee463baa98d0d98d733832&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;2ed2a975faba41f3a6d8440f2772e3ef&quot;,&quot;name&quot;:&quot;用户管理&quot;,&quot;url&quot;:&quot;/user/query&quot;,&quot;parentId&quot;:&quot;0fe92edb3aee463baa98d0d98d733832&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}},{&quot;id&quot;:&quot;1e2ecc37fedb4fc6b74f73bd828e4600&quot;,&quot;name&quot;:&quot;部门管理&quot;,&quot;url&quot;:&quot;/department/query&quot;,&quot;parentId&quot;:&quot;0fe92edb3aee463baa98d0d98d733832&quot;,&quot;level&quot;:null,&quot;children&quot;:[],&quot;btnRight&quot;:{}}],&quot;btnRight&quot;:{}}];
-        var menu = (list &amp;&amp; list.length) ? list.map(function(item, key) {
-            if (item.children&amp;&amp;item.children.length==0&amp;&amp;item.url&amp;&amp;item.url.length&gt;0) {
-                return &lt;li key={key}&gt;&lt;Link to={item.url}&gt;&lt;span className=&quot;menu-title&quot;&gt;{item.name}&lt;/span&gt;&lt;/Link&gt;&lt;/li&gt;
-            } else {
-                if (item.children &amp;&amp; item.children.length&gt;0) {
-                    return (
-                        &lt;li key={key}&gt;
-                            &lt;a href=&quot;#&quot; &gt;
-                                &lt;span className=&quot;menu-title&quot;&gt;{item.name}&lt;/span&gt;
-                                &lt;span className=&quot;fa fa-arrow arrow&quot;&gt;&lt;/span&gt;
-                            &lt;/a&gt;
-                            &lt;ul className=&quot;nav nav-second-level mtn collapse&quot;&gt;
-                                {item.children.map(function(sub, subKey) {
-
-                                    if (sub.url&amp;&amp;sub.url.length&gt;0) {
-                                        return &lt;li key={subKey}&gt;
-                                            &lt;Link to={sub.url}&gt;&lt;i className=&quot;fa fa-angle-right&quot;&gt;&lt;/i&gt;&lt;span className=&quot;submenu-title&quot;&gt;{sub.name}&lt;/span&gt;&lt;/Link&gt;
-                                        &lt;/li&gt;
-                                    } else {
-                                        if (sub.children &amp;&amp; sub.children.length&gt;0) {
-                                            return (
-                                                &lt;li key={subKey}&gt;
-                                                    &lt;a href=&quot;#&quot; &gt;
-                                                        &lt;i className=&quot;fa fa-angle-right&quot;&gt;&lt;/i&gt;
-                                                        &lt;span className=&quot;submenu-title&quot;&gt;{sub.name}&lt;/span&gt;
-                                                        &lt;span className=&quot;fa fa-arrow arrow&quot;&gt;&lt;/span&gt;
-                                                    &lt;/a&gt;
-                                                    &lt;ul className=&quot;nav nav-third-level mtn collapse&quot;&gt;
-                                                    {sub.children.map(function(third, thirdKey) {
-                                                        return &lt;li key={thirdKey}&gt;
-                                                            &lt;Link to={third.url}&gt;
-                                                                &lt;i className=&quot;fa fa-angle-double-right&quot;&gt;&lt;/i&gt;
-                                                                &lt;span className=&quot;submenu-title&quot;&gt;{third.name}&lt;/span&gt;
-                                                            &lt;/Link&gt;
-                                                        &lt;/li&gt;
-                                                    })}
-                                                    &lt;/ul&gt;
-                                                &lt;/li&gt;
-                                            )
-                                        }
-                                    }
-                                    if(sub.url&amp;&amp;sub.url.length&gt;0){
-                                        return &lt;li key={subKey}&gt;
-                                         &lt;Link to={sub.url}&gt;{sub.name}&lt;/Link&gt;
-                                        &lt;/li&gt;
-                                    }
-                                })}
-                            &lt;/ul&gt;
-                        &lt;/li&gt;
-                    )
-                }
+        var self = this;
+        //从API中取登录用户可用的菜单
+    	Ajax.get(API.SIDE_BAR_MENU,function(d){
+    		if(d){
+                self.state.list = d.children;
             }
-        }) : false;
-		this.setState({menu:menu});
-		this.state.menu = menu;
+            var list = self.props.list || self.state.list;
+            var menu = (list &amp;&amp; list.length) ? list.map(function(item, key) {
+                if (item.children&amp;&amp;item.children.length==0&amp;&amp;item.url&amp;&amp;item.url.length&gt;0) {
+                    return &lt;li key={key}&gt;&lt;Link to={item.url}&gt;&lt;span className=&quot;menu-title&quot;&gt;{item.name}&lt;/span&gt;&lt;/Link&gt;&lt;/li&gt;
+                } else {
+                    if (item.children &amp;&amp; item.children.length&gt;0) {
+                        return (
+                            &lt;li key={key}&gt;
+                                &lt;a href=&quot;#&quot; onClick={self.dummyClick}&gt;
+                                    &lt;span className=&quot;menu-title&quot;&gt;{item.name}&lt;/span&gt;
+                                    &lt;span className=&quot;fa fa-arrow arrow&quot;&gt;&lt;/span&gt;
+                                &lt;/a&gt;
+                                &lt;ul className=&quot;nav nav-second-level mtn collapse&quot;&gt;
+                                    {item.children.map(function(sub, subKey) {
+
+                                        if (sub.url&amp;&amp;sub.url.length&gt;0) {
+                                            return &lt;li key={subKey}&gt;
+                                                &lt;Link to={sub.url}&gt;&lt;i className=&quot;fa fa-angle-right&quot;&gt;&lt;/i&gt;&lt;span className=&quot;submenu-title&quot;&gt;{sub.name}&lt;/span&gt;&lt;/Link&gt;
+                                            &lt;/li&gt;
+                                        } else {
+                                            if (sub.children &amp;&amp; sub.children.length&gt;0) {
+                                                return (
+                                                    &lt;li key={subKey}&gt;
+                                                        &lt;a href=&quot;#&quot; &gt;
+                                                            &lt;i className=&quot;fa fa-angle-right&quot;&gt;&lt;/i&gt;
+                                                            &lt;span className=&quot;submenu-title&quot;&gt;{sub.name}&lt;/span&gt;
+                                                            &lt;span className=&quot;fa fa-arrow arrow&quot;&gt;&lt;/span&gt;
+                                                        &lt;/a&gt;
+                                                        &lt;ul className=&quot;nav nav-third-level mtn collapse&quot;&gt;
+                                                        {sub.children.map(function(third, thirdKey) {
+                                                            return &lt;li key={thirdKey}&gt;
+                                                                &lt;Link to={third.url}&gt;
+                                                                    &lt;i className=&quot;fa fa-angle-double-right&quot;&gt;&lt;/i&gt;
+                                                                    &lt;span className=&quot;submenu-title&quot;&gt;{third.name}&lt;/span&gt;
+                                                                &lt;/Link&gt;
+                                                            &lt;/li&gt;
+                                                        })}
+                                                        &lt;/ul&gt;
+                                                    &lt;/li&gt;
+                                                )
+                                            }
+                                        }
+                                        if(sub.url&amp;&amp;sub.url.length&gt;0){
+                                            return &lt;li key={subKey}&gt;
+                                             &lt;Link to={sub.url}&gt;{sub.name}&lt;/Link&gt;
+                                            &lt;/li&gt;
+                                        }
+                                    })}
+                                &lt;/ul&gt;
+                            &lt;/li&gt;
+                        )
+                    }
+                }
+            }) : false;
+            self.setState({menu:menu,selectFlag:true});
+    	});
     },
     componentDidMount: function(){
         window.clickMenu = function(){
-            var hash = window.location.hash;
-            hash = hash.slice(1); //remove &quot;#&quot;
-            var targetOpt = $(&quot;a[href=&#x27;&quot;+hash+&quot;&#x27;]&quot;);
+            var url = window.location.pathname.split(&quot;/&quot;);
+            url = &quot;/&quot;+url[1]+&quot;/&quot;+url[2]; 
+            var targetOpt = $(&quot;a[href=&#x27;&quot;+url+&quot;&#x27;]&quot;);
             if(targetOpt){
                 if(targetOpt.parent().parent().prev().prop(&quot;tagName&quot;)==&quot;A&quot;){
                     var targetParent = targetOpt.parent().parent().prev();
@@ -256,18 +252,24 @@ var SideBar = React.createClass({
                         var targetGrandpa = targetParent.parent().parent().prev();
                         targetGrandpa.trigger(&quot;click&quot;);
                         targetParent.trigger(&quot;click&quot;);
-                        targetOpt.trigger(&quot;click&quot;);
+                        targetOpt.parent().addClass(&quot;active&quot;);
                     }else{
                         targetParent.trigger(&quot;click&quot;);
-                        targetOpt.trigger(&quot;click&quot;);
+                        targetOpt.parent().addClass(&quot;active&quot;);
                     }
                 }else{
-                    targetOpt.trigger(&quot;click&quot;);
+                    targetOpt.parent().addClass(&quot;active&quot;);
                 }
             }
         }
-        window.setTimeout(&quot;clickMenu()&quot;,0);
+        //update之后调用
         //clickMenu();
+    },
+    componentDidUpdate : function(prevProps,prevState){
+        if(this.state.selectFlag &amp;&amp; (prevState.menu!=this.state.menu)){
+            this.state.selectFlag = false;
+            window.setTimeout(&quot;clickMenu()&quot;,200); //理论上可以立即操作, 但是实践中, jquery可以找到目标元素, 但是点击没有任何反应.
+        }
     },
     render: function () {
         return (&lt;div&gt;
@@ -280,6 +282,9 @@ var SideBar = React.createClass({
 	            &lt;/div&gt;
 	        &lt;/nav&gt;
         &lt;/div&gt;);
+    },
+    dummyClick: function(e){
+        e.preventDefault();
     }
 });
 

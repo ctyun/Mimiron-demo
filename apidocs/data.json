@@ -16,6 +16,13 @@
             "fors": {},
             "namespaces": {}
         },
+        "components\\BSSFrame\\login.js": {
+            "name": "components\\BSSFrame\\login.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
         "components\\BSSFrame\\sidebar.js": {
             "name": "components\\BSSFrame\\sidebar.js",
             "modules": {},
@@ -164,8 +171,8 @@
             "fors": {},
             "namespaces": {}
         },
-        "components\\html\\cascade_select.js": {
-            "name": "components\\html\\cascade_select.js",
+        "components\\html\\cascadeselect.js": {
+            "name": "components\\html\\cascadeselect.js",
             "modules": {},
             "classes": {
                 "CascadeSelect": 1
@@ -309,7 +316,9 @@
         },
         "components\\panel\\header.js": {
             "name": "components\\panel\\header.js",
-            "modules": {},
+            "modules": {
+                "panel": 1
+            },
             "classes": {
                 "Header": 1
             },
@@ -336,9 +345,7 @@
         },
         "components\\panel\\table-panel.js": {
             "name": "components\\panel\\table-panel.js",
-            "modules": {
-                "TablePanel": 1
-            },
+            "modules": {},
             "classes": {
                 "TablePanel": 1
             },
@@ -347,9 +354,7 @@
         },
         "components\\panel\\tool-panel.js": {
             "name": "components\\panel\\tool-panel.js",
-            "modules": {
-                "panel": 1
-            },
+            "modules": {},
             "classes": {
                 "ToolBarPanel": 1
             },
@@ -408,6 +413,13 @@
             },
             "fors": {},
             "namespaces": {}
+        },
+        "components\\utils\\tools.js": {
+            "name": "components\\utils\\tools.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
         }
     },
     "modules": {
@@ -424,7 +436,7 @@
             "namespaces": {},
             "tag": "module",
             "file": "components\\BSSFrame\\topbar.js",
-            "line": 7
+            "line": 9
         },
         "ECharts": {
             "name": "ECharts",
@@ -521,6 +533,7 @@
                 "Header": 1,
                 "BSSPanel": 1,
                 "QueryPanel": 1,
+                "TablePanel": 1,
                 "ToolBarPanel": 1
             },
             "fors": {},
@@ -528,19 +541,6 @@
             "tag": "module",
             "file": "components\\panel\\tool-panel.js",
             "line": 6
-        },
-        "TablePanel": {
-            "name": "TablePanel",
-            "submodules": {},
-            "elements": {},
-            "classes": {
-                "TablePanel": 1
-            },
-            "fors": {},
-            "namespaces": {},
-            "tag": "module",
-            "file": "components\\panel\\table-panel.js",
-            "line": 9
         },
         "tabs": {
             "name": "tabs",
@@ -601,9 +601,7 @@
             "namespace": "",
             "file": "components\\BSSFrame\\frame.js",
             "line": 8,
-            "description": "用于天翼云业务管理系统的页面框架",
-            "deprecated": true,
-            "deprecationMessage": "直接使用Topbar和Sidebar."
+            "description": "用于天翼云业务管理系统的页面框架, 还没确定最终用法, 直接看代码吧."
         },
         "SideBar": {
             "name": "SideBar",
@@ -630,7 +628,7 @@
             "module": "BSSFrame",
             "namespace": "",
             "file": "components\\BSSFrame\\topbar.js",
-            "line": 7,
+            "line": 9,
             "description": "导航条组件\n```\n示例:\n<TopBar logout={this._logout} userName={this.props.userName}/>\n```"
         },
         "BasicColumn": {
@@ -840,7 +838,7 @@
             "namespace": "",
             "file": "components\\html\\button.js",
             "line": 7,
-            "description": "按钮组件\n```\n使用方法\nvar React = components.React;\nvar Button=components.Button;\nvar ButtonDemo=React.createClass(\n    render:function(){\n        return ( <Button actions=[] code=\"\" btnName=\"增加\" disabled={this.state.dis} disabledName=\"正在请求......\" doAction={this._doAction}/>);\n    }\n);\n\n使用说明\n<Button actions=[] code=\"\" btnName=\"增加\" disabled={this.state.dis} disabledName=\"正在请求......\" doAction={this._doAction}/>\ndisabled:些属性判断按钮是否可用disabled：true此按钮不可用\ndisabledName：不可用时显示的名称\ndoAction:当点击该按钮时调用parent中的方法去执行\nid:按钮的id, 用于直接操作DOM, 一般不应传入此参数\ncssClass(String):按钮的显示样式,与Bootstrap相同,可选值包括:\nbtn-default : 白色按钮样式;\nbtn-primary : 蓝色按钮, 如果不传入此参数,取此值为默认值;\nbtn-success : 绿色按钮, 一般表示成功;\nbtn-info    : 浅蓝色按钮, 一般表示信息;\nbtn-warning : 橙色按钮, 一般表示警告;\nbtn-danger  : 红色按钮, 一般表示严重警告;\nbtn-lg      : 尺寸设置为大;\nbtn-sm      : 尺寸设置为小;\nbtn-xs      : 尺寸设置为极小;\nbtn-block   : 尺寸将填充满父元素;\nactive      : 按钮将直接显示为已被按下.\n允许同时传入颜色和尺寸两个参数, 比如:\"btn-danger btn-xs\", 除此之外, 还有一些不常用的取值请参考Bootstrap官方网站.\ncustomClass(String): 按照用户自定义的style进行显示, 自定义style代码需要放入css/style.css\nactions:该菜单所有的操作编码\ncode:当前按钮的操作编码\n```"
+            "description": "按钮组件\n```\n使用方法\nvar React = components.React;\nvar Button=components.Button;\nvar ButtonDemo=React.createClass(\n    render:function(){\n        return ( <Button actions=[] code=\"\" btnName=\"增加\" disabled={this.state.dis} disabledName=\"正在请求......\" doAction={this._doAction}/>);\n    }\n);\n\n使用说明\n<Button doAction={this.clickButton} code=\"\" btnName=\"增加\" disabledName=\"正在请求......\" />\ndisabled:些属性判断按钮是否可用disabled：true此按钮不可用\ndisabledName：不可用时显示的名称\ndoAction:当点击该按钮时调用parent中的方法去执行\nid:按钮的id, 用于直接操作DOM, 一般不应传入此参数\ncssClass(String):按钮的显示样式,与Bootstrap相同,可选值包括:\nbtn-default : 白色按钮样式;\nbtn-primary : 蓝色按钮, 如果不传入此参数,取此值为默认值;\nbtn-success : 绿色按钮, 一般表示成功;\nbtn-info    : 浅蓝色按钮, 一般表示信息;\nbtn-warning : 橙色按钮, 一般表示警告;\nbtn-danger  : 红色按钮, 一般表示严重警告;\nbtn-lg      : 尺寸设置为大;\nbtn-sm      : 尺寸设置为小;\nbtn-xs      : 尺寸设置为极小;\nbtn-block   : 尺寸将填充满父元素;\nactive      : 按钮将直接显示为已被按下.\n允许同时传入颜色和尺寸两个参数, 比如:\"btn-danger btn-xs\", 除此之外, 还有一些不常用的取值请参考Bootstrap官方网站.\ncustomClass(String): 按照用户自定义的style进行显示, 自定义style代码需要放入css/style.css\nactions:该菜单所有的操作编码\ncode:当前按钮的操作编码\n```"
         },
         "CascadeSelect": {
             "name": "CascadeSelect",
@@ -852,7 +850,7 @@
             "extension_for": [],
             "module": "html",
             "namespace": "",
-            "file": "components\\html\\cascade_select.js",
+            "file": "components\\html\\cascadeselect.js",
             "line": 7,
             "description": "二级联动select\n```\n使用方法\nvar React = require('react');\nvar components=require(\"components\");\nvar CascadeSelect=components.CascadeSelect;\nvar CascadeSelectDemo=React.createClass(\n    render:function(){\n        return (<CascadeSelect firstDisName=\"一级\" secondDisName=\"二级\"  firsDefaultValue=\"2\" data={[{value:'1',text:'显示2'},{value:'2',text:'显示1'}]} url=\"api/test/autoselect\"  />);\n    }\n);\n使用说明\n<CascadeSelect firstDisName=\"一级\" secondDisName=\"二级\"  firsDefaultValue=\"2\" data={[{value:'1',text:'显示2'},{value:'2',text:'显示1'}]} url=\"api/test/autoselect\"  />\nfirstDisName:一级显示名称\nsecondDisName:二级显示名称\nfirsDefaultValue:一级显示值\ndata:一级下拉填充数据\nurl:一级下拉选择时，二级下拉联动时后台请求的url\n```"
         },
@@ -901,7 +899,7 @@
             "namespace": "",
             "file": "components\\html\\datepicker.js",
             "line": 7,
-            "description": "日期选择组件\n```\n使用方法\nvar React = require('react');\nvar components=require(\"components\");\nvar DataPicker=components.DataPicker;\nvar DataPickerDemo=React.createClass(\n    render:function(){\n        return (<DataPicker id=\"startTime_id\"  name=\"时间\" dateFormat=\"yy-mm\"/>);\n    }\n);\n使用说明\n<DataPicker id=\"startTime_id\"  name=\"时间\" dateFormat=\"yy-mm\"/>\n id:该组件的id要唯一\n name:日期组件显示的名称\n dateFormat：日期格式类型 yy-mm格式化为年－月,yy-mm-dd格化为年－月－日\n 要想获取该日期所选择的值，调用DatePicker.getDataValue()方法\n```"
+            "description": "日期选择组件\n```\n使用方法\nvar React = require('react');\nvar DataPickerDemo=React.createClass(\n    render:function(){\n        return (<DataPicker id=\"startTime_id\"  name=\"时间\" dateFormat=\"yy-mm\"/>);\n    }\n);\n使用说明\n<DataPicker id=\"startTime_id\"  name=\"时间\" dateFormat=\"yy-mm\"/>\n id:该组件的id要唯一\n name:日期组件显示的名称\n dateFormat：日期格式类型 yy-mm格式化为年－月,yy-mm-dd格化为年－月－日\n 要想获取该日期所选择的值，调用DatePicker.getDataValue()方法\n```"
         },
         "ExpressionSelect": {
             "name": "ExpressionSelect",
@@ -1114,7 +1112,7 @@
             "namespace": "",
             "file": "components\\panel\\panel.js",
             "line": 6,
-            "description": "基本的面板组件\n```\nvar React = components.React;\nvar BSSPanel=components.BSSPanel;\nvar QueryPanel=components.QueryPanel;\nvar Input=components.Input;\nvar ToolBarPanel=components.ToolBarPanel;\nvar Button=components.Button;\n\nvar BSSPanelDemo=React.createClass(\n    render:function(){\n        return ( <BSSPanel pageTitle = \"示例Panel\">\n                <QueryPanel submitAction={queryMetadata} jsonFormat={true} okButtonName=\"查询(请看console)\">\n                <Input disName=\" 示范输入:\" name=\"demoInput\"/>\n                </QueryPanel>\n                <ToolBarPanel>\n                <Button btnName=\"增删查改\"/>\n                </ToolBarPanel>\n                </BSSPanel>);\n    }\n);\n```",
+            "description": "基本的面板组件\n```\nvar React = components.React;\nvar BSSPanel=components.BSSPanel;\nvar QueryPanel=components.QueryPanel;\nvar Input=components.Input;\nvar ToolBarPanel=components.ToolBarPanel;\nvar Button=components.Button;\n\nvar BSSPanelDemo=React.createClass(\n    render:function(){\n        return ( <BSSPanel pageTitle = \"示例Panel\">\n                    <QueryPanel submitAction={this.queryMetadata} jsonFormat={true} okButtonName=\"查询(请看console)\">\n                       <Input disName=\" 示范输入:\" name=\"demoInput\"/>\n                    </QueryPanel>\n                    <ToolBarPanel>\n                       <Button btnName=\"增删查改\"/>\n                    </ToolBarPanel>\n                </BSSPanel>);\n    },\n    queryMetadata: function(){\n    }\n);\n```",
             "uses": [
                 "Heafer"
             ]
@@ -1141,7 +1139,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "TablePanel",
+            "module": "panel",
             "namespace": "",
             "file": "components\\panel\\table-panel.js",
             "line": 9,
@@ -1246,18 +1244,8 @@
     "elements": {},
     "classitems": [
         {
-            "file": "components\\BSSFrame\\sidebar.js",
-            "line": 46,
-            "description": "```\n示例:\n[{\"id\":\"bc373cb764484ab69dc27d827ec0e539\",\"name\":\"签到查询管理\",\"url\":\"\",\"parentId\":\"-1\",\"level\":null,\"children\":[{\"id\":\"0c7e6c00307b4063934cc6e293e580dd\",\"name\":\"签到查询\",\"url\":\"/mp/sign\",\"parentId\":\"bc373cb764484ab69dc27d827ec0e539\",\"level\":null,\"children\":[],\"btnRight\":{}}],\"btnRight\":{}},{\"id\":\"576ac42df3574c2b97b1eda80e553451\",\"name\":\"通用报表查询\",\"url\":\"\",\"parentId\":\"-1\",\"level\":null,\"children\":[{\"id\":\"75ff6fc071dd44d69b3677522eb26df0\",\"name\":\"统计报表\",\"url\":\"\",\"parentId\":\"576ac42df3574c2b97b1eda80e553451\",\"level\":null,\"children\":[{\"id\":\"75cee05cb0ac4047b44797d8ce31a21c\",\"name\":\"云公司列收统计表\",\"url\":\"/showReport/b857b799e2c646199efeaf4ca46993c9\",\"parentId\":\"75ff6fc071dd44d69b3677522eb26df0\",\"level\":null,\"children\":[],\"btnRight\":{}},{\"id\":\"c7909c55be7d4b43be5a11b00dca45a1\",\"name\":\"合同列收\",\"url\":\"/showReport/c3573aabc59f4324afc3fcbe8109460b\",\"parentId\":\"75ff6fc071dd44d69b3677522eb26df0\",\"level\":null,\"children\":[],\"btnRight\":{}},{\"id\":\"479527286c4343d7b12e31e1e39f6650\",\"name\":\"电商日发展量统计\",\"url\":\"/showReport/212550b3f1bd4e5e9f9cde1470b36046\",\"parentId\":\"75ff6fc071dd44d69b3677522eb26df0\",\"level\":null,\"children\":[],\"btnRight\":{}},{\"id\":\"b6b1a11956354d7c890c39f56156d68e\",\"name\":\"客户列收统计表\",\"url\":\"/showReport/304ffddde6954447b770abb489719e69\",\"parentId\":\"75ff6fc071dd44d69b3677522eb26df0\",\"level\":null,\"children\":[],\"btnRight\":{}},{\"id\":\"b4bbf43e86d04939ab144fc32efaebc2\",\"name\":\"加班餐月统计表\",\"url\":\"/showReport/e33972f5ccd340fd81e29e7284184c3f\",\"parentId\":\"75ff6fc071dd44d69b3677522eb26df0\",\"level\":null,\"children\":[],\"btnRight\":{}},{\"id\":\"99eb01f394c8496c904e1a49ec40d39e\",\"name\":\"O2O结算报表\",\"url\":\"/showReport/3eed9d09d86b456d8d0fc05dada24682\",\"parentId\":\"75ff6fc071dd44d69b3677522eb26df0\",\"level\":null,\"children\":[],\"btnRight\":{}},{\"id\":\"70865455a6244300b18de7f4d2b52fa6\",\"name\":\"到期用户统计\",\"url\":\"/showReport/52fb732fcd1a46daba796f15b918688a\",\"parentId\":\"75ff6fc071dd44d69b3677522eb26df0\",\"level\":null,\"children\":[],\"btnRight\":{}},{\"id\":\"f36145ed72fd495596db9f9fc74a317a\",\"name\":\"报表组(正在测试)\",\"url\":\"/showReportGroup/1\",\"parentId\":\"75ff6fc071dd44d69b3677522eb26df0\",\"level\":null,\"children\":[],\"btnRight\":{}}],\"btnRight\":{}},{\"id\":\"1c84d894db2747579f407262c53c8e2b\",\"name\":\"报表组管理\",\"url\":\"/report/manageReportGroup\",\"parentId\":\"576ac42df3574c2b97b1eda80e553451\",\"level\":null,\"children\":[],\"btnRight\":{}},{\"id\":\"3d24158fb8c3424e922d7fe18987af18\",\"name\":\"报表元数据管理\",\"url\":\"/report/metadata\",\"parentId\":\"576ac42df3574c2b97b1eda80e553451\",\"level\":null,\"children\":[],\"btnRight\":{}},{\"id\":\"9e0e3e45c1da487e9dae4640113fb0ec\",\"name\":\"通用报表配置管理\",\"url\":\"/report/config\",\"parentId\":\"576ac42df3574c2b97b1eda80e553451\",\"level\":null,\"children\":[],\"btnRight\":{}},{\"id\":\"f617cdec57414b46b24a836272ddae86\",\"name\":\"通用报表模板管理\",\"url\":\"/report/manage\",\"parentId\":\"576ac42df3574c2b97b1eda80e553451\",\"level\":null,\"children\":[],\"btnRight\":{}}],\"btnRight\":{}},{\"id\":\"0fe92edb3aee463baa98d0d98d733832\",\"name\":\"基础管理\",\"url\":\"\",\"parentId\":\"-1\",\"level\":null,\"children\":[{\"id\":\"1c5d0409bde94898a7533b21f0ef3337\",\"name\":\"用户组管理\",\"url\":\"/group/query\",\"parentId\":\"0fe92edb3aee463baa98d0d98d733832\",\"level\":null,\"children\":[],\"btnRight\":{}},{\"id\":\"ac4686b108884fb5879098f6fa635e22\",\"name\":\"菜单管理\",\"url\":\"/module/query\",\"parentId\":\"0fe92edb3aee463baa98d0d98d733832\",\"level\":null,\"children\":[],\"btnRight\":{}},{\"id\":\"66901e23eba74d00b3f03ba4aff3a7b5\",\"name\":\"日志管理\",\"url\":\"/log/querySystemOpertationLogInit\",\"parentId\":\"0fe92edb3aee463baa98d0d98d733832\",\"level\":null,\"children\":[],\"btnRight\":{}},{\"id\":\"0524f63884f3440e9c1c5a9d2280357c\",\"name\":\"角色管理\",\"url\":\"/role/query\",\"parentId\":\"0fe92edb3aee463baa98d0d98d733832\",\"level\":null,\"children\":[],\"btnRight\":{}},{\"id\":\"e572fcbd2b5c42e0b3ce6281e4e2fb7e\",\"name\":\"代码管理\",\"url\":\"/codeInfo/query\",\"parentId\":\"0fe92edb3aee463baa98d0d98d733832\",\"level\":null,\"children\":[],\"btnRight\":{}},{\"id\":\"2ed2a975faba41f3a6d8440f2772e3ef\",\"name\":\"用户管理\",\"url\":\"/user/query\",\"parentId\":\"0fe92edb3aee463baa98d0d98d733832\",\"level\":null,\"children\":[],\"btnRight\":{}},{\"id\":\"1e2ecc37fedb4fc6b74f73bd828e4600\",\"name\":\"部门管理\",\"url\":\"/department/query\",\"parentId\":\"0fe92edb3aee463baa98d0d98d733832\",\"level\":null,\"children\":[],\"btnRight\":{}}],\"btnRight\":{}}]\n\n```",
-            "itemtype": "property",
-            "name": "list 目录结构",
-            "type": "Array",
-            "class": "SideBar",
-            "module": "BSSFrame"
-        },
-        {
             "file": "components\\BSSFrame\\topbar.js",
-            "line": 19,
+            "line": 21,
             "itemtype": "property",
             "name": "logout 注销按钮的回调函数",
             "type": "Function",
@@ -1689,7 +1677,7 @@
         },
         {
             "file": "components\\html\\datepicker.js",
-            "line": 33,
+            "line": 31,
             "static": 1,
             "itemtype": "method",
             "name": "",
@@ -1764,6 +1752,24 @@
             "description": "```\n可选值:\n\"number\" : 数字\n```",
             "itemtype": "property",
             "name": "reg 正则规则",
+            "type": "String",
+            "class": "Input",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\input.js",
+            "line": 155,
+            "itemtype": "property",
+            "name": "name 同html中的name",
+            "type": "String",
+            "class": "Input",
+            "module": "html"
+        },
+        {
+            "file": "components\\html\\input.js",
+            "line": 158,
+            "itemtype": "property",
+            "name": "placeholder 同html",
             "type": "String",
             "class": "Input",
             "module": "html"
@@ -2279,16 +2285,27 @@
             ],
             "class": "window",
             "module": "TencentMap"
+        },
+        {
+            "file": "components\\utils\\tools.js",
+            "line": 213,
+            "description": "all GET props saved in $_GET\nfor example:\nin url http://127.0.0.1:8081/sample?id=1 you can use $_GET[\"id\"] to get \"1\"",
+            "class": "",
+            "module": "tree"
         }
     ],
     "warnings": [
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " components\\html\\datepicker.js:33"
+            "line": " components\\html\\datepicker.js:31"
         },
         {
             "message": "unknown tag: defualt",
             "line": " components\\html\\input.js:58"
+        },
+        {
+            "message": "Missing item type\nall GET props saved in $_GET\nfor example:\nin url http://127.0.0.1:8081/sample?id=1 you can use $_GET[\"id\"] to get \"1\"",
+            "line": " components\\utils\\tools.js:213"
         }
     ]
 }

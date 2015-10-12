@@ -93,7 +93,6 @@
                                 <li><a href="../modules/message.html">message</a></li>
                                 <li><a href="../modules/page.html">page</a></li>
                                 <li><a href="../modules/panel.html">panel</a></li>
-                                <li><a href="../modules/TablePanel.html">TablePanel</a></li>
                                 <li><a href="../modules/tabs.html">tabs</a></li>
                                 <li><a href="../modules/TencentMap.html">TencentMap</a></li>
                                 <li><a href="../modules/tree.html">tree</a></li>
@@ -153,7 +152,7 @@ var React = require(&#x27;react/addons&#x27;);
  * );
  *
  * 使用说明
- * &lt;Button actions=[] code=&quot;&quot; btnName=&quot;增加&quot; disabled={this.state.dis} disabledName=&quot;正在请求......&quot; doAction={this._doAction}/&gt;
+ * &lt;Button doAction={this.clickButton} code=&quot;&quot; btnName=&quot;增加&quot; disabledName=&quot;正在请求......&quot; /&gt;
  * disabled:些属性判断按钮是否可用disabled：true此按钮不可用
  * disabledName：不可用时显示的名称
  * doAction:当点击该按钮时调用parent中的方法去执行

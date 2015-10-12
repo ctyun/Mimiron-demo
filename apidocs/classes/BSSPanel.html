@@ -93,7 +93,6 @@
                                 <li><a href="../modules/message.html">message</a></li>
                                 <li><a href="../modules/page.html">page</a></li>
                                 <li><a href="../modules/panel.html">panel</a></li>
-                                <li><a href="../modules/TablePanel.html">TablePanel</a></li>
                                 <li><a href="../modules/tabs.html">tabs</a></li>
                                 <li><a href="../modules/TencentMap.html">TencentMap</a></li>
                                 <li><a href="../modules/tree.html">tree</a></li>
@@ -161,13 +160,15 @@ var Button=components.Button;
 var BSSPanelDemo=React.createClass(
     render:function(){
         return ( &lt;BSSPanel pageTitle = &quot;示例Panel&quot;&gt;
-                &lt;QueryPanel submitAction={queryMetadata} jsonFormat={true} okButtonName=&quot;查询(请看console)&quot;&gt;
-                &lt;Input disName=&quot; 示范输入:&quot; name=&quot;demoInput&quot;/&gt;
-                &lt;/QueryPanel&gt;
-                &lt;ToolBarPanel&gt;
-                &lt;Button btnName=&quot;增删查改&quot;/&gt;
-                &lt;/ToolBarPanel&gt;
+                    &lt;QueryPanel submitAction={this.queryMetadata} jsonFormat={true} okButtonName=&quot;查询(请看console)&quot;&gt;
+                       &lt;Input disName=&quot; 示范输入:&quot; name=&quot;demoInput&quot;/&gt;
+                    &lt;/QueryPanel&gt;
+                    &lt;ToolBarPanel&gt;
+                       &lt;Button btnName=&quot;增删查改&quot;/&gt;
+                    &lt;/ToolBarPanel&gt;
                 &lt;/BSSPanel&gt;);
+    },
+    queryMetadata: function(){
     }
 );
 </code></pre>

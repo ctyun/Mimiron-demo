@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>MessageBox - Mimiron</title>
+    <title>components\utils\tools.js - Mimiron</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -129,132 +129,248 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1>MessageBox Class</h1>
-<div class="box meta">
+<h1 class="file-heading">File: components\utils\tools.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+var $ = require(&#x27;jQuery&#x27;);
+
+var Tools = {
+
+    uuid : function() {
+
+        var s = [];
+        var hexDigits = &quot;0123456789abcdef&quot;;
+        for (var i = 0; i &lt; 36; i++) {
+            s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+        }
+        s[14] = &quot;4&quot;;  // bits 12-15 of the time_hi_and_version field to 0010
+        s[19] = hexDigits.substr((s[19] &amp; 0x3) | 0x8, 1);  // bits 6-7 of the clock_seq_hi_and_reserved to 01
+        s[8] = s[13] = s[18] = s[23] = &quot;-&quot;;
+     
+        var uuid = s.join(&quot;&quot;);
+        return uuid;
+    },
+
+    clone: function(obj){
+
+        if(typeof(obj) != &#x27;object&#x27;) return obj; 
+        if(obj == null) return obj; 
+
+        if(obj instanceof Array){
+            var newObj = []
+        }else{
+            var newObj = {}; 
+        }
+        
+
+        for(var i in obj){
+            newObj[i] = this.clone(obj[i]); 
+        } 
+
+        return newObj; 
+    },
+
+    loadScript : function(url, callback) {
+        var script = document.createElement(&quot;script&quot;);
+
+        if(!callback) callback  = function(){}
+
+        // IE
+        if (script.readyState) {
+            script.onreadystatechange = function () {
+                if (script.readyState == &quot;loaded&quot; || script.readyState == &quot;complete&quot;) {
+                    script.onreadystatechange = null;
+                    callback();
+                }
+            };
+        } else { // others
+            script.onload = function () {
+                callback();
+            };
+        }
+
+        var rgJS = /^(.+)\.js$/ig;
+        var rgJSX = /^(.+)\.jsx$/ig;
+        if(rgJS.test(url))
+            script.type = &quot;text/javascript&quot;;
+        if(rgJSX.test(url))
+            script.type = &quot;text/jsx&quot;;
+
+        script.src = url;
+        document.body.appendChild(script);
+    },
+
+    loadCSS : function(url, callback) {
+        var node = document.createElement(&quot;link&quot;);
+
+        if(!callback) callback  = function(){}
+
+        // IE
+        if (node.readyState) {
+            node.onreadystatechange = function () {
+                if (node.readyState == &quot;loaded&quot; || node.readyState == &quot;complete&quot;) {
+                    node.onreadystatechange = null;
+                    callback();
+                }
+            };
+        } else { // others
+            node.onload = function () {
+                callback();
+            };
+        }
+
+        node.rel = &#x27;stylesheet&#x27;;
+        node.type = &quot;text/css&quot;;
+        node.href = url;
+        document.getElementsByTagName(&#x27;head&#x27;)[0].appendChild(node);
+    },
 
 
-        <div class="foundat">
-            Defined in: <a href="../files/components_message_messageBox.js.html#l10"><code>components\message\messageBox.js:10</code></a>
-        </div>
+    loadScriptsWithNoCallback : function(url) {
+        var script = document.createElement(&quot;script&quot;);
 
-            Module: <a href="../modules/message.html">message</a>
+        var length = url.length;
+        for(var i = 0;i &lt; length; i++){ //自适应插入.jsx文件
+            var script = document.createElement(&quot;script&quot;);
+            var rgJS = /^(.+)\.js$/ig;
+            var rgJSX = /^(.+)\.jsx$/ig;
+            if(rgJS.test(url[i]))
+                script.type = &quot;text/javascript&quot;;
+            if(rgJSX.test(url[i]))
+                script.type = &quot;text/jsx&quot;;
+            script.src = url[i];
+            document.body.appendChild(script);
+        }
+    },
 
-</div>
+    loadScriptWithLock : function(scriptName, url, callback) {
 
+        if(this.scriptName === true){
+            return true;
+        }
 
-<div class="box intro">
-    <p>消息提示框组件</p>
-<pre class="code prettyprint"><code>&lt;Button btnName=&quot;触发MessageBox&quot; doAction={MessageBox.show.bind(null,&quot;i am title&quot;,&quot;i am message&quot;)} cssClass=&quot;btn-info&quot; /&gt;
-!!请勿实例化此组件,仅可使用show方法显示提示框!!
-</code></pre>
+        if(this.scriptName == undefined){
+            this.scriptName = false;
 
-</div>
+            var _this = this;
 
+            //加载脚本
+            var script = document.createElement(&quot;script&quot;);
 
-<div id="classdocs" class="tabview">
-    <ul class="api-class-tabs">
-        <li class="api-class-tab index"><a href="#index">Index</a></li>
+            if(!callback) callback  = function(){}
 
-            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
-    </ul>
+            // IE
+            if (script.readyState) {
+                script.onreadystatechange = function () {
+                    if (script.readyState == &quot;loaded&quot; || script.readyState == &quot;complete&quot;) {
+                        script.onreadystatechange = null;
+                        _this.scriptName = true;//加载完成
+                        callback();//回调
+                    }
+                };
+            } else { // others
+                script.onload = function () {
+                    _this.scriptName = true;//加载完成
+                    callback();
+                };
+            }
 
-    <div>
-        <div id="index" class="api-class-tabpanel index">
-            <h2 class="off-left">Item Index</h2>
+            var rgJS = /^(.+)\.js$/ig;
+            var rgJSX = /^(.+)\.jsx$/ig;
+            if(rgJS.test(url))
+                script.type = &quot;text/javascript&quot;;
+            if(rgJSX.test(url))
+                script.type = &quot;text/jsx&quot;;
 
-                <div class="index-section methods">
-                    <h3>Methods</h3>
+            script.src = url;
+            document.body.appendChild(script);
+        }
 
-                    <ul class="index-list methods">
-                            <li class="index-item method">
-                                <a href="#method_show">show</a>
+        return false;
 
-                                    <span class="flag static">static</span>
-                            </li>
-                    </ul>
-                </div>
-
-
-
-        </div>
-
-            <div id="methods" class="api-class-tabpanel">
-                <h2 class="off-left">Methods</h2>
-
-<div id="method_show" class="method item">
-    <h3 class="name"><code>show</code></h3>
-
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-                <li class="arg">
-                        <code>title</code>
-                </li>
-                <li class="arg">
-                        <code>message</code>
-                </li>
-            </ul><span class="paren">)</span>
-        </div>
-
-
-
-
-
-        <span class="flag static">static</span>
+        
+    },
 
 
 
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/components_message_messageBox.js.html#l22"><code>components\message\messageBox.js:22</code></a>
-        </p>
+    loadCSSWithLock : function(cssName, url, callback) {
+
+        if(this.cssName === true){
+            return true;
+        }
+
+        if(this.cssName == undefined){
+            this.cssName = false;
+
+            var _this = this;
+
+            //加载脚本
+            var node = document.createElement(&quot;link&quot;);
+
+            if(!callback) callback  = function(){}
+
+            // IE
+            if (node.readyState) {
+                node.onreadystatechange = function () {
+                    if (node.readyState == &quot;loaded&quot; || node.readyState == &quot;complete&quot;) {
+                        node.onreadystatechange = null;
+                        _this.cssName = true;//加载完成
+                        callback();//回调
+                    }
+                };
+            } else { // others
+                node.onload = function () {
+                    _this.cssName = true;//加载完成
+                    callback();
+                };
+            }
+
+            node.rel = &#x27;stylesheet&#x27;;
+            node.type = &quot;text/css&quot;;
+            node.href = url;
+
+            document.body.appendChild(node);
+        }
+
+        return false;
+
+        
+    }
 
 
 
-    </div>
-
-    <div class="description">
-        <p>显示对话框</p>
-
-    </div>
-
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-                <li class="param">
-                        <code class="param-name">title</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
 
 
-                    <div class="param-description">
-                        <p>对话框标题</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">message</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+}
 
 
-                    <div class="param-description">
-                        <p>对话框内容</p>
+/**
+ * all GET props saved in $_GET
+ * for example:
+ * in url http://127.0.0.1:8081/sample?id=1 you can use $_GET[&quot;id&quot;] to get &quot;1&quot;
+ */
+window.$_GET = (function(){
+    var url = window.document.location.href.toString();
+    var u = url.split(&quot;?&quot;);
+    if(typeof(u[1]) == &quot;string&quot;){
+        u = u[1].split(&quot;&amp;&quot;);
+        var get = {};
+        for(var i in u){
+            var j = u[i].split(&quot;=&quot;);
+            get[j[0]] = j[1];
+        }
+        return get;
+    } else {
+        return {};
+    }
+})();
 
-                    </div>
 
-                </li>
-            </ul>
-        </div>
+module.exports = Tools;
 
 
-
-</div>
-            </div>
-
-
-
-    </div>
+    </pre>
 </div>
                     </div>
                 </div>

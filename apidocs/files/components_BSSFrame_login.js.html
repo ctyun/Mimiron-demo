@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>MessageBox - Mimiron</title>
+    <title>components\BSSFrame\login.js - Mimiron</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -129,132 +129,51 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1>MessageBox Class</h1>
-<div class="box meta">
+<h1 class="file-heading">File: components\BSSFrame\login.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+ * @module BSSFrame
+ */
+
+var React = require(&#x27;react&#x27;);
+var BSSForm=require(&quot;../html/form&quot;);
+var API = require(&quot;../const/API&quot;);
+var Ajax = require(&quot;../utils/ajax&quot;);
+var Input = require(&quot;../html/input&quot;);
+
+var Login = React.createClass({
+	locals:{},
+	render: function(){
+		return(&lt;div className=&quot;page-form&quot;&gt;
+				&lt;BSSForm okButtonName=&quot;登陆&quot; jsonFormat={true} submitAction={this.submitAction}&gt;
+					&lt;Input name=&quot;userLoginName&quot; disName=&quot;用户名&quot; placeholder=&quot;用户名&quot; value={this.locals.username}/&gt;
+					&lt;Input name=&quot;userPassword&quot; disName=&quot;密码&quot; placeholder=&quot;密码&quot; value={this.locals.password}/&gt;
+				&lt;/BSSForm&gt;
+			&lt;/div&gt;);
+	},
+	submitAction: function(param){
+		Ajax.post(API.LOGIN,param,function(d){
+			if(d.handled){
+				alert(&quot;用户名和/或密码错误&quot;); //TODO 使用提示框
+			}
+			else{
+				try{
+					history.go(-1);
+				} catch(e) {
+					//TODO Log模块
+				} finally{
+					window.location.href = &quot;/&quot;;
+				}
+			}
+		});
+	}
+});
 
 
-        <div class="foundat">
-            Defined in: <a href="../files/components_message_messageBox.js.html#l10"><code>components\message\messageBox.js:10</code></a>
-        </div>
-
-            Module: <a href="../modules/message.html">message</a>
-
-</div>
-
-
-<div class="box intro">
-    <p>消息提示框组件</p>
-<pre class="code prettyprint"><code>&lt;Button btnName=&quot;触发MessageBox&quot; doAction={MessageBox.show.bind(null,&quot;i am title&quot;,&quot;i am message&quot;)} cssClass=&quot;btn-info&quot; /&gt;
-!!请勿实例化此组件,仅可使用show方法显示提示框!!
-</code></pre>
-
-</div>
-
-
-<div id="classdocs" class="tabview">
-    <ul class="api-class-tabs">
-        <li class="api-class-tab index"><a href="#index">Index</a></li>
-
-            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
-    </ul>
-
-    <div>
-        <div id="index" class="api-class-tabpanel index">
-            <h2 class="off-left">Item Index</h2>
-
-                <div class="index-section methods">
-                    <h3>Methods</h3>
-
-                    <ul class="index-list methods">
-                            <li class="index-item method">
-                                <a href="#method_show">show</a>
-
-                                    <span class="flag static">static</span>
-                            </li>
-                    </ul>
-                </div>
-
-
-
-        </div>
-
-            <div id="methods" class="api-class-tabpanel">
-                <h2 class="off-left">Methods</h2>
-
-<div id="method_show" class="method item">
-    <h3 class="name"><code>show</code></h3>
-
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-                <li class="arg">
-                        <code>title</code>
-                </li>
-                <li class="arg">
-                        <code>message</code>
-                </li>
-            </ul><span class="paren">)</span>
-        </div>
-
-
-
-
-
-        <span class="flag static">static</span>
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/components_message_messageBox.js.html#l22"><code>components\message\messageBox.js:22</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        <p>显示对话框</p>
-
-    </div>
-
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-                <li class="param">
-                        <code class="param-name">title</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-
-
-                    <div class="param-description">
-                        <p>对话框标题</p>
-
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">message</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-
-
-                    <div class="param-description">
-                        <p>对话框内容</p>
-
-                    </div>
-
-                </li>
-            </ul>
-        </div>
-
-
-
-</div>
-            </div>
-
-
-
-    </div>
+module.exports = Login;
+    </pre>
 </div>
                     </div>
                 </div>
