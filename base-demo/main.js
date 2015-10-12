@@ -4,15 +4,13 @@
  */
 var React = components.React;
 var Button = components.Button;
+var Demo = components.Demo;
 
 var ThisPage = React.createClass({
-	onClick: function(){
-		alert("点击了");
-	},
+
     render: function(){
-        return(<div>
-                <Button btnName="演示button" doAction={this.onClick}/>
-            </div>);
+        return(<Demo/>);
     }
 });
+
 React.render(<ThisPage />, document.getElementById('demo-wrapper'));
