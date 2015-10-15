@@ -17,6 +17,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Checkbox",
         "CheckboxGroup",
         "DatePicker",
+        "Demo",
         "ECharts",
         "ExpressionSelect",
         "Grid",
@@ -52,6 +53,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "BSSFrame",
         "ECharts",
         "TencentMap",
+        "demo",
         "html",
         "message",
         "page",
@@ -64,6 +66,10 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "BSSFrame",
             "name": "BSSFrame"
+        },
+        {
+            "displayName": "demo",
+            "name": "demo"
         },
         {
             "displayName": "ECharts",

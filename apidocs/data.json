@@ -48,6 +48,17 @@
             "fors": {},
             "namespaces": {}
         },
+        "components\\demo\\demo-all-components.js": {
+            "name": "components\\demo\\demo-all-components.js",
+            "modules": {
+                "demo": 1
+            },
+            "classes": {
+                "Demo": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "components\\echarts\\components\\bar\\BasicColumn.js": {
             "name": "components\\echarts\\components\\bar\\BasicColumn.js",
             "modules": {
@@ -456,6 +467,19 @@
             "file": "components\\BSSFrame\\topbar.js",
             "line": 10
         },
+        "demo": {
+            "name": "demo",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "Demo": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "components\\demo\\demo-all-components.js",
+            "line": 424
+        },
         "ECharts": {
             "name": "ECharts",
             "submodules": {},
@@ -661,6 +685,20 @@
             "file": "components\\BSSFrame\\topbar.js",
             "line": 10,
             "description": "导航条组件\n```\n示例:\n<TopBar logout={this._logout} userName={this.props.userName}/>\n```"
+        },
+        "Demo": {
+            "name": "Demo",
+            "shortname": "Demo",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "demo",
+            "namespace": "",
+            "file": "components\\demo\\demo-all-components.js",
+            "line": 424,
+            "description": "基本组件演示, 请看源码.\n```\n示例:\n<Demo />\n```"
         },
         "BasicColumn": {
             "name": "BasicColumn",
