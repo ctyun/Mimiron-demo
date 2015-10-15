@@ -478,7 +478,7 @@
             "namespaces": {},
             "tag": "module",
             "file": "components\\demo\\demo-all-components.js",
-            "line": 424
+            "line": 436
         },
         "ECharts": {
             "name": "ECharts",
@@ -697,7 +697,7 @@
             "module": "demo",
             "namespace": "",
             "file": "components\\demo\\demo-all-components.js",
-            "line": 424,
+            "line": 436,
             "description": "基本组件演示, 请看源码.\n```\n示例:\n<Demo />\n```"
         },
         "BasicColumn": {
@@ -1212,7 +1212,7 @@
             "namespace": "",
             "file": "components\\panel\\table-panel.js",
             "line": 9,
-            "description": "封装表格面板组件\n```\n使用方法\nvar React = require('react');\nvar components=require(\"components\");\nvar TablePanel=components.TablePanel;\nvar TablePanelDemo=React.createClass(\n    render:function(){\n    var tableProps={\n        title:['选项','标题1','标题2','标题3'],\n        jsonKey:['id','t1','t2','t3'],\n        data:[{id:1,\n          t1:'测试1',\n          t2:'测试2',\n          t3:'测试3'}],\n        doList:function(){},\n        pageSize:10,\n        offset:1, //page:this.state.offset\n        totalRows:1,\n        checkType:\"radio\",\n    }\n        return (<TablePanel {...tableProps}/>);\n    }\n);\n\n使用说明\ntableProps:{\n        title:['选项','标题1','标题2','标题3'],\n       jsonKey:['id','t1','t2','t3'],\n        data:[{id:1,\n          t1:'测试1',\n          t2:'测试2',\n          t3:'测试3'}],\n        doList:function(){},\n        pageSize:10,\n        offset:1, //page:this.state.offset\n        totalRows:1,\n        checkType:\"radio\",\n    }\n```"
+            "description": "封装表格面板组件\n```\n使用方法\n       var TablePanelDemo=React.createClass(\n            doList: function(currentPage,pageSize){\n                 //在这里通过currentPage和pageSize发送ajax请求获取数据, 然后写入tableProps.data, 注意先清空旧数据.\n                 console.log(currentPage,pageSize);\n            },\n            render:function(){\n                 var tableProps={\n                      title:['选项','标题1','标题2','标题3'],\n                      jsonKey:['id','t1','t2','t3'],\n                      data:[{id:1,\n                      t1:'测试1',\n                      t2:'测试2',\n                      t3:'测试3'}],\n                      doList:this.doList,\n                      pageSize:10,\n                      offset:1, //page:this.state.offset\n                      totalRows:1,\n                      checkType:\"radio\",\n                 }\n            return (<TablePanel {...tableProps}/>);\n       });\n```"
         },
         "ToolBarPanel": {
             "name": "ToolBarPanel",
@@ -1321,7 +1321,7 @@
             "namespace": "",
             "file": "components\\utils\\ajax.js",
             "line": 6,
-            "description": "Ajax调用工具方法\n用法示例:\n```\nAjax.post(this.static.URL[\"query\"],param,this.setMetadata);\nAjax.get(this.static.URL[\"add\"]+param[\"resourceTableName\"]+\"/\"+param[\"tableDispName\"],this.addSuccess);\n```\n其post方法有三个参数,分别是:\n1.url\n2.参数\n3.回调方法\n其get方法有两个参数:\n1.url\n2.回调方法"
+            "description": "Ajax调用工具方法\n用法示例:\n```\nvar Ajax = components.Ajax\n\nAjax.post(this.static.URL[\"query\"],param,this.setMetadata);\nAjax.get(this.static.URL[\"add\"]+param[\"resourceTableName\"]+\"/\"+param[\"tableDispName\"],this.addSuccess);\n```\n其post方法有三个参数,分别是:\n1.url\n2.参数\n3.回调方法\n其get方法有两个参数:\n1.url\n2.回调方法"
         }
     },
     "elements": {},

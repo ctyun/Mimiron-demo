@@ -149,42 +149,27 @@ var PageButton=require(&quot;../page/page&quot;);
      * 封装表格面板组件
      *&#x60;&#x60;&#x60;
      * 使用方法
-     *var React = require(&#x27;react&#x27;);
-     *var components=require(&quot;components&quot;);
-     *var TablePanel=components.TablePanel;
-     *var TablePanelDemo=React.createClass(
-     *     render:function(){
-     *     var tableProps={
-     *         title:[&#x27;选项&#x27;,&#x27;标题1&#x27;,&#x27;标题2&#x27;,&#x27;标题3&#x27;],
-     *         jsonKey:[&#x27;id&#x27;,&#x27;t1&#x27;,&#x27;t2&#x27;,&#x27;t3&#x27;],
-     *         data:[{id:1,
-     *           t1:&#x27;测试1&#x27;,
-     *           t2:&#x27;测试2&#x27;,
-     *           t3:&#x27;测试3&#x27;}],
-     *         doList:function(){},
-     *         pageSize:10,
-     *         offset:1, //page:this.state.offset
-     *         totalRows:1,
-     *         checkType:&quot;radio&quot;,
-     *     }
-     *         return (&lt;TablePanel {...tableProps}/&gt;);
-     *     }
-     * );
-     *
-     * 使用说明
-     *tableProps:{
-     *         title:[&#x27;选项&#x27;,&#x27;标题1&#x27;,&#x27;标题2&#x27;,&#x27;标题3&#x27;],
-     *        jsonKey:[&#x27;id&#x27;,&#x27;t1&#x27;,&#x27;t2&#x27;,&#x27;t3&#x27;],
-     *         data:[{id:1,
-     *           t1:&#x27;测试1&#x27;,
-     *           t2:&#x27;测试2&#x27;,
-     *           t3:&#x27;测试3&#x27;}],
-     *         doList:function(){},
-     *         pageSize:10,
-     *         offset:1, //page:this.state.offset
-     *         totalRows:1,
-     *         checkType:&quot;radio&quot;,
-     *     }
+        var TablePanelDemo=React.createClass(
+             doList: function(currentPage,pageSize){
+                  //在这里通过currentPage和pageSize发送ajax请求获取数据, 然后写入tableProps.data, 注意先清空旧数据.
+                  console.log(currentPage,pageSize);
+             },
+             render:function(){
+                  var tableProps={
+                       title:[&#x27;选项&#x27;,&#x27;标题1&#x27;,&#x27;标题2&#x27;,&#x27;标题3&#x27;],
+                       jsonKey:[&#x27;id&#x27;,&#x27;t1&#x27;,&#x27;t2&#x27;,&#x27;t3&#x27;],
+                       data:[{id:1,
+                       t1:&#x27;测试1&#x27;,
+                       t2:&#x27;测试2&#x27;,
+                       t3:&#x27;测试3&#x27;}],
+                       doList:this.doList,
+                       pageSize:10,
+                       offset:1, //page:this.state.offset
+                       totalRows:1,
+                       checkType:&quot;radio&quot;,
+                  }
+             return (&lt;TablePanel {...tableProps}/&gt;);
+        });
      *&#x60;&#x60;&#x60;
      * @class TablePanel
      */

@@ -149,7 +149,9 @@
 <div class="box intro">
     <p>Ajax调用工具方法
 用法示例:</p>
-<pre class="code prettyprint"><code>Ajax.post(this.static.URL[&quot;query&quot;],param,this.setMetadata);
+<pre class="code prettyprint"><code>var Ajax = components.Ajax
+
+Ajax.post(this.static.URL[&quot;query&quot;],param,this.setMetadata);
 Ajax.get(this.static.URL[&quot;add&quot;]+param[&quot;resourceTableName&quot;]+&quot;/&quot;+param[&quot;tableDispName&quot;],this.addSuccess);
 </code></pre>
 <p>其post方法有三个参数,分别是:
