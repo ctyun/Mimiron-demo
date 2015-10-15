@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>components\page\grid.js - Mimiron</title>
+    <title>components\utils\ajax.js - Mimiron</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -131,159 +131,66 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1 class="file-heading">File: components\page\grid.js</h1>
+<h1 class="file-heading">File: components\utils\ajax.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
-/*
- * @module page
- */
-var React = require(&#x27;react/addons&#x27;);
 /**
- * 表格组件,是&#x60;TablePanel&#x60;的组成部分
- * &#x60;&#x60;&#x60;
- * 示例:
- * &lt;Grid title={this.props.title} noHasCheckBox={this.props.noHasCheckBox} jsonKey={this.props.jsonKey} data={this.props.data} checkType={this.props.checkType}/&gt;
- * &#x60;&#x60;&#x60;
- * @class Grid
- *
+ * @module utils
  */
-var Grid=React.createClass({
-    statics:{
-        datas:{},
-        /**
-         * 获取表格数据
-         * @method getCheckedValue
-         * @static
-         * @return {Array} 选中的数据
-         */
-        getCheckedValue:function(){
-            var arr=[];
-            var datas=Grid.datas;
-            for(var k in datas){
-                var d=datas[k];
+var APIUtils = require(&#x27;./api-utils&#x27;);
 
-                if(d&gt;0 || d.length&gt;0){
-                    arr.push(d);
-                }
-            }
+/**
+ * Ajax调用工具方法
+ * 用法示例:
+ * &#x60;&#x60;&#x60;
+ * Ajax.post(this.static.URL[&quot;query&quot;],param,this.setMetadata);
+ * Ajax.get(this.static.URL[&quot;add&quot;]+param[&quot;resourceTableName&quot;]+&quot;/&quot;+param[&quot;tableDispName&quot;],this.addSuccess);
+ * &#x60;&#x60;&#x60;
+ * 其post方法有三个参数,分别是:
+ * 1.url
+ * 2.参数
+ * 3.回调方法
+ * 其get方法有两个参数:
+ * 1.url
+ * 2.回调方法
+ * @class Ajax
+ */
+var AjaxUtils = {
+  get:function(url,sucCall){
+      var req={
+          url:url,
+          method:&quot;GET&quot;
+      };
+      APIUtils.request(req).then(function(d){
+          sucCall(d);
+      });
+  },
+  post:function(url,data,sucCall){
+      var req = {
+          url:url,
+          method:&quot;POST&quot;,
+          form:false,
+          data:data
+      };
+      APIUtils.request(req).then(function(d){
+        sucCall(d);
+      });
+  },
+  postForm:function(url,data,sucCall) {
+      var req={
+          url:url,
+          method:&quot;POST&quot;,
+          form:true,
+          data:data
+      };
+      APIUtils.request(req).then(function(d){
+        sucCall(d);
+      });
+    }
+};
+module.exports = AjaxUtils;
 
-            return arr;
-        },
-        /**
-         * 清除表格数据
-         * @method cleanData
-         * @static
-         */
-        cleanData:function(){
-            Grid.datas=[];
-        }
-    },
-
-    getInitialState : function(){
-        return {
-            datas:[],
-            prifx:&quot;id_&quot;
-
-        };
-    },
-    getDefaultProps: function(){
-        return{
-            checkType :&quot;checkbox&quot;,
-        }
-    },
-    _checkBoxOnChange:function(event){
-
-        var datas=[];
-        if(this.props.checkType == &quot;checkbox&quot;){
-            datas=Grid.datas;
-        }
-        else if(this.props.checkType == &quot;radio&quot;){
-            Grid.datas = [];
-            Grid.cleanData();
-        }
-        var v=event.target.value;
-
-        if(event.target.checked){
-            datas[this.state.prifx+v]=v;
-        }else{
-            datas[this.state.prifx+v]=0;
-        }
-        this.state.datas=datas;
-        Grid.datas=this.state.datas;
-    },
-    render:function(){
-        /**
-         * @property {String} title 标题
-         */
-        var title=this.props.title; //这里不知道为什么不能直接在t中使用this.props.XXX
-        /**
-         * @property {Array} jsonKey 表格表头
-         * @example
-         * &#x60;jsonKey:[&#x27;id&#x27;,&#x27;t1&#x27;,&#x27;t2&#x27;,&#x27;t3&#x27;]&#x60;
-         */
-        var key=this.props.jsonKey;
-        /**
-         * @property {Array} data 表格数据
-         * @example
-         * &#x60;&#x60;&#x60;
-         * data:[{id:1,
-         *      t1:&#x27;测试1&#x27;,
-         *      t2:&#x27;测试2&#x27;,
-         *      t3:&#x27;测试3&#x27;}],
-         * &#x60;&#x60;&#x60;
-         */
-        var data=this.props.data;
-        /**
-         * &#x60;&#x60;&#x60;
-         * 可选值:
-         * 1.&quot;radio&quot;:   表格中的数据为单选
-         * 2.&quot;select&quot;:  表格中的数据被多选
-         * &#x60;&#x60;&#x60;
-         * @property {String} checkType 表格每一行的类型
-         */
-        var checkType = this.props.checkType;
-        var rows=[];
-        var titleData=[];
-        if(title){
-            title.forEach(function(d){
-                var t=&lt;th&gt;{d}&lt;/th&gt;;
-                titleData.push(t);
-            });
-        }
-
-
-        var self=this;
-
-        var t= &lt;table  className=&quot;table table-hover table-bordered&quot;&gt;
-        &lt;thead&gt;
-        &lt;tr&gt;
-        {titleData}
-        &lt;/tr&gt;
-        &lt;/thead&gt;
-        &lt;tbody&gt;
-        {data&amp;&amp;data.length&gt;0? this.props.data.map(function(source, key) {
-            return &lt;tr key={key}&gt;
-            {this.props.jsonKey.map(function(column, columnKey) {
-                if(columnKey==0){
-                    if(self.props.noHasCheckBox&amp;&amp;self.props.noHasCheckBox==true){
-                         return &lt;td key={columnKey}&gt;{source[column]}&lt;/td&gt;
-                    }
-                    else{
-                        return &lt;td key={columnKey}&gt;&lt;input type={checkType} onChange={self._checkBoxOnChange} name=&quot;id&quot; value={source[column]}/&gt;&lt;/td&gt;
-                }
-            }else{
-                return &lt;td key={columnKey}&gt;{source[column]}&lt;/td&gt;
-            }
-        })}
-    &lt;/tr&gt;
-}.bind(this)) : &lt;td colSpan={this.props.title.length + 1}&gt;&lt;div className=&quot;text-center&quot;&gt;暂无数据，请输入查询条件进行查询。&lt;/div&gt;&lt;/td&gt;}
-&lt;/tbody&gt;
-&lt;/table&gt;;
-return (t);
-}
-});
-module.exports=Grid;
     </pre>
 </div>
                     </div>

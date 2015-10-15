@@ -39,6 +39,7 @@
                         <div id="api-tabview-panel">
                             <ul id="api-classes" class="apis classes">
                                 <li><a href="../classes/AbstractECharts.html">AbstractECharts</a></li>
+                                <li><a href="../classes/Ajax.html">Ajax</a></li>
                                 <li><a href="../classes/Autocomplete.html">Autocomplete</a></li>
                                 <li><a href="../classes/AutoSelect.html">AutoSelect</a></li>
                                 <li><a href="../classes/BasicArea.html">BasicArea</a></li>
@@ -96,6 +97,7 @@
                                 <li><a href="../modules/tabs.html">tabs</a></li>
                                 <li><a href="../modules/TencentMap.html">TencentMap</a></li>
                                 <li><a href="../modules/tree.html">tree</a></li>
+                                <li><a href="../modules/utils.html">utils</a></li>
                             </ul>
                         </div>
                     </div>
@@ -229,7 +231,6 @@ var Tools = {
 
     loadScriptsWithNoCallback : function(url) {
         var script = document.createElement(&quot;script&quot;);
-
         var length = url.length;
         for(var i = 0;i &lt; length; i++){ //自适应插入.jsx文件
             var script = document.createElement(&quot;script&quot;);
@@ -245,21 +246,15 @@ var Tools = {
     },
 
     loadScriptWithLock : function(scriptName, url, callback) {
-
         if(this.scriptName === true){
             return true;
         }
-
         if(this.scriptName == undefined){
             this.scriptName = false;
-
             var _this = this;
-
             //加载脚本
             var script = document.createElement(&quot;script&quot;);
-
             if(!callback) callback  = function(){}
-
             // IE
             if (script.readyState) {
                 script.onreadystatechange = function () {
@@ -275,7 +270,6 @@ var Tools = {
                     callback();
                 };
             }
-
             var rgJS = /^(.+)\.js$/ig;
             var rgJSX = /^(.+)\.jsx$/ig;
             if(rgJS.test(url))
@@ -286,30 +280,19 @@ var Tools = {
             script.src = url;
             document.body.appendChild(script);
         }
-
-        return false;
-
-        
+        return false; 
     },
 
-
-
     loadCSSWithLock : function(cssName, url, callback) {
-
         if(this.cssName === true){
             return true;
         }
-
         if(this.cssName == undefined){
             this.cssName = false;
-
             var _this = this;
-
             //加载脚本
             var node = document.createElement(&quot;link&quot;);
-
             if(!callback) callback  = function(){}
-
             // IE
             if (node.readyState) {
                 node.onreadystatechange = function () {
@@ -325,23 +308,55 @@ var Tools = {
                     callback();
                 };
             }
-
             node.rel = &#x27;stylesheet&#x27;;
             node.type = &quot;text/css&quot;;
             node.href = url;
 
             document.body.appendChild(node);
         }
-
         return false;
+    },
+    loadJSX: function(url){
+        if(!window.Mimiron.runScripts){
+            console.info(&quot;如果你想使用utils.loadJSX异步加载jsx文件, 你必须先通过JSXTransform.js暴露window.Mimiron.runScripts方法!&quot;);
+            return;
+        }
+        //先删除其他无用的jsx
+        var scripts = document.getElementsByTagName(&#x27;script&#x27;);
+        for (var i = 0; i &lt; scripts.length; i++) {
+            if (/^text\/jsx(;|$)/.test(scripts.item(i).type)&amp;&amp;scripts.item(i).src.indexOf(&quot;?only&quot;)!=-1) {
+                document.body.removeChild(scripts.item(i));
+            }
+        }
+        //删除head中最后一个scrpit标签
+        var scripts = document.head.getElementsByTagName(&#x27;script&#x27;);
+        for (var i = 0; i &lt; scripts.length; i++) {
+            document.head.removeChild(scripts[i]);
+        }
 
-        
+        var script = document.createElement(&quot;script&quot;);
+        script.type = &quot;text/jsx&quot;;
+        script.src = url+&quot;?only&quot;;
+        // // 加载完成后调用runScript
+        // if (script.readyState) { //IE
+        //     script.onreadystatechange = function () {
+        //         if (script.readyState == &quot;loaded&quot; || script.readyState == &quot;complete&quot;) {
+        //             script.onreadystatechange = null;
+        //             _this.scriptName = true;//加载完成
+        //             window.Mimiron.runScripts();//回调
+        //         }
+        //     };
+        // } else { // others
+        //     script.onload = function () {
+        //         _this.scriptName = true;//加载完成
+        //         console.log(&quot;called&quot;) //called
+        //         window.Mimiron.runScripts();
+        //     };
+        // }
+        document.body.appendChild(script);
+
+        window.Mimiron.runScripts();
     }
-
-
-
-
-
 }
 
 

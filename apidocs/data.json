@@ -23,6 +23,13 @@
             "fors": {},
             "namespaces": {}
         },
+        "components\\BSSFrame\\route.js": {
+            "name": "components\\BSSFrame\\route.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
         "components\\BSSFrame\\sidebar.js": {
             "name": "components\\BSSFrame\\sidebar.js",
             "modules": {},
@@ -414,6 +421,17 @@
             "fors": {},
             "namespaces": {}
         },
+        "components\\utils\\ajax.js": {
+            "name": "components\\utils\\ajax.js",
+            "modules": {
+                "utils": 1
+            },
+            "classes": {
+                "Ajax": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "components\\utils\\tools.js": {
             "name": "components\\utils\\tools.js",
             "modules": {},
@@ -436,7 +454,7 @@
             "namespaces": {},
             "tag": "module",
             "file": "components\\BSSFrame\\topbar.js",
-            "line": 9
+            "line": 10
         },
         "ECharts": {
             "name": "ECharts",
@@ -586,6 +604,19 @@
             "tag": "module",
             "file": "components\\tree\\treeview.js",
             "line": 9
+        },
+        "utils": {
+            "name": "utils",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "Ajax": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "components\\utils\\ajax.js",
+            "line": 6
         }
     },
     "classes": {
@@ -600,8 +631,8 @@
             "module": "BSSFrame",
             "namespace": "",
             "file": "components\\BSSFrame\\frame.js",
-            "line": 8,
-            "description": "用于天翼云业务管理系统的页面框架, 还没确定最终用法, 直接看代码吧."
+            "line": 9,
+            "description": "这是BSS系统业务页面的框架, 将页面需要展示的内容作为children即可, 需要传输参数userName, 将显示在右上角.\n例子:\n```\nvar ThisPage = React.createClass({\n\trender: function(){\n\t\treturn(<BSSFrame userName = {getUserName()}>\n\t\t\t\t<p> i am sample </p>\n\t\t\t\t<Button btnName=\"增加\" disabledName=\"正在请求......\" doAction={this._doAction}/>\n\t\t\t</BSSFrame>)\n\t},\n\t_doAction: function(){\n\t\talert(\"123\");\n\t}\n});\n```"
         },
         "SideBar": {
             "name": "SideBar",
@@ -614,8 +645,8 @@
             "module": "BSSFrame",
             "namespace": "",
             "file": "components\\BSSFrame\\sidebar.js",
-            "line": 26,
-            "description": "侧边目录组件, 为了实现多页面应用, 应该加一个参数, 设置选中哪个菜单项.\n```\n示例:\n<SideBar list={this.props.menu} />\n```"
+            "line": 37,
+            "description": "侧边目录组件, 可以实现异步不刷新加载.jsx文件, 正确使用此组件需要下列条件:\n 1. 使用\\static\\third目录下的JSXTransformer.js\n 2. 在全局暴露Mimiron.RouteConfig, 保存路由信息, 例子如下:\n ```\n Mimiron.RouteConfig = {\n    \"../js/pages/index.jsx\":/^\\/$/ig,\n    \"../js/pages/sample.jsx\":/sample$/ig,\n    \"../js/pages/login.jsx\":/login$/ig,\n    \"../js/pages/manage-report-group.jsx\":/report\\/manageReportGroup/ig,\n    \"../js/pages/report-manage.jsx\":/report\\/manage$/ig,\n    \"../js/pages/report-config.jsx\":/report\\/config/ig,\n    \"../js/pages/metadata.jsx\":/report\\/metadata/ig,\n    \"../js/pages/show-report.jsx\":/showReport\\/[^\\/*]/ig\n    }\n ```\n ```\n 组件示例:\n <SideBar list={this.props.menu} />\n ```"
         },
         "TopBar": {
             "name": "TopBar",
@@ -628,7 +659,7 @@
             "module": "BSSFrame",
             "namespace": "",
             "file": "components\\BSSFrame\\topbar.js",
-            "line": 9,
+            "line": 10,
             "description": "导航条组件\n```\n示例:\n<TopBar logout={this._logout} userName={this.props.userName}/>\n```"
         },
         "BasicColumn": {
@@ -926,8 +957,8 @@
             "module": "html",
             "namespace": "",
             "file": "components\\html\\form.js",
-            "line": 9,
-            "description": "表单组件\n```\n使用方法\nvar React = require('react');\nvar components=require(\"components\");\nvar BSSForm=components.BSSForm;\nvar BSSFormDemo=React.createClass(\n    render:function(){\n        return ( <BSSForm submitAction={this.submitAction} jsonFormat=true disabledName＝\"不可用\" disabledSubmitBtn＝“false” okButtonName=\"保存\"></BSSForm>);\n    }\n);\n使用说明\n\n* <BSSForm submitAction={this.submitAction} jsonFormat=true disabledName＝\"不可用\" disabledSubmitBtn＝“false” okButtonName=\"保存\"></BSSForm>\nsubmitAction(必须）\n  form表单按钮提交时回调方法\n jsonFormat  true|false\n   form表单序列化数据是否为json格式\nokButtonName\n  此参数非必须\n form表单按钮名称默认为查询\n disabledSubmitBtn:true|false 默认为false\n     此参数非必须\n  是否在提交form表达时禁用提交按钮\n disabledName:\n  此参数非必须\n  禁用提交按钮时显示的名称\n\n此组件使用可参考QueryPanel使用\n```"
+            "line": 10,
+            "description": "表单组件\n```\n使用方法\nvar React = require('react');\nvar components=require(\"components\");\nvar BSSForm=components.BSSForm;\nvar BSSFormDemo=React.createClass(\n    render:function(){\n        return ( <BSSForm submitAction={this.submitAction} jsonFormat=true disabledName＝\"不可用\" disabledSubmitBtn＝\"false\" okButtonName=\"保存\"></BSSForm>);\n    }\n);\n使用说明\n\n* <BSSForm submitAction={this.submitAction} jsonFormat=true disabledName＝\"不可用\" disabledSubmitBtn＝“false” okButtonName=\"保存\"></BSSForm>\n submitAction(必须）\n  form表单按钮提交时回调方法, 携带一个参数param, 保存表单的内容\n jsonFormat  true|false\n   form表单序列化数据是否为json格式\n okButtonName\n  此参数非必须\n form表单按钮名称默认为查询\n disabledSubmitBtn:true|false 默认为false\n  此参数非必须\n  是否在提交form表达时禁用提交按钮\n disabledName:\n  此参数非必须\n  禁用提交按钮时显示的名称\n\n此组件使用可参考QueryPanel使用\n```"
         },
         "Input": {
             "name": "Input",
@@ -941,7 +972,7 @@
             "namespace": "",
             "file": "components\\html\\input.js",
             "line": 27,
-            "description": "input输入组件\n  ```\n  使用方法\n var React = require('react');\n var components=require(\"components\");\n var Input=components.Input;\n var InputDemo=React.createClass(\n     render:function(){\n         return (<Input disName=\"名称\" doChange={this._doChange}  />);\n     }\n );\n  使用说明\n  <Input disName=\"名称\" doChange={this._doChange}  />\n  disName:要显示的名称\n  doChange:值改变时调用的事件\n  onClick:点击时调用的事件\n  value:默认值\n  ```"
+            "description": "input输入组件\n  ```\n  使用方法\n var React = require('react');\n var components=require(\"components\");\n var Input=components.Input;\n var InputDemo=React.createClass(\n     render:function(){\n         return (<Input disName=\"名称\" doChange={this._doChange}  name=\"html_name\" />);\n     }\n );\n  使用说明\n  <Input disName=\"名称\" doChange={this._doChange}  />\n  disName:要显示的名称\n  doChange:值改变时调用的事件\n  onClick:点击时调用的事件\n  value:默认值\n  name: 同html的name\n  ```"
         },
         "Select": {
             "name": "Select",
@@ -1143,7 +1174,7 @@
             "namespace": "",
             "file": "components\\panel\\table-panel.js",
             "line": 9,
-            "description": "封装表格面板组件\n```\n使用方法\nvar React = require('react');\nvar components=require(\"components\");\nvar TablePanel=components.TablePanel;\nvar TablePanelDemo=React.createClass(\n    render:function(){\n    tableProps:{\n        title:['选项','标题1','标题2','标题3'],\n        jsonKey:['id','t1','t2','t3'],\n        data:[{id:1,\n          t1:'测试1',\n          t2:'测试2',\n          t3:'测试3'}],\n        doList:function(){},\n        pageSize:10,\n        offset:1, //page:this.state.offset\n        totalRows:1,\n        checkType:\"radio\",\n    }\n        return (<TablePanel {...tableProps}/>);\n    }\n);\n\n使用说明\ntableProps:{\n        title:['选项','标题1','标题2','标题3'],\n       jsonKey:['id','t1','t2','t3'],\n        data:[{id:1,\n          t1:'测试1',\n          t2:'测试2',\n          t3:'测试3'}],\n        doList:function(){},\n        pageSize:10,\n        offset:1, //page:this.state.offset\n        totalRows:1,\n        checkType:\"radio\",\n    }\n```"
+            "description": "封装表格面板组件\n```\n使用方法\nvar React = require('react');\nvar components=require(\"components\");\nvar TablePanel=components.TablePanel;\nvar TablePanelDemo=React.createClass(\n    render:function(){\n    var tableProps={\n        title:['选项','标题1','标题2','标题3'],\n        jsonKey:['id','t1','t2','t3'],\n        data:[{id:1,\n          t1:'测试1',\n          t2:'测试2',\n          t3:'测试3'}],\n        doList:function(){},\n        pageSize:10,\n        offset:1, //page:this.state.offset\n        totalRows:1,\n        checkType:\"radio\",\n    }\n        return (<TablePanel {...tableProps}/>);\n    }\n);\n\n使用说明\ntableProps:{\n        title:['选项','标题1','标题2','标题3'],\n       jsonKey:['id','t1','t2','t3'],\n        data:[{id:1,\n          t1:'测试1',\n          t2:'测试2',\n          t3:'测试3'}],\n        doList:function(){},\n        pageSize:10,\n        offset:1, //page:this.state.offset\n        totalRows:1,\n        checkType:\"radio\",\n    }\n```"
         },
         "ToolBarPanel": {
             "name": "ToolBarPanel",
@@ -1239,13 +1270,27 @@
             "file": "components\\tree\\treeview.js",
             "line": 9,
             "description": "树形组件\n```\n  使用说明\n  data: (object)树中展现的数据, 格式请参考demo.js, 每个节点可以有如下属性:\n   -\"name\":显示的名称.\n   -\"uid\":唯一的Id,注意,此ID必须唯一, 如果留空,则自动生成一个.\n   -\"selectType\":该节点的选择类型,可以为\"checkbox\"(节点可以多选,默认值),\"radio\"(在该级下单选),\"none\"(不显示选择框)\n   -\"isSelected\":(string)该节点默认被选中,默认值为\"none\",可选:\"all\",\"part\",\"none\"\n   -\"isExpanded\":(boolean)该节点默认被展开,默认值为flase.\n  selectType: (string)\n   -\"none\":树的每个节点前没有可操作的元素\n   -\"checkbox\":树的每个节点前有一个勾选框\n   -\"radio\":树的每个节点成为单选项\n  onElementCheck: (function)节点被勾选(取消勾选)时的回调函数.\n   -return parms:\n       -uid:目标节点的uid值,如果输入的data中没有标记uid,会返回一个唯一的随机字符串.\n       -status:目标节点操作状态, 'check'为勾选操作, 'unckeck'为取消勾选.\n       -name: 目标节点显示的内容\n  onElementFlod: (function)节点被展开(收起)时的回调函数.\n   -return params:\n       -uid:目标节点的uid值,如果输入的data中没有标记uid,会返回一个唯一的随机字符串.\n       -status:目标节点操作状态, 'flod'为收起操作, 'unckeck'为展开操作.\n  expandLevel: (int)展开级别\n  maxHeight:(string) 比如:\"300px\"\n\n   var tree1Data = {\n       treedata: [\n           {\n               \"name\": \"Top Level\",\n               \"uid\": \"uid1\",\n               \"children\": [\n                   {\n                       \"name\": \"Level 2: A\",\n                       \"uid\": \"uid2\",\n                       \"children\": [\n                           {\n                               \"name\": \"Son of A\"\n                           },\n                           {\n                               \"name\": \"Daughter of A\"\n                           }\n                       ]\n                   },\n                   {\n                       \"name\": \"Level 2: B\"\n                   },\n                   {\n                       \"name\": \"Level 2: C\",\n                       \"children\": [\n                           {\n                               \"name\": \"Son of C\"\n                           }\n                       ]\n                   }\n               ]\n           }\n       ]\n   }\n   <Treeview data={tree1Data} selectType=\"checkbox\"/>\n```"
+        },
+        "Ajax": {
+            "name": "Ajax",
+            "shortname": "Ajax",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "utils",
+            "namespace": "",
+            "file": "components\\utils\\ajax.js",
+            "line": 6,
+            "description": "Ajax调用工具方法\n用法示例:\n```\nAjax.post(this.static.URL[\"query\"],param,this.setMetadata);\nAjax.get(this.static.URL[\"add\"]+param[\"resourceTableName\"]+\"/\"+param[\"tableDispName\"],this.addSuccess);\n```\n其post方法有三个参数,分别是:\n1.url\n2.参数\n3.回调方法\n其get方法有两个参数:\n1.url\n2.回调方法"
         }
     },
     "elements": {},
     "classitems": [
         {
             "file": "components\\BSSFrame\\topbar.js",
-            "line": 21,
+            "line": 22,
             "itemtype": "property",
             "name": "logout 注销按钮的回调函数",
             "type": "Function",
@@ -1254,7 +1299,7 @@
         },
         {
             "file": "components\\BSSFrame\\topbar.js",
-            "line": 25,
+            "line": 26,
             "itemtype": "property",
             "name": "userName 显示的用户名",
             "type": "String",
@@ -1264,7 +1309,7 @@
         },
         {
             "file": "components\\BSSFrame\\topbar.js",
-            "line": 30,
+            "line": 31,
             "itemtype": "property",
             "name": "title 显示的标题",
             "type": "String",
@@ -1696,7 +1741,7 @@
         },
         {
             "file": "components\\html\\input.js",
-            "line": 53,
+            "line": 54,
             "description": "不携带参数",
             "itemtype": "property",
             "name": "onClick 点击事件",
@@ -1706,7 +1751,7 @@
         },
         {
             "file": "components\\html\\input.js",
-            "line": 58,
+            "line": 59,
             "description": "默认样式\n```\n可选值:\n\"input-nm\":  普通(宽120px)\n\"input-md\":  较小(宽70px)\n\"input-xs\":  非常小(宽30px)\n```",
             "itemtype": "property",
             "name": "cssClass 用于css样式的class",
@@ -1717,7 +1762,7 @@
         },
         {
             "file": "components\\html\\input.js",
-            "line": 71,
+            "line": 72,
             "itemtype": "property",
             "name": "isPassword  是否为密码框",
             "type": "Boolean",
@@ -1727,7 +1772,7 @@
         },
         {
             "file": "components\\html\\input.js",
-            "line": 89,
+            "line": 90,
             "itemtype": "property",
             "name": "value 默认值",
             "type": "String",
@@ -1736,7 +1781,7 @@
         },
         {
             "file": "components\\html\\input.js",
-            "line": 144,
+            "line": 145,
             "itemtype": "property",
             "name": "errorMsg 错误提示信息",
             "type": "String",
@@ -1748,7 +1793,7 @@
         },
         {
             "file": "components\\html\\input.js",
-            "line": 148,
+            "line": 149,
             "description": "```\n可选值:\n\"number\" : 数字\n```",
             "itemtype": "property",
             "name": "reg 正则规则",
@@ -1758,7 +1803,7 @@
         },
         {
             "file": "components\\html\\input.js",
-            "line": 155,
+            "line": 156,
             "itemtype": "property",
             "name": "name 同html中的name",
             "type": "String",
@@ -1767,7 +1812,7 @@
         },
         {
             "file": "components\\html\\input.js",
-            "line": 158,
+            "line": 159,
             "itemtype": "property",
             "name": "placeholder 同html",
             "type": "String",
@@ -2288,10 +2333,10 @@
         },
         {
             "file": "components\\utils\\tools.js",
-            "line": 213,
+            "line": 226,
             "description": "all GET props saved in $_GET\nfor example:\nin url http://127.0.0.1:8081/sample?id=1 you can use $_GET[\"id\"] to get \"1\"",
             "class": "",
-            "module": "tree"
+            "module": "utils"
         }
     ],
     "warnings": [
@@ -2301,11 +2346,11 @@
         },
         {
             "message": "unknown tag: defualt",
-            "line": " components\\html\\input.js:58"
+            "line": " components\\html\\input.js:59"
         },
         {
             "message": "Missing item type\nall GET props saved in $_GET\nfor example:\nin url http://127.0.0.1:8081/sample?id=1 you can use $_GET[\"id\"] to get \"1\"",
-            "line": " components\\utils\\tools.js:213"
+            "line": " components\\utils\\tools.js:226"
         }
     ]
 }

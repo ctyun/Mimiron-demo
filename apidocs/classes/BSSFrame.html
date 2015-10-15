@@ -39,6 +39,7 @@
                         <div id="api-tabview-panel">
                             <ul id="api-classes" class="apis classes">
                                 <li><a href="../classes/AbstractECharts.html">AbstractECharts</a></li>
+                                <li><a href="../classes/Ajax.html">Ajax</a></li>
                                 <li><a href="../classes/Autocomplete.html">Autocomplete</a></li>
                                 <li><a href="../classes/AutoSelect.html">AutoSelect</a></li>
                                 <li><a href="../classes/BasicArea.html">BasicArea</a></li>
@@ -96,6 +97,7 @@
                                 <li><a href="../modules/tabs.html">tabs</a></li>
                                 <li><a href="../modules/TencentMap.html">TencentMap</a></li>
                                 <li><a href="../modules/tree.html">tree</a></li>
+                                <li><a href="../modules/utils.html">utils</a></li>
                             </ul>
                         </div>
                     </div>
@@ -134,7 +136,7 @@
 
 
         <div class="foundat">
-            Defined in: <a href="../files/components_BSSFrame_frame.js.html#l8"><code>components\BSSFrame\frame.js:8</code></a>
+            Defined in: <a href="../files/components_BSSFrame_frame.js.html#l9"><code>components\BSSFrame\frame.js:9</code></a>
         </div>
 
             Module: <a href="../modules/BSSFrame.html">BSSFrame</a>
@@ -143,7 +145,20 @@
 
 
 <div class="box intro">
-    <p>用于天翼云业务管理系统的页面框架, 还没确定最终用法, 直接看代码吧.</p>
+    <p>这是BSS系统业务页面的框架, 将页面需要展示的内容作为children即可, 需要传输参数userName, 将显示在右上角.
+例子:</p>
+<pre class="code prettyprint"><code>var ThisPage = React.createClass({
+    render: function(){
+        return(&lt;BSSFrame userName = {getUserName()}&gt;
+                &lt;p&gt; i am sample &lt;/p&gt;
+                &lt;Button btnName=&quot;增加&quot; disabledName=&quot;正在请求......&quot; doAction={this._doAction}/&gt;
+            &lt;/BSSFrame&gt;)
+    },
+    _doAction: function(){
+        alert(&quot;123&quot;);
+    }
+});
+</code></pre>
 
 </div>
 

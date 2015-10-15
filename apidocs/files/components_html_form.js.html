@@ -39,6 +39,7 @@
                         <div id="api-tabview-panel">
                             <ul id="api-classes" class="apis classes">
                                 <li><a href="../classes/AbstractECharts.html">AbstractECharts</a></li>
+                                <li><a href="../classes/Ajax.html">Ajax</a></li>
                                 <li><a href="../classes/Autocomplete.html">Autocomplete</a></li>
                                 <li><a href="../classes/AutoSelect.html">AutoSelect</a></li>
                                 <li><a href="../classes/BasicArea.html">BasicArea</a></li>
@@ -96,6 +97,7 @@
                                 <li><a href="../modules/tabs.html">tabs</a></li>
                                 <li><a href="../modules/TencentMap.html">TencentMap</a></li>
                                 <li><a href="../modules/tree.html">tree</a></li>
+                                <li><a href="../modules/utils.html">utils</a></li>
                             </ul>
                         </div>
                     </div>
@@ -141,6 +143,7 @@
 var React=require(&quot;react/addons&quot;);
 var Button=require(&quot;../html/button&quot;);
 var $=require(&quot;jquery&quot;);
+var Debug = require(&quot;../utils/debug&quot;);
 /**
  * 表单组件
  *&#x60;&#x60;&#x60;
@@ -150,21 +153,21 @@ var $=require(&quot;jquery&quot;);
  *var BSSForm=components.BSSForm;
  * var BSSFormDemo=React.createClass(
  *     render:function(){
- *         return ( &lt;BSSForm submitAction={this.submitAction} jsonFormat=true disabledName＝&quot;不可用&quot; disabledSubmitBtn＝“false” okButtonName=&quot;保存&quot;&gt;&lt;/BSSForm&gt;);
+ *         return ( &lt;BSSForm submitAction={this.submitAction} jsonFormat=true disabledName＝&quot;不可用&quot; disabledSubmitBtn＝&quot;false&quot; okButtonName=&quot;保存&quot;&gt;&lt;/BSSForm&gt;);
  *     }
  * );
  * 使用说明
  *
  * * &lt;BSSForm submitAction={this.submitAction} jsonFormat=true disabledName＝&quot;不可用&quot; disabledSubmitBtn＝“false” okButtonName=&quot;保存&quot;&gt;&lt;/BSSForm&gt;
- * submitAction(必须）
- *   form表单按钮提交时回调方法
+ *  submitAction(必须）
+ *   form表单按钮提交时回调方法, 携带一个参数param, 保存表单的内容
  *  jsonFormat  true|false
  *    form表单序列化数据是否为json格式
- * okButtonName
+ *  okButtonName
  *   此参数非必须
  *  form表单按钮名称默认为查询
  *  disabledSubmitBtn:true|false 默认为false
- *      此参数非必须
+ *   此参数非必须
  *   是否在提交form表达时禁用提交按钮
  *  disabledName:
  *   此参数非必须
@@ -218,6 +221,8 @@ var BSSForm=React.createClass({
         };
        var node=this.state.elem;
         param=$(node).serialize();
+        window.node = node;
+        Debug.log(param,&quot;in _submitAction param&quot;);
         if(this.props.submitAction){
             param=$(node).serialize();
             param=decodeURIComponent(param,true);

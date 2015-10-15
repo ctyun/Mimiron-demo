@@ -2,6 +2,7 @@ YUI.add("yuidoc-meta", function(Y) {
    Y.YUIDoc = { meta: {
     "classes": [
         "AbstractECharts",
+        "Ajax",
         "AutoSelect",
         "Autocomplete",
         "BSSForm",
@@ -56,7 +57,8 @@ YUI.add("yuidoc-meta", function(Y) {
         "page",
         "panel",
         "tabs",
-        "tree"
+        "tree",
+        "utils"
     ],
     "allModules": [
         {
@@ -97,6 +99,10 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "tree",
             "name": "tree"
+        },
+        {
+            "displayName": "utils",
+            "name": "utils"
         }
     ],
     "elements": []

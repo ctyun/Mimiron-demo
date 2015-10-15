@@ -39,6 +39,7 @@
                         <div id="api-tabview-panel">
                             <ul id="api-classes" class="apis classes">
                                 <li><a href="../classes/AbstractECharts.html">AbstractECharts</a></li>
+                                <li><a href="../classes/Ajax.html">Ajax</a></li>
                                 <li><a href="../classes/Autocomplete.html">Autocomplete</a></li>
                                 <li><a href="../classes/AutoSelect.html">AutoSelect</a></li>
                                 <li><a href="../classes/BasicArea.html">BasicArea</a></li>
@@ -96,6 +97,7 @@
                                 <li><a href="../modules/tabs.html">tabs</a></li>
                                 <li><a href="../modules/TencentMap.html">TencentMap</a></li>
                                 <li><a href="../modules/tree.html">tree</a></li>
+                                <li><a href="../modules/utils.html">utils</a></li>
                             </ul>
                         </div>
                     </div>
@@ -169,7 +171,7 @@ var RegUtils = require(&#x27;../utils/reg-utils&#x27;);
  * var Input=components.Input;
  * var InputDemo=React.createClass(
  *     render:function(){
- *         return (&lt;Input disName=&quot;名称&quot; doChange={this._doChange}  /&gt;);
+ *         return (&lt;Input disName=&quot;名称&quot; doChange={this._doChange}  name=&quot;html_name&quot; /&gt;);
  *     }
  * );
  *  使用说明
@@ -178,6 +180,7 @@ var RegUtils = require(&#x27;../utils/reg-utils&#x27;);
  *  doChange:值改变时调用的事件
  *  onClick:点击时调用的事件
  *  value:默认值
+ *  name: 同html的name
  *  &#x60;&#x60;&#x60;
  *  @class Input
  */

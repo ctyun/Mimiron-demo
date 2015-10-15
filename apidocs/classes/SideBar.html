@@ -39,6 +39,7 @@
                         <div id="api-tabview-panel">
                             <ul id="api-classes" class="apis classes">
                                 <li><a href="../classes/AbstractECharts.html">AbstractECharts</a></li>
+                                <li><a href="../classes/Ajax.html">Ajax</a></li>
                                 <li><a href="../classes/Autocomplete.html">Autocomplete</a></li>
                                 <li><a href="../classes/AutoSelect.html">AutoSelect</a></li>
                                 <li><a href="../classes/BasicArea.html">BasicArea</a></li>
@@ -96,6 +97,7 @@
                                 <li><a href="../modules/tabs.html">tabs</a></li>
                                 <li><a href="../modules/TencentMap.html">TencentMap</a></li>
                                 <li><a href="../modules/tree.html">tree</a></li>
+                                <li><a href="../modules/utils.html">utils</a></li>
                             </ul>
                         </div>
                     </div>
@@ -134,7 +136,7 @@
 
 
         <div class="foundat">
-            Defined in: <a href="../files/components_BSSFrame_sidebar.js.html#l26"><code>components\BSSFrame\sidebar.js:26</code></a>
+            Defined in: <a href="../files/components_BSSFrame_sidebar.js.html#l37"><code>components\BSSFrame\sidebar.js:37</code></a>
         </div>
 
             Module: <a href="../modules/BSSFrame.html">BSSFrame</a>
@@ -143,8 +145,23 @@
 
 
 <div class="box intro">
-    <p>侧边目录组件, 为了实现多页面应用, 应该加一个参数, 设置选中哪个菜单项.</p>
-<pre class="code prettyprint"><code>示例:
+    <p>侧边目录组件, 可以实现异步不刷新加载.jsx文件, 正确使用此组件需要下列条件:</p>
+<ol>
+<li>使用\static\third目录下的JSXTransformer.js</li>
+<li>在全局暴露Mimiron.RouteConfig, 保存路由信息, 例子如下:</li>
+</ol>
+<pre class="code prettyprint"><code>Mimiron.RouteConfig = {
+   &quot;../js/pages/index.jsx&quot;:/^\/$/ig,
+   &quot;../js/pages/sample.jsx&quot;:/sample$/ig,
+   &quot;../js/pages/login.jsx&quot;:/login$/ig,
+   &quot;../js/pages/manage-report-group.jsx&quot;:/report\/manageReportGroup/ig,
+   &quot;../js/pages/report-manage.jsx&quot;:/report\/manage$/ig,
+   &quot;../js/pages/report-config.jsx&quot;:/report\/config/ig,
+   &quot;../js/pages/metadata.jsx&quot;:/report\/metadata/ig,
+   &quot;../js/pages/show-report.jsx&quot;:/showReport\/[^\/*]/ig
+   }
+</code></pre>
+<pre class="code prettyprint"><code>组件示例:
 &lt;SideBar list={this.props.menu} /&gt;
 </code></pre>
 
