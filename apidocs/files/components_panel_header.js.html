@@ -58,6 +58,7 @@
                                 <li><a href="../classes/ECharts.html">ECharts</a></li>
                                 <li><a href="../classes/ExpressionSelect.html">ExpressionSelect</a></li>
                                 <li><a href="../classes/Grid.html">Grid</a></li>
+                                <li><a href="../classes/Grid2.html">Grid2</a></li>
                                 <li><a href="../classes/Header.html">Header</a></li>
                                 <li><a href="../classes/Input.html">Input</a></li>
                                 <li><a href="../classes/IrregularLine.html">IrregularLine</a></li>
@@ -141,6 +142,8 @@
  * @module panel
  */
 var React = require(&#x27;react&#x27;);
+var Button = require(&quot;../html/button&quot;);
+var Tools = require(&quot;../utils/tools&quot;);
 
 /**
  * BSS页面头部组件, 在BSSPanel中使用, 一般不单独使用.
@@ -165,6 +168,10 @@ var Header = React.createClass({
     		pageTitle:&quot;(空)&quot;,
     	}
     },
+    onClick: function(){
+        window.history.go(-1);
+        setTimeout(&quot;Tools.goJSX(window.location.hash);&quot;,200);
+    },
     render: function () {
         return (
             &lt;div id=&quot;title-breadcrumb-option-demo&quot; className=&quot;page-title-breadcrumb clearfix&quot;&gt;
@@ -172,9 +179,12 @@ var Header = React.createClass({
                 &lt;div className=&quot;page-title&quot;&gt;{this.props.pageTitle}&lt;/div&gt;
               &lt;/div&gt;
               &lt;ol className=&quot;breadcrumb page-breadcrumb pull-left pll&quot;&gt;
-                &lt;li&gt;&lt;i className=&quot;fa fa-home&quot;&gt;&lt;/i&gt;&amp;nbsp;&lt;a href=&quot;/&quot;&gt;{this.props.root}&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;i className=&quot;fa fa-angle-right&quot;&gt;&lt;/i&gt;&amp;nbsp;&amp;nbsp;&lt;/li&gt;
+                &lt;li&gt;&lt;i className=&quot;fa fa-home&quot;&gt;&lt;/i&gt;&amp;nbsp;&lt;a data-tohash=&quot;yes&quot; href=&quot;/&quot;&gt;{this.props.root}&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;i className=&quot;fa fa-angle-right&quot;&gt;&lt;/i&gt;&amp;nbsp;&amp;nbsp;&lt;/li&gt;
                 &lt;li className=&quot;active&quot;&gt;{this.props.pageTitle}&lt;/li&gt;
               &lt;/ol&gt;
+              &lt;div className=&quot;pull-right&quot;&gt;
+                &lt;Button  btnName=&quot;返回&quot; cssClass=&quot;btn-default&quot; doAction={this.onClick}/&gt;
+              &lt;/div&gt;
             &lt;/div&gt;
         );
     }

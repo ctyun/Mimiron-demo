@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>components\html\cascade_select.js - Mimiron</title>
+    <title>components\page\grid2.js - Mimiron</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -39,6 +39,7 @@
                         <div id="api-tabview-panel">
                             <ul id="api-classes" class="apis classes">
                                 <li><a href="../classes/AbstractECharts.html">AbstractECharts</a></li>
+                                <li><a href="../classes/Ajax.html">Ajax</a></li>
                                 <li><a href="../classes/Autocomplete.html">Autocomplete</a></li>
                                 <li><a href="../classes/AutoSelect.html">AutoSelect</a></li>
                                 <li><a href="../classes/BasicArea.html">BasicArea</a></li>
@@ -53,9 +54,11 @@
                                 <li><a href="../classes/Checkbox.html">Checkbox</a></li>
                                 <li><a href="../classes/CheckboxGroup.html">CheckboxGroup</a></li>
                                 <li><a href="../classes/DatePicker.html">DatePicker</a></li>
+                                <li><a href="../classes/Demo.html">Demo</a></li>
                                 <li><a href="../classes/ECharts.html">ECharts</a></li>
                                 <li><a href="../classes/ExpressionSelect.html">ExpressionSelect</a></li>
                                 <li><a href="../classes/Grid.html">Grid</a></li>
+                                <li><a href="../classes/Grid2.html">Grid2</a></li>
                                 <li><a href="../classes/Header.html">Header</a></li>
                                 <li><a href="../classes/Input.html">Input</a></li>
                                 <li><a href="../classes/IrregularLine.html">IrregularLine</a></li>
@@ -88,15 +91,16 @@
                 
                             <ul id="api-modules" class="apis modules">
                                 <li><a href="../modules/BSSFrame.html">BSSFrame</a></li>
+                                <li><a href="../modules/demo.html">demo</a></li>
                                 <li><a href="../modules/ECharts.html">ECharts</a></li>
                                 <li><a href="../modules/html.html">html</a></li>
                                 <li><a href="../modules/message.html">message</a></li>
                                 <li><a href="../modules/page.html">page</a></li>
                                 <li><a href="../modules/panel.html">panel</a></li>
-                                <li><a href="../modules/TablePanel.html">TablePanel</a></li>
                                 <li><a href="../modules/tabs.html">tabs</a></li>
                                 <li><a href="../modules/TencentMap.html">TencentMap</a></li>
                                 <li><a href="../modules/tree.html">tree</a></li>
+                                <li><a href="../modules/utils.html">utils</a></li>
                             </ul>
                         </div>
                     </div>
@@ -130,74 +134,187 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1 class="file-heading">File: components\html\cascade_select.js</h1>
+<h1 class="file-heading">File: components\page\grid2.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
 /**
- * @module html
+ * @module page
  */
-var React=require(&quot;react/addons&quot;);
-var Select=require(&quot;./select&quot;);
-var AjaxUtils = require(&#x27;../utils/ajax&#x27;);
+var React = require(&#x27;react/addons&#x27;);
 /**
- * 二级联动select
- * &#x60;&#x60;&#x60;
- * 使用方法
- * var React = require(&#x27;react&#x27;);
- * var components=require(&quot;components&quot;);
- * var CascadeSelect=components.CascadeSelect;
- * var CascadeSelectDemo=React.createClass(
- *     render:function(){
- *         return (&lt;CascadeSelect firstDisName=&quot;一级&quot; secondDisName=&quot;二级&quot;  firsDefaultValue=&quot;2&quot; data={[{value:&#x27;1&#x27;,text:&#x27;显示2&#x27;},{value:&#x27;2&#x27;,text:&#x27;显示1&#x27;}]} url=&quot;api/test/autoselect&quot;  /&gt;);
- *     }
- * );
- *使用说明
- *&lt;CascadeSelect firstDisName=&quot;一级&quot; secondDisName=&quot;二级&quot;  firsDefaultValue=&quot;2&quot; data={[{value:&#x27;1&#x27;,text:&#x27;显示2&#x27;},{value:&#x27;2&#x27;,text:&#x27;显示1&#x27;}]} url=&quot;api/test/autoselect&quot;  /&gt;
- *firstDisName:一级显示名称
- * secondDisName:二级显示名称
- * firsDefaultValue:一级显示值
- * data:一级下拉填充数据
- * url:一级下拉选择时，二级下拉联动时后台请求的url
- * &#x60;&#x60;&#x60;
- * @class CascadeSelect
+ * 一个更复杂的表格, 可以直接在table-panel中使用
+ * @class Grid2
  */
-var CascadeSelect=React.createClass({
-getInitialState : function(){
-    return {
-        data:[], //显示的数据
-        url:this.props.url, //ajax 调用后台的url
-        secondDefaultValue:&quot;&quot; //连动select默认值
-    };
-},
-_fetch:function(value){
-    var path=getPath();
-    var self=this;
-    AjaxUtils.get(this.state.url,function(d){
-        self.setState({
-            data:d,
-            secondDefaultValue:&quot;&quot;
-        })
-    });
-},
-_cascadeSelect:function(v){
-    this.setState({
-        data:[],
-        secondDefaultValue:&quot;&quot;
-    });
+var Grid=React.createClass({
+    statics:{
+        datas:{},
+        /**
+         * 获取表格数据, 此方法有一个参数, 为Id
+         * @method getCheckedValue
+         * @static
+         * @return {Array} 选中的数据
+         */
+        getCheckedValue: function(id){
+            Grid.datas = Grid.datas || {};
+            var arr=[];
+            var datas=Grid.datas[id];
+            for(var k in datas){
+                var d=datas[k];
+                if(d&gt;0 || d.length&gt;0){
+                    arr.push(d);
+                }
+            }
+            return arr;
+        },
+        /**
+         * 清除表格数据, 此方法有一个输入值为Id
+         * @method cleanData
+         * @static
+         */
+        cleanData:function(id){
+            Grid.datas = Grid.datas || {};
+            Grid.datas[id]={};
+        },
+        setData:function(id,obj){
+            Grid.datas = Grid.datas || {};
+            Grid.datas[id] = obj;
+        }
+    },
 
-    this._fetch(v);
-},
-onSelect:function(v){
-    if(this.props.onSelect){
-        this.props.onSelect(v);
-    }
-},
-render:function(){
-        return (&lt;div&gt;&lt;Select disName={this.props.firstDisName} onSelect={this._cascadeSelect} defaultValue={this.props.firsDefaultValue} data={this.props.data} /&gt;&lt;Select disName={this.props.secondDisName} onSelect={this._onSelect} defaultValue={this.state.secondDefaultValue} data={this.state.data} /&gt;&lt;/div&gt;)
-    }
+    getInitialState : function(){
+        return {
+            prifx:&quot;id_&quot;,
+            checkedValues:this.props.checkedValues,
+            currentTr:null, //当前激活的tr, 激活的Tr会显示额外信息
+            activeTr:null,
+        };
+    },
+    getDefaultProps: function(){
+        return{
+            checkType :&quot;checkbox&quot;,
+            checkedValues:[],
+            id:&quot;defaultId&quot;
+        }
+    },
+    componentWillMount: function() {
+        var datas={};
+        this.props.checkedValues.map(function(v) {
+            datas[this.state.prifx+v]=v;
+        });
+        Grid.datas = Grid.datas||{};
+        Grid.datas[this.props.id]=datas;
+    },
+    componentDidMount: function(){
+        //$(&quot;.dummyTr&quot;).hide();
+    },
+    componentWillReceiveProps: function(nextProps) {
+        if(nextProps.checkedValues != this.props.checkedValues){
+            var datas=[];
+            var self = this;
+            nextProps.checkedValues.map(function(v) {
+                datas[self.state.prifx+v]=v;
+            });
+            Grid.datas = Grid.datas || {};
+            Grid.datas[this.props.id]=datas;
+        }
+        
+    },
+    componentDidUpdate: function(){
+        //$(&quot;.dummyTr&quot;).hide();
+        if(this.state.currentTr){
+            $(this.state.currentTr).next().show();
+        }
+    },
+    _checkBoxOnChange:function(event){
+        var datas={};
+        var v=event.target.value;
+        if(this.props.checkType==&quot;checkbox&quot;){
+            datas = Grid.datas[this.props.id]|| datas; 
+        }
+        if(event.target.checked){
+            datas[this.state.prifx+v]=v;
+        }else{
+            datas[this.state.prifx+v]=0;
+        }
+        Grid.setData(this.props.id,datas);
+    },
+    clickTr: function(e){
+        //显示children 使用的是React方式
+        if(this.props.toShow){
+            if(this.state.activeTr==$(e.target).parent().attr(&quot;data-key&quot;)){
+                this.setState({activeTr:null}); //点击同一个Tr 循环展开和关闭
+            } else{
+                this.setState({activeTr:$(e.target).parent().attr(&quot;data-key&quot;)});
+            }
+        }
+        return;
+
+        //显示dummyTr 使用的是jquery方式
+        var currentTr = $(e.target).parent();
+        if($(currentTr).next().hasClass(&quot;dummyTr&quot;)&amp;&amp;$(currentTr).next().is(&quot;:visible&quot;)){
+            window.tempFunc = function(){$(currentTr).next().hide();};
+            setTimeout(&quot;tempFunc()&quot;,0);
+        }
+        this.setState({currentTr:currentTr});
+        //TODO 设置单元格内容
+        if($(currentTr).next().children().html()==&quot;&quot;){
+            for(var i=0;i&lt;this.props.isDummy.length;i++){
+                if(this.props.isDummy[i]){
+                    $(currentTr).next().children().html($(currentTr).next().children().html()+&quot;&lt;br /&gt;&lt;b&gt;&quot;+this.props.title[i] +&quot;&lt;/b&gt; : &quot; + $(currentTr).children().eq(i).html());
+                }
+            }
+        }
+    },
+    render:function(){
+        var title=this.props.title; //这里不知道为什么不能直接在t中使用this.props.XXX
+        var key=this.props.jsonKey;
+        var data=this.props.data;
+        var checkType = this.props.checkType;
+        var rows=[];
+        var titleData=[];
+        if(title){
+            title.forEach(function(d){
+                var t=&lt;th&gt;{d}&lt;/th&gt;;
+                titleData.push(t);
+            });
+        }
+
+        var self=this;
+        var t= &lt;table  className=&quot;table table-hover table-bordered table-striped&quot;&gt;
+        &lt;thead&gt;
+        &lt;tr&gt;
+        {titleData}
+        &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody className=&quot;grid-2&quot;&gt;
+        {data&amp;&amp;data.length&gt;0? this.props.data.map(function(source, key) {
+            return [&lt;tr data-key={key} onClick={this.clickTr}&gt;
+            {this.props.jsonKey.map(function(column, columnKey) {
+                if(columnKey==0){
+                    if(self.props.noHasCheckBox&amp;&amp;self.props.noHasCheckBox==true){
+                         return &lt;td key={columnKey}&gt;{source[column]}&lt;/td&gt;
+                    }
+                    else{
+                        if(Grid.datas[self.state.prifx+source[column]]){
+                            return &lt;td key={columnKey}&gt;&lt;input type={checkType} onChange={self._checkBoxOnChange} name=&quot;id&quot; value={source[column]} checked=&quot;checked&quot;/&gt;&lt;/td&gt;
+                        }else{
+                            return &lt;td key={columnKey}&gt;&lt;input type={checkType} onChange={self._checkBoxOnChange} name=&quot;id&quot; value={source[column]}/&gt;&lt;/td&gt;
+                        }
+                        
+                    }
+            }else{
+                return &lt;td key={columnKey}&gt;{source[column]}&lt;/td&gt;
+            }
+        })}
+    &lt;/tr&gt;,&lt;tr className=&quot;dummyTr&quot; style={{&quot;display&quot;:this.state.activeTr==key?&quot;&quot;:&quot;none&quot;}}&gt;&lt;td colSpan={this.props.title.length + 1} &gt;{this.state.activeTr==key?this.props.toShow:null}&lt;/td&gt;&lt;/tr&gt;];
+}.bind(this)) : &lt;td colSpan={this.props.title.length + 1}&gt;&lt;div className=&quot;text-center&quot;&gt;暂无数据，请输入查询条件进行查询。&lt;/div&gt;&lt;/td&gt;}
+&lt;/tbody&gt;
+&lt;/table&gt;;
+return (t);
+}
 });
-module.exports=CascadeSelect;
+module.exports=Grid;
     </pre>
 </div>
                     </div>

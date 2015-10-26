@@ -58,6 +58,7 @@
                                 <li><a href="../classes/ECharts.html">ECharts</a></li>
                                 <li><a href="../classes/ExpressionSelect.html">ExpressionSelect</a></li>
                                 <li><a href="../classes/Grid.html">Grid</a></li>
+                                <li><a href="../classes/Grid2.html">Grid2</a></li>
                                 <li><a href="../classes/Header.html">Header</a></li>
                                 <li><a href="../classes/Input.html">Input</a></li>
                                 <li><a href="../classes/IrregularLine.html">IrregularLine</a></li>
@@ -145,40 +146,45 @@ var React = require(&#x27;react/addons&#x27;);
  * 表格组件,是&#x60;TablePanel&#x60;的组成部分
  * &#x60;&#x60;&#x60;
  * 示例:
- * &lt;Grid title={this.props.title} noHasCheckBox={this.props.noHasCheckBox} jsonKey={this.props.jsonKey} data={this.props.data} checkType={this.props.checkType}/&gt;
+ * &lt;Grid id=&quot;uniqueId&quot; title={this.props.title} noHasCheckBox={this.props.noHasCheckBox} jsonKey={this.props.jsonKey} data={this.props.data} checkType={this.props.checkType}/&gt;
  * &#x60;&#x60;&#x60;
  * @class Grid
+ * @deprecated 被Grid2取代 即将移除.
  *
  */
 var Grid=React.createClass({
     statics:{
         datas:{},
         /**
-         * 获取表格数据
+         * 获取表格数据, 此方法有一个参数, 为Id
          * @method getCheckedValue
          * @static
          * @return {Array} 选中的数据
          */
-        getCheckedValue:function(){
+        getCheckedValue: function(id){
+            Grid.datas = Grid.datas || {};
             var arr=[];
-            var datas=Grid.datas;
+            var datas=Grid.datas[id];
             for(var k in datas){
                 var d=datas[k];
-
                 if(d&gt;0 || d.length&gt;0){
                     arr.push(d);
                 }
             }
-
             return arr;
         },
         /**
-         * 清除表格数据
+         * 清除表格数据, 此方法有一个输入值为Id
          * @method cleanData
          * @static
          */
-        cleanData:function(){
-            Grid.datas=[];
+        cleanData:function(id){
+            Grid.datas = Grid.datas || {};
+            Grid.datas[id]={};
+        },
+        setData:function(id,obj){
+            Grid.datas = Grid.datas || {};
+            Grid.datas[id] = obj;
         }
     },
 
@@ -192,29 +198,24 @@ var Grid=React.createClass({
     getDefaultProps: function(){
         return{
             checkType :&quot;checkbox&quot;,
+            id:&quot;defaultId&quot;
         }
     },
     _checkBoxOnChange:function(event){
-
-        var datas=[];
-        if(this.props.checkType == &quot;checkbox&quot;){
-            datas=Grid.datas;
-        }
-        else if(this.props.checkType == &quot;radio&quot;){
-            Grid.datas = [];
-            Grid.cleanData();
-        }
+        var datas={};
         var v=event.target.value;
-
+        if(this.props.checkType==&quot;checkbox&quot;){
+            datas = Grid.datas[this.props.id]|| datas; 
+        }
         if(event.target.checked){
             datas[this.state.prifx+v]=v;
         }else{
             datas[this.state.prifx+v]=0;
         }
-        this.state.datas=datas;
-        Grid.datas=this.state.datas;
+        Grid.setData(this.props.id,datas);
     },
     render:function(){
+        console.info(&quot;Grid组件即将被Grid2替代, 理论上你不可能看到此信息, 如看到, 请立即联系我.&quot;);
         /**
          * @property {String} title 标题
          */
@@ -253,7 +254,6 @@ var Grid=React.createClass({
                 titleData.push(t);
             });
         }
-
 
         var self=this;
 

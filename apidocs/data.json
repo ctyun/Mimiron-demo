@@ -23,13 +23,6 @@
             "fors": {},
             "namespaces": {}
         },
-        "components\\BSSFrame\\route.js": {
-            "name": "components\\BSSFrame\\route.js",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
         "components\\BSSFrame\\sidebar.js": {
             "name": "components\\BSSFrame\\sidebar.js",
             "modules": {},
@@ -308,11 +301,20 @@
             "fors": {},
             "namespaces": {}
         },
-        "components\\page\\page.js": {
-            "name": "components\\page\\page.js",
+        "components\\page\\grid2.js": {
+            "name": "components\\page\\grid2.js",
             "modules": {
                 "page": 1
             },
+            "classes": {
+                "Grid2": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "components\\page\\page.js": {
+            "name": "components\\page\\page.js",
+            "modules": {},
             "classes": {
                 "Pager": 1,
                 "PageButton": 1,
@@ -550,6 +552,7 @@
             "submodules": {},
             "elements": {},
             "classes": {
+                "Grid2": 1,
                 "Pager": 1,
                 "PageButton": 1,
                 "PageItem": 1,
@@ -562,7 +565,6 @@
             "tag": "module",
             "file": "components\\page\\pagesizeselect.js",
             "line": 7,
-            "description": "Created by chenth on 15-7-10.\n表格分页组件",
             "example": [
                 "\n```\n使用说明\n<PageButton  doList={this.doList} pageSize={this.state.pageSize}  page={this.state.offset} totalRows={this.state.totalRows}/>\n＊doList:回调ajax请求的方法，加载列表数据\n＊pageSize：页面大小\n＊page:当前页面\n＊totalRows:总行数\n```"
             ]
@@ -669,8 +671,8 @@
             "module": "BSSFrame",
             "namespace": "",
             "file": "components\\BSSFrame\\sidebar.js",
-            "line": 37,
-            "description": "侧边目录组件, 可以实现异步不刷新加载.jsx文件, 正确使用此组件需要下列条件:\n 1. 使用\\static\\third目录下的JSXTransformer.js\n 2. 在全局暴露Mimiron.RouteConfig, 保存路由信息, 例子如下:\n ```\n Mimiron.RouteConfig = {\n    \"../js/pages/index.jsx\":/^\\/$/ig,\n    \"../js/pages/sample.jsx\":/sample$/ig,\n    \"../js/pages/login.jsx\":/login$/ig,\n    \"../js/pages/manage-report-group.jsx\":/report\\/manageReportGroup/ig,\n    \"../js/pages/report-manage.jsx\":/report\\/manage$/ig,\n    \"../js/pages/report-config.jsx\":/report\\/config/ig,\n    \"../js/pages/metadata.jsx\":/report\\/metadata/ig,\n    \"../js/pages/show-report.jsx\":/showReport\\/[^\\/*]/ig\n    }\n ```\n ```\n 组件示例:\n <SideBar list={this.props.menu} />\n ```"
+            "line": 36,
+            "description": "侧边目录组件, 可以实现异步不刷新加载.jsx文件, 正确使用此组件需要下列条件:\n 1. 使用\\static\\third目录下的JSXTransformer.js\n 2. 在全局暴露Mimiron.RouteConfig, 保存路由信息, 例子如下:\n ```\n Mimiron.RouteConfig = {\n    \"../js/pages/index.jsx\":/^\\/$/ig,\n    \"../js/pages/sample.jsx\":/sample$/ig,\n    \"../js/pages/login.jsx\":/login$/ig,\n    \"../js/pages/manage-report-group.jsx\":/report\\/manageReportGroup/ig,\n    \"../js/pages/report-manage.jsx\":/report\\/manage$/ig,\n    \"../js/pages/report-config.jsx\":/report\\/config/ig,\n    \"../js/pages/metadata.jsx\":/report\\/metadata/ig,\n    \"../js/pages/show-report.jsx\":/showReport\\/[^\\/*]/ig\n    }\n ```\n ```\n 组件示例:\n <SideBar list={this.props.menu} />\n ```\n 组件有一个静态方法, 需要在页面框架组件的componentDidMount声明周期进行调用:\n `Sidebar.init(\"../js/dist/frame/theme.js\");`\n 该方法有一个必选参数, 是主题的配置文件路径."
         },
         "TopBar": {
             "name": "TopBar",
@@ -1010,7 +1012,7 @@
             "namespace": "",
             "file": "components\\html\\input.js",
             "line": 27,
-            "description": "input输入组件\n  ```\n  使用方法\n var React = require('react');\n var components=require(\"components\");\n var Input=components.Input;\n var InputDemo=React.createClass(\n     render:function(){\n         return (<Input disName=\"名称\" doChange={this._doChange}  name=\"html_name\" />);\n     }\n );\n  使用说明\n  <Input disName=\"名称\" doChange={this._doChange}  />\n  disName:要显示的名称\n  doChange:值改变时调用的事件\n  onClick:点击时调用的事件\n  value:默认值\n  name: 同html的name\n  ```"
+            "description": "input输入组件\n  ```\n  使用方法\n var React = require('react');\n var components=require(\"components\");\n var Input=components.Input;\n var InputDemo=React.createClass(\n     render:function(){\n         return (<Input disName=\"名称\" doChange={this._doChange}  name=\"html_name\" />);\n     },\n     _doChange: function(obj){\n         \n     }\n );\n  使用说明\n  <Input disName=\"名称\" doChange={this._doChange}  />\n  disName:要显示的名称\n  doChange:值改变时调用的事件\n  onClick:点击时调用的事件\n  value:默认值\n  name: 同html的name\n  ```"
         },
         "Select": {
             "name": "Select",
@@ -1083,7 +1085,7 @@
             "namespace": "",
             "file": "components\\message\\modal.js",
             "line": 6,
-            "description": "```\n <Modal title=\"i am title\" body={this._modalBody} footer={this._ModalFooter}/>\n targetName:需要在触发模态框的元素需给属性data-toggle=\"modal\" data-target=\"#targetName\" 或者使用jquery:$(\"#targetName\").modal\n title:标题\n body:中间显示的内容\n footer:底部显示的内容,一般来说至少需要一个确认按钮一个取消按钮\n```\nModal组件"
+            "description": "```\n示例:\n<Modal id=\"addTableModal\" title=\"添加对话框\" submitAction={this.ModalHandler} jsonFormat={true}>\n <div className=\"content-left\">\n     <Input disName=\"名称: \" name=\"reportMetadataName\" value={this.state.reportMetadataName}/> <br/>\n     <Select disName=\" 元数据类型:\" name=\"defaultQueryType\" data={this.locals.selectMetaDataType} onSelect={this.onSelectMetaData} defaultValue={this.state.defaultQueryType}/> <br />\n </div>\n</Modal> \n参数:\nhideDefaultButton: 是否隐藏提交按钮\nid: 唯一id, Modal.show和hide方法调用时需要传入\ntitle: 标题\nsubmitAction: 点击提交后的回调函数\njsonFormat: 结果是否格式化为json\ncssClass:(string) 默认为空, 可以传入:\n     \"modal-lg\":\n     ...支持其他BSSform参数.\ndragable:(Boolean) 可拖拽, 默认为true\ndragEnd:(Function) 拖拽结束的回调函数,此函数返回两个参数,估计一般用不到,可以log出来看看, 也可以来问我. \n```\nTODO: footer \nModal组件"
         },
         "Grid": {
             "name": "Grid",
@@ -1097,7 +1099,23 @@
             "namespace": "",
             "file": "components\\page\\grid.js",
             "line": 5,
-            "description": "表格组件,是`TablePanel`的组成部分\n```\n示例:\n<Grid title={this.props.title} noHasCheckBox={this.props.noHasCheckBox} jsonKey={this.props.jsonKey} data={this.props.data} checkType={this.props.checkType}/>\n```"
+            "description": "表格组件,是`TablePanel`的组成部分\n```\n示例:\n<Grid id=\"uniqueId\" title={this.props.title} noHasCheckBox={this.props.noHasCheckBox} jsonKey={this.props.jsonKey} data={this.props.data} checkType={this.props.checkType}/>\n```",
+            "deprecated": true,
+            "deprecationMessage": "被Grid2取代 即将移除."
+        },
+        "Grid2": {
+            "name": "Grid2",
+            "shortname": "Grid2",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "page",
+            "namespace": "",
+            "file": "components\\page\\grid2.js",
+            "line": 5,
+            "description": "一个更复杂的表格, 可以直接在table-panel中使用"
         },
         "Pager": {
             "name": "Pager",
@@ -1166,7 +1184,7 @@
             "module": "panel",
             "namespace": "",
             "file": "components\\panel\\header.js",
-            "line": 6,
+            "line": 8,
             "description": "BSS页面头部组件, 在BSSPanel中使用, 一般不单独使用.\n```\n<Header pageTitle={name} />\n```"
         },
         "BSSPanel": {
@@ -1211,8 +1229,8 @@
             "module": "panel",
             "namespace": "",
             "file": "components\\panel\\table-panel.js",
-            "line": 9,
-            "description": "封装表格面板组件\n```\n使用方法\n       var TablePanelDemo=React.createClass(\n            doList: function(currentPage,pageSize){\n                 //在这里通过currentPage和pageSize发送ajax请求获取数据, 然后写入tableProps.data, 注意先清空旧数据.\n                 console.log(currentPage,pageSize);\n            },\n            render:function(){\n                 var tableProps={\n                      title:['选项','标题1','标题2','标题3'],\n                      jsonKey:['id','t1','t2','t3'],\n                      data:[{id:1,\n                      t1:'测试1',\n                      t2:'测试2',\n                      t3:'测试3'}],\n                      doList:this.doList,\n                      pageSize:10,\n                      offset:1, //page:this.state.offset\n                      totalRows:1,\n                      checkType:\"radio\",\n                 }\n            return (<TablePanel {...tableProps}/>);\n       });\n```"
+            "line": 10,
+            "description": "封装表格面板组件\n```\n使用方法\n       var TablePanelDemo=React.createClass(\n            doList: function(currentPage,pageSize){\n                 //在这里通过currentPage和pageSize发送ajax请求获取数据, 然后写入tableProps.data, 注意先清空旧数据.\n                 console.log(currentPage,pageSize);\n            },\n            render:function(){\n                 var tableProps={\n                      title:['选项','标题1','标题2','标题3'],\n                      jsonKey:['id','t1','t2','t3'],\n                      data:[{id:1,\n                      t1:'测试1',\n                      t2:'测试2',\n                      t3:'测试3'}],\n                      doList:this.doList,\n                      pageSize:10,\n                      offset:1, //page:this.state.offset\n                      totalRows:1,\n                      checkType:\"radio\",\n                 }\n            return (<TablePanel {...tableProps}/>);\n       });\n```\n如果传入参数version={2}则会启动增强版表格显示, 给某列提供isDummy属性, 可以将这一行内容显示在该行下方.例如:\n```\nvar tableProps={\n         title:['选择','源表名称','编码','名称','查询类型','枚举项'],\n         jsonKey:['reportMetadataId','resourceTableName','reportMetadataCode','reportMetadataName','defaultQueryTypeShow','selectParam'],\n         data:this.state.data,\n         doList:this.doList,\n         pageSize:this.state.pageSize,\n         offset:this.state.offset, //page:this.state.offset\n         totalRows:this.state.totalRows,\n         checkType:\"checkbox\",\n         isDummy:[true,,true,,,,],\n       };\n```"
         },
         "ToolBarPanel": {
             "name": "ToolBarPanel",
@@ -1779,7 +1797,7 @@
         },
         {
             "file": "components\\html\\input.js",
-            "line": 54,
+            "line": 57,
             "description": "不携带参数",
             "itemtype": "property",
             "name": "onClick 点击事件",
@@ -1789,7 +1807,7 @@
         },
         {
             "file": "components\\html\\input.js",
-            "line": 59,
+            "line": 62,
             "description": "默认样式\n```\n可选值:\n\"input-nm\":  普通(宽120px)\n\"input-md\":  较小(宽70px)\n\"input-xs\":  非常小(宽30px)\n```",
             "itemtype": "property",
             "name": "cssClass 用于css样式的class",
@@ -1800,7 +1818,7 @@
         },
         {
             "file": "components\\html\\input.js",
-            "line": 72,
+            "line": 75,
             "itemtype": "property",
             "name": "isPassword  是否为密码框",
             "type": "Boolean",
@@ -1810,7 +1828,7 @@
         },
         {
             "file": "components\\html\\input.js",
-            "line": 90,
+            "line": 93,
             "itemtype": "property",
             "name": "value 默认值",
             "type": "String",
@@ -1819,7 +1837,7 @@
         },
         {
             "file": "components\\html\\input.js",
-            "line": 145,
+            "line": 148,
             "itemtype": "property",
             "name": "errorMsg 错误提示信息",
             "type": "String",
@@ -1831,7 +1849,7 @@
         },
         {
             "file": "components\\html\\input.js",
-            "line": 149,
+            "line": 152,
             "description": "```\n可选值:\n\"number\" : 数字\n```",
             "itemtype": "property",
             "name": "reg 正则规则",
@@ -1841,7 +1859,7 @@
         },
         {
             "file": "components\\html\\input.js",
-            "line": 156,
+            "line": 159,
             "itemtype": "property",
             "name": "name 同html中的name",
             "type": "String",
@@ -1850,7 +1868,7 @@
         },
         {
             "file": "components\\html\\input.js",
-            "line": 159,
+            "line": 162,
             "itemtype": "property",
             "name": "placeholder 同html",
             "type": "String",
@@ -2038,7 +2056,7 @@
         },
         {
             "file": "components\\message\\modal.js",
-            "line": 19,
+            "line": 33,
             "description": "显示对话框",
             "static": 1,
             "itemtype": "method",
@@ -2055,7 +2073,7 @@
         },
         {
             "file": "components\\message\\modal.js",
-            "line": 29,
+            "line": 43,
             "description": "隐藏对话框",
             "static": 1,
             "itemtype": "method",
@@ -2072,8 +2090,8 @@
         },
         {
             "file": "components\\page\\grid.js",
-            "line": 17,
-            "description": "获取表格数据",
+            "line": 18,
+            "description": "获取表格数据, 此方法有一个参数, 为Id",
             "itemtype": "method",
             "name": "getCheckedValue",
             "static": 1,
@@ -2087,7 +2105,7 @@
         {
             "file": "components\\page\\grid.js",
             "line": 36,
-            "description": "清除表格数据",
+            "description": "清除表格数据, 此方法有一个输入值为Id",
             "itemtype": "method",
             "name": "cleanData",
             "static": 1,
@@ -2138,6 +2156,30 @@
             "module": "message"
         },
         {
+            "file": "components\\page\\grid2.js",
+            "line": 12,
+            "description": "获取表格数据, 此方法有一个参数, 为Id",
+            "itemtype": "method",
+            "name": "getCheckedValue",
+            "static": 1,
+            "return": {
+                "description": "选中的数据",
+                "type": "Array"
+            },
+            "class": "Grid2",
+            "module": "page"
+        },
+        {
+            "file": "components\\page\\grid2.js",
+            "line": 30,
+            "description": "清除表格数据, 此方法有一个输入值为Id",
+            "itemtype": "method",
+            "name": "cleanData",
+            "static": 1,
+            "class": "Grid2",
+            "module": "page"
+        },
+        {
             "file": "components\\page\\page.js",
             "line": 61,
             "itemtype": "property",
@@ -2175,7 +2217,7 @@
         },
         {
             "file": "components\\panel\\header.js",
-            "line": 17,
+            "line": 19,
             "itemtype": "property",
             "name": "root 根节点名称",
             "type": "String",
@@ -2185,7 +2227,7 @@
         },
         {
             "file": "components\\panel\\header.js",
-            "line": 22,
+            "line": 24,
             "itemtype": "property",
             "name": "pageTitle 本页标题",
             "type": "String",
@@ -2371,7 +2413,7 @@
         },
         {
             "file": "components\\utils\\tools.js",
-            "line": 226,
+            "line": 311,
             "description": "all GET props saved in $_GET\nfor example:\nin url http://127.0.0.1:8081/sample?id=1 you can use $_GET[\"id\"] to get \"1\"",
             "class": "",
             "module": "utils"
@@ -2384,11 +2426,11 @@
         },
         {
             "message": "unknown tag: defualt",
-            "line": " components\\html\\input.js:59"
+            "line": " components\\html\\input.js:62"
         },
         {
             "message": "Missing item type\nall GET props saved in $_GET\nfor example:\nin url http://127.0.0.1:8081/sample?id=1 you can use $_GET[\"id\"] to get \"1\"",
-            "line": " components\\utils\\tools.js:226"
+            "line": " components\\utils\\tools.js:311"
         }
     ]
 }

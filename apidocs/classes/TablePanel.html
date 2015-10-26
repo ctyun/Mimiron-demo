@@ -58,6 +58,7 @@
                                 <li><a href="../classes/ECharts.html">ECharts</a></li>
                                 <li><a href="../classes/ExpressionSelect.html">ExpressionSelect</a></li>
                                 <li><a href="../classes/Grid.html">Grid</a></li>
+                                <li><a href="../classes/Grid2.html">Grid2</a></li>
                                 <li><a href="../classes/Header.html">Header</a></li>
                                 <li><a href="../classes/Input.html">Input</a></li>
                                 <li><a href="../classes/IrregularLine.html">IrregularLine</a></li>
@@ -138,7 +139,7 @@
 
 
         <div class="foundat">
-            Defined in: <a href="../files/components_panel_table-panel.js.html#l9"><code>components\panel\table-panel.js:9</code></a>
+            Defined in: <a href="../files/components_panel_table-panel.js.html#l10"><code>components\panel\table-panel.js:10</code></a>
         </div>
 
             Module: <a href="../modules/panel.html">panel</a>
@@ -170,6 +171,19 @@
                  }
             return (&lt;TablePanel {...tableProps}/&gt;);
        });
+</code></pre>
+<p>如果传入参数version={2}则会启动增强版表格显示, 给某列提供isDummy属性, 可以将这一行内容显示在该行下方.例如:</p>
+<pre class="code prettyprint"><code>var tableProps={
+         title:['选择','源表名称','编码','名称','查询类型','枚举项'],
+         jsonKey:['reportMetadataId','resourceTableName','reportMetadataCode','reportMetadataName','defaultQueryTypeShow','selectParam'],
+         data:this.state.data,
+         doList:this.doList,
+         pageSize:this.state.pageSize,
+         offset:this.state.offset, //page:this.state.offset
+         totalRows:this.state.totalRows,
+         checkType:&quot;checkbox&quot;,
+         isDummy:[true,,true,,,,],
+       };
 </code></pre>
 
 </div>

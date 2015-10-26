@@ -58,6 +58,7 @@
                                 <li><a href="../classes/ECharts.html">ECharts</a></li>
                                 <li><a href="../classes/ExpressionSelect.html">ExpressionSelect</a></li>
                                 <li><a href="../classes/Grid.html">Grid</a></li>
+                                <li><a href="../classes/Grid2.html">Grid2</a></li>
                                 <li><a href="../classes/Header.html">Header</a></li>
                                 <li><a href="../classes/Input.html">Input</a></li>
                                 <li><a href="../classes/IrregularLine.html">IrregularLine</a></li>
@@ -145,11 +146,16 @@
 
 </div>
 
+    <div class="box deprecated">
+        <p>
+            <strong>Deprecated:</strong> 被Grid2取代 即将移除.
+        </p>
+    </div>
 
 <div class="box intro">
     <p>表格组件,是<code>TablePanel</code>的组成部分</p>
 <pre class="code prettyprint"><code>示例:
-&lt;Grid title={this.props.title} noHasCheckBox={this.props.noHasCheckBox} jsonKey={this.props.jsonKey} data={this.props.data} checkType={this.props.checkType}/&gt;
+&lt;Grid id=&quot;uniqueId&quot; title={this.props.title} noHasCheckBox={this.props.noHasCheckBox} jsonKey={this.props.jsonKey} data={this.props.data} checkType={this.props.checkType}/&gt;
 </code></pre>
 
 </div>
@@ -237,7 +243,7 @@
     </div>
 
     <div class="description">
-        <p>清除表格数据</p>
+        <p>清除表格数据, 此方法有一个输入值为Id</p>
 
     </div>
 
@@ -264,7 +270,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/components_page_grid.js.html#l17"><code>components\page\grid.js:17</code></a>
+        <a href="../files/components_page_grid.js.html#l18"><code>components\page\grid.js:18</code></a>
         </p>
 
 
@@ -272,7 +278,7 @@
     </div>
 
     <div class="description">
-        <p>获取表格数据</p>
+        <p>获取表格数据, 此方法有一个参数, 为Id</p>
 
     </div>
 

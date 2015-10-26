@@ -58,6 +58,7 @@
                                 <li><a href="../classes/ECharts.html">ECharts</a></li>
                                 <li><a href="../classes/ExpressionSelect.html">ExpressionSelect</a></li>
                                 <li><a href="../classes/Grid.html">Grid</a></li>
+                                <li><a href="../classes/Grid2.html">Grid2</a></li>
                                 <li><a href="../classes/Header.html">Header</a></li>
                                 <li><a href="../classes/Input.html">Input</a></li>
                                 <li><a href="../classes/IrregularLine.html">IrregularLine</a></li>
@@ -182,7 +183,7 @@ var TopBar = React.createClass({
     		return
     	}else{
     		Ajax.get(API.LOGOUT,function(d){
-    			window.location.href = &quot;/login&quot;;
+    			window.location.href = &quot;/&quot;;
     		});
 
     	}
@@ -199,8 +200,8 @@ var TopBar = React.createClass({
 		                &lt;ul className=&quot;nav navbar navbar-top-links navbar-right mbn&quot;&gt;
 		                    &lt;li className=&quot;dropdown topbar-user&quot;&gt;&lt;a data-hover=&quot;dropdown&quot; href=&quot;#&quot; className=&quot;dropdown-toggle&quot;&gt;&lt;span&gt;{this.props.userName}&lt;/span&gt;&amp;nbsp;&lt;span className=&quot;caret&quot;&gt;&lt;/span&gt;&lt;/a&gt;
 		                        &lt;ul className=&quot;dropdown-menu dropdown-user pull-left&quot;&gt;
-		                            &lt;li&gt;&lt;a href=&quot;extra-profile.html&quot;&gt;&lt;i className=&quot;fa fa-user&quot;&gt;&lt;/i&gt;个人设置&lt;/a&gt;&lt;/li&gt;
-		                            &lt;li&gt;&lt;a href=&quot;#&quot; onClick={this._logout}&gt;&lt;i className=&quot;fa fa-key&quot;&gt;&lt;/i&gt;注销&lt;/a&gt;&lt;/li&gt;
+		                            &lt;li&gt;&lt;a href=&quot;extra-profile.html&quot; onClick={alert.bind(this,&quot;1&quot;)}&gt;&lt;i className=&quot;fa fa-user&quot;&gt;&lt;/i&gt;个人设置&lt;/a&gt;&lt;/li&gt;
+		                            &lt;li&gt;&lt;a href=&quot;#&quot; data-keep=&quot;yes&quot; onClick={this._logout}&gt;&lt;i className=&quot;fa fa-key&quot;&gt;&lt;/i&gt;注销&lt;/a&gt;&lt;/li&gt;
 		                        &lt;/ul&gt;
 		                    &lt;/li&gt;
 		                    &lt;li className=&quot;dropdown hidden-xs&quot;&gt;&lt;a id=&quot;theme-setting&quot; href=&quot;javascript:;&quot; data-hover=&quot;dropdown&quot;&gt;&lt;i

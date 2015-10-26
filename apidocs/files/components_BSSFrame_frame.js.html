@@ -58,6 +58,7 @@
                                 <li><a href="../classes/ECharts.html">ECharts</a></li>
                                 <li><a href="../classes/ExpressionSelect.html">ExpressionSelect</a></li>
                                 <li><a href="../classes/Grid.html">Grid</a></li>
+                                <li><a href="../classes/Grid2.html">Grid2</a></li>
                                 <li><a href="../classes/Header.html">Header</a></li>
                                 <li><a href="../classes/Input.html">Input</a></li>
                                 <li><a href="../classes/IrregularLine.html">IrregularLine</a></li>
@@ -144,7 +145,7 @@
 var React = require(&#x27;react&#x27;);
 var TopBar = require(&quot;./topbar&quot;);
 var SideBar = require(&quot;./sidebar&quot;);
-var Route = require(&quot;./route&quot;);
+var Tools = require(&quot;../utils/tools&quot;);
 /**
  * 这是BSS系统业务页面的框架, 将页面需要展示的内容作为children即可, 需要传输参数userName, 将显示在右上角.
  * 例子:
@@ -171,7 +172,7 @@ var BSSFrame = React.createClass({
         }
     },
     componentDidMount: function(){
-	    Tools.loadScript([&quot;../js/dist/frame/theme.js&quot;]);
+	    Tools.loadScript(&quot;../js/dist/frame/theme.js&quot;);
 	},
 	render: function(){
 		return(&lt;div&gt;

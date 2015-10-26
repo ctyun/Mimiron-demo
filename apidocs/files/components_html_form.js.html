@@ -58,6 +58,7 @@
                                 <li><a href="../classes/ECharts.html">ECharts</a></li>
                                 <li><a href="../classes/ExpressionSelect.html">ExpressionSelect</a></li>
                                 <li><a href="../classes/Grid.html">Grid</a></li>
+                                <li><a href="../classes/Grid2.html">Grid2</a></li>
                                 <li><a href="../classes/Header.html">Header</a></li>
                                 <li><a href="../classes/Input.html">Input</a></li>
                                 <li><a href="../classes/IrregularLine.html">IrregularLine</a></li>
@@ -224,7 +225,6 @@ var BSSForm=React.createClass({
        var node=this.state.elem;
         param=$(node).serialize();
         window.node = node;
-        Debug.log(param,&quot;in _submitAction param&quot;);
         if(this.props.submitAction){
             param=$(node).serialize();
             param=decodeURIComponent(param,true);

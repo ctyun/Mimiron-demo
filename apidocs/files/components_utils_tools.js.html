@@ -58,6 +58,7 @@
                                 <li><a href="../classes/ECharts.html">ECharts</a></li>
                                 <li><a href="../classes/ExpressionSelect.html">ExpressionSelect</a></li>
                                 <li><a href="../classes/Grid.html">Grid</a></li>
+                                <li><a href="../classes/Grid2.html">Grid2</a></li>
                                 <li><a href="../classes/Header.html">Header</a></li>
                                 <li><a href="../classes/Input.html">Input</a></li>
                                 <li><a href="../classes/IrregularLine.html">IrregularLine</a></li>
@@ -139,10 +140,12 @@
     <pre class="code prettyprint linenums">
 var $ = require(&#x27;jQuery&#x27;);
 
+var API = require(&quot;../const/API&quot;);
+var Debug = require(&quot;../utils/debug&quot;);
+var Ajax = require(&quot;../utils/ajax&quot;);
+
 var Tools = {
-
     uuid : function() {
-
         var s = [];
         var hexDigits = &quot;0123456789abcdef&quot;;
         for (var i = 0; i &lt; 36; i++) {
@@ -151,11 +154,9 @@ var Tools = {
         s[14] = &quot;4&quot;;  // bits 12-15 of the time_hi_and_version field to 0010
         s[19] = hexDigits.substr((s[19] &amp; 0x3) | 0x8, 1);  // bits 6-7 of the clock_seq_hi_and_reserved to 01
         s[8] = s[13] = s[18] = s[23] = &quot;-&quot;;
-     
         var uuid = s.join(&quot;&quot;);
         return uuid;
     },
-
     clone: function(obj){
 
         if(typeof(obj) != &#x27;object&#x27;) return obj; 
@@ -318,11 +319,7 @@ var Tools = {
         }
         return false;
     },
-    loadJSX: function(url){
-        if(!window.Mimiron.runScripts){
-            console.info(&quot;如果你想使用utils.loadJSX异步加载jsx文件, 你必须先通过JSXTransform.js暴露window.Mimiron.runScripts方法!&quot;);
-            return;
-        }
+    appendJSX: function(url){
         //先删除其他无用的jsx
         var scripts = document.getElementsByTagName(&#x27;script&#x27;);
         for (var i = 0; i &lt; scripts.length; i++) {
@@ -356,8 +353,97 @@ var Tools = {
         //     };
         // }
         document.body.appendChild(script);
-
+        $(&quot;#page-wrapper&quot;).html(&#x27;&lt;div class=&quot;spinner&quot;&gt;&lt;/div&gt;&#x27;)
         window.Mimiron.runScripts();
+    },
+    authorize: function(url){
+
+        if(window.Mimiron.debugMode){
+            return true;
+        }
+
+        var tester = Mimiron.RouteConfig[url];
+        var allowURLs = window.Mimiron.authorization.allowURLs;
+        for(var i in allowURLs){
+            if(tester.test(allowURLs[i])){
+                return true;
+            }
+        }
+        return false;
+    },
+    getAllowURLs:function(data){
+
+        for(var elem in data){
+            if(data[elem].url){
+                window.Mimiron.authorization.allowURLs.push(data[elem].url);
+            }
+            if(data[elem].children){
+                Tools.getAllowURLs(data[elem].children);
+            }
+        }
+    },
+    loadJSX: function(url){
+        if(!window.Mimiron.runScripts){
+            console.info(&quot;如果你想使用utils.loadJSX异步加载jsx文件, 你必须先通过JSXTransform.js暴露window.Mimiron.runScripts方法!&quot;);
+            return;
+        }
+
+        if(window.location.pathname == &quot;/login&quot; || window.location.hash == &#x27;#/login&#x27;) {
+                Tools.appendJSX(url);
+                return; //登录界面，直接放行
+        }
+
+        //权限管理
+        if(window.Mimiron.authorization){
+            
+            if(Tools.authorize(url)) Tools.appendJSX(url);
+
+        }else{//未加载权限，请求权限，然后把权限绑定到window上
+
+            window.Mimiron.authorization = window.Mimiron.authorization || { allowURLs:[] }
+            //if(!window.Mimiron.authorization.allowURLs) window.Mimiron.authorization.allowURLs = [];
+
+            //获取用户可访问的菜单权限
+            Ajax.get(API.SIDE_BAR_MENU,function(data){
+
+                if(data.children){
+                    Tools.getAllowURLs(data.children);
+                }
+
+                if(Tools.authorize(url)){
+                    Tools.appendJSX(url);
+                }else{
+                    alert(&quot;您没有权限访问！&quot;);
+                }
+
+            });
+        }
+  
+        
+    },
+    goJSX: function(url){
+        var RouteConfig = Mimiron.RouteConfig;
+        for(var i in RouteConfig){
+            if(RouteConfig[i].test(url)){
+                this.loadJSX(i);
+            }
+        }
+    },
+    handleA: function(key){
+        var key = key||&quot;data-tohash&quot;;
+        $(document).on(&quot;click&quot;,&quot;a&quot;,function(){
+            if(!$(this).attr(key))
+                return true;
+            var href = $(this).attr(&quot;href&quot;);
+            window.location.hash = href;
+            var RouteConfig = Mimiron.RouteConfig;
+            for(var i in RouteConfig){
+                if(RouteConfig[i].test(href)){
+                    components.Tools.loadJSX(i);
+                }
+            }
+            return false;
+        });
     }
 }
 

@@ -58,6 +58,7 @@
                                 <li><a href="../classes/ECharts.html">ECharts</a></li>
                                 <li><a href="../classes/ExpressionSelect.html">ExpressionSelect</a></li>
                                 <li><a href="../classes/Grid.html">Grid</a></li>
+                                <li><a href="../classes/Grid2.html">Grid2</a></li>
                                 <li><a href="../classes/Header.html">Header</a></li>
                                 <li><a href="../classes/Input.html">Input</a></li>
                                 <li><a href="../classes/IrregularLine.html">IrregularLine</a></li>
@@ -147,7 +148,6 @@ var Debug = require(&quot;../utils/debug&quot;);
 var Ajax = require(&quot;../utils/ajax&quot;);
 
 var H5 = require(&quot;../utils/h5&quot;);
-var Route = require(&quot;../BSSFrame/Route&quot;);
 /*
  * 由Route取代, 这里是临时使用
  */
@@ -159,12 +159,12 @@ var Link = React.createClass({
         }
     },
 	render: function(){
-		return(&lt;a href={this.props.to} onClick={this._onClick}&gt;
+		return(&lt;a href={this.props.to} onClick={this._onClick} data-tohash=&quot;yes&quot;&gt;
 				{this.props.children}
 			&lt;/a&gt;)
 	},
-    _onClick: function(){
-        Route.goJSX(this.props.to);
+    _onClick: function(e){
+        e.preventDefault();
         this.renewSelect(this.props.to);
     },
     renewSelect: function(){
@@ -194,6 +194,10 @@ var Link = React.createClass({
  * 组件示例:
  * &lt;SideBar list={this.props.menu} /&gt;
  * &#x60;&#x60;&#x60;
+ * 组件有一个静态方法, 需要在页面框架组件的componentDidMount声明周期进行调用:
+ * &#x60;Sidebar.init(&quot;../js/dist/frame/theme.js&quot;);&#x60;
+ * 该方法有一个必选参数, 是主题的配置文件路径.
+ * 
  * @class SideBar
  * 
  */ 

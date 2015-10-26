@@ -58,6 +58,7 @@
                                 <li><a href="../classes/ECharts.html">ECharts</a></li>
                                 <li><a href="../classes/ExpressionSelect.html">ExpressionSelect</a></li>
                                 <li><a href="../classes/Grid.html">Grid</a></li>
+                                <li><a href="../classes/Grid2.html">Grid2</a></li>
                                 <li><a href="../classes/Header.html">Header</a></li>
                                 <li><a href="../classes/Input.html">Input</a></li>
                                 <li><a href="../classes/IrregularLine.html">IrregularLine</a></li>
@@ -214,7 +215,6 @@ var DatePicker=React.createClass({
         $(&#x27;#&#x27;+this.props.id).datepicker({dateFormat:foramt,changeMonth: true,
             changeYear: true
             });
-        console.log(this.props.id);
         return (&lt;span&gt;{name}&lt;input type=&#x27;text&#x27;  className=&quot;form-control input-md&quot; id={this.props.id}  /&gt;&lt;/span&gt;);
     }
 });

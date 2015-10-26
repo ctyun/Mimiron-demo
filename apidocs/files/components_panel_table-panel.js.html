@@ -58,6 +58,7 @@
                                 <li><a href="../classes/ECharts.html">ECharts</a></li>
                                 <li><a href="../classes/ExpressionSelect.html">ExpressionSelect</a></li>
                                 <li><a href="../classes/Grid.html">Grid</a></li>
+                                <li><a href="../classes/Grid2.html">Grid2</a></li>
                                 <li><a href="../classes/Header.html">Header</a></li>
                                 <li><a href="../classes/Input.html">Input</a></li>
                                 <li><a href="../classes/IrregularLine.html">IrregularLine</a></li>
@@ -144,6 +145,7 @@ var React=require(&quot;react/addons&quot;);
 var BSSPanel=require(&quot;./panel&quot;);
 
 var Grid=require(&quot;../page/grid&quot;);
+var Grid2=require(&quot;../page/grid2&quot;);
 var PageButton=require(&quot;../page/page&quot;);
     /**
      * 封装表格面板组件
@@ -171,12 +173,72 @@ var PageButton=require(&quot;../page/page&quot;);
              return (&lt;TablePanel {...tableProps}/&gt;);
         });
      *&#x60;&#x60;&#x60;
+     *如果传入参数version={2}则会启动增强版表格显示, 给某列提供isDummy属性, 可以将这一行内容显示在该行下方.例如:
+     *&#x60;&#x60;&#x60;
+     *var tableProps={
+          title:[&#x27;选择&#x27;,&#x27;源表名称&#x27;,&#x27;编码&#x27;,&#x27;名称&#x27;,&#x27;查询类型&#x27;,&#x27;枚举项&#x27;],
+          jsonKey:[&#x27;reportMetadataId&#x27;,&#x27;resourceTableName&#x27;,&#x27;reportMetadataCode&#x27;,&#x27;reportMetadataName&#x27;,&#x27;defaultQueryTypeShow&#x27;,&#x27;selectParam&#x27;],
+          data:this.state.data,
+          doList:this.doList,
+          pageSize:this.state.pageSize,
+          offset:this.state.offset, //page:this.state.offset
+          totalRows:this.state.totalRows,
+          checkType:&quot;checkbox&quot;,
+          isDummy:[true,,true,,,,],
+        };
+     *&#x60;&#x60;&#x60;
      * @class TablePanel
      */
 var TablePanel=React.createClass({
+
+    componentDidMount: function(){
+        //冻结表头
+        window.freezeTableHead = function(){
+          $(&quot;.fix-head&quot;).empty();
+          window.topMain= window.topMain || $(&quot;thead&quot;).offset().top;
+          window.fixHeadLeft = window.fixHeadLeft || $(&quot;tbody&quot;).offset().left;
+          $(&quot;#page-wrapper&quot;).on(&quot;scroll&quot;, function(){
+            if ($(&quot;#page-wrapper&quot;).scrollTop()&gt;topMain){
+              $(&quot;.fix-head&quot;).css(&quot;display&quot;,&quot;flex&quot;);
+            }else{
+              $(&quot;.fix-head&quot;).css(&quot;display&quot;,&quot;none&quot;);
+            }
+          });
+          $(&quot;#page-wrapper&quot;).on(&quot;mouseup&quot;, function(){
+              $(&quot;.fix-head&quot;).css(&quot;left&quot;,fixHeadLeft-$(&quot;#page-wrapper&quot;).scrollLeft());
+          })
+          //拷贝表头
+          $(&quot;thead:eq(1) tr th&quot;).each(function(){
+            var tmpNode = $(&quot;&lt;div&gt;&lt;/div&gt;&quot;);
+            $(tmpNode).html($(this).html());
+            var tmpCss = {
+                background:$(this).css(&#x27;background-color&#x27;),
+                width:($(this).width()+18),
+                float:&quot;left&quot;,
+                &quot;text-align&quot;: &quot;center&quot;,
+                &quot;word-break&quot;: &quot;keep-all&quot;,
+                &quot;word-wrap&quot;: &quot;break-word&quot;,
+                border: &quot;1px solid&quot;,
+                padding:$(this).css(&quot;padding&quot;)+&quot; 0px&quot;,
+                &quot;font-weight&quot;: &quot;bold&quot;,
+                overflow: &quot;hidden&quot;,
+                &quot;text-overflow&quot;: &quot;ellipsis&quot;,
+                &quot;white-space&quot;: &quot;nowrap&quot;,
+            };
+            $(tmpNode).css(tmpCss);
+            $(tmpNode).attr(&quot;title&quot;,$(this).html());
+            $(&quot;.fix-head&quot;).append(tmpNode);
+          });
+        }
+        setTimeout(&quot;freezeTableHead()&quot;,0);
+    },
+    componentDidUpdate: function(){
+        freezeTableHead();
+    },
     render:function(){
         return (&lt;div&gt;
-                &lt;Grid title={this.props.title} noHasCheckBox={this.props.noHasCheckBox} jsonKey={this.props.jsonKey} data={this.props.data} checkType={this.props.checkType}/&gt;
+                &lt;div className=&quot;fix-head&quot;&gt;&lt;/div&gt;
+                &lt;Grid2 title={this.props.title} noHasCheckBox={this.props.noHasCheckBox} jsonKey={this.props.jsonKey} data={this.props.data} checkType={this.props.checkType} isDummy={this.props.isDummy} id={this.props.id} toShow={this.props.children}/&gt;
                 &lt;PageButton  doList={this.props.doList}  pageSize={this.props.pageSize}  page={this.props.offset} totalRows={this.props.totalRows}/&gt;
               &lt;/div&gt;)
     }

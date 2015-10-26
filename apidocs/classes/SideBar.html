@@ -58,6 +58,7 @@
                                 <li><a href="../classes/ECharts.html">ECharts</a></li>
                                 <li><a href="../classes/ExpressionSelect.html">ExpressionSelect</a></li>
                                 <li><a href="../classes/Grid.html">Grid</a></li>
+                                <li><a href="../classes/Grid2.html">Grid2</a></li>
                                 <li><a href="../classes/Header.html">Header</a></li>
                                 <li><a href="../classes/Input.html">Input</a></li>
                                 <li><a href="../classes/IrregularLine.html">IrregularLine</a></li>
@@ -138,7 +139,7 @@
 
 
         <div class="foundat">
-            Defined in: <a href="../files/components_BSSFrame_sidebar.js.html#l37"><code>components\BSSFrame\sidebar.js:37</code></a>
+            Defined in: <a href="../files/components_BSSFrame_sidebar.js.html#l36"><code>components\BSSFrame\sidebar.js:36</code></a>
         </div>
 
             Module: <a href="../modules/BSSFrame.html">BSSFrame</a>
@@ -166,6 +167,9 @@
 <pre class="code prettyprint"><code>组件示例:
 &lt;SideBar list={this.props.menu} /&gt;
 </code></pre>
+<p>组件有一个静态方法, 需要在页面框架组件的componentDidMount声明周期进行调用:
+<code>Sidebar.init(&quot;../js/dist/frame/theme.js&quot;);</code>
+该方法有一个必选参数, 是主题的配置文件路径.</p>
 
 </div>
 

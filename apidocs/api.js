@@ -21,6 +21,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "ECharts",
         "ExpressionSelect",
         "Grid",
+        "Grid2",
         "Header",
         "Input",
         "IrregularLine",
@@ -86,8 +87,7 @@ YUI.add("yuidoc-meta", function(Y) {
         },
         {
             "displayName": "page",
-            "name": "page",
-            "description": "Created by chenth on 15-7-10.\n表格分页组件"
+            "name": "page"
         },
         {
             "displayName": "panel",
