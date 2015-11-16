@@ -57,6 +57,7 @@
                                 <li><a href="../classes/Demo.html">Demo</a></li>
                                 <li><a href="../classes/ECharts.html">ECharts</a></li>
                                 <li><a href="../classes/ExpressionSelect.html">ExpressionSelect</a></li>
+                                <li><a href="../classes/FlowMaker.html">FlowMaker</a></li>
                                 <li><a href="../classes/Grid.html">Grid</a></li>
                                 <li><a href="../classes/Grid2.html">Grid2</a></li>
                                 <li><a href="../classes/Header.html">Header</a></li>
@@ -93,6 +94,7 @@
                                 <li><a href="../modules/BSSFrame.html">BSSFrame</a></li>
                                 <li><a href="../modules/demo.html">demo</a></li>
                                 <li><a href="../modules/ECharts.html">ECharts</a></li>
+                                <li><a href="../modules/ETL.html">ETL</a></li>
                                 <li><a href="../modules/html.html">html</a></li>
                                 <li><a href="../modules/message.html">message</a></li>
                                 <li><a href="../modules/page.html">page</a></li>
@@ -169,23 +171,14 @@ var PageButton=require(&quot;../page/page&quot;);
                        offset:1, //page:this.state.offset
                        totalRows:1,
                        checkType:&quot;radio&quot;,
+                       isDummy:[true,,true,,,,],
                   }
              return (&lt;TablePanel {...tableProps}/&gt;);
         });
-     *&#x60;&#x60;&#x60;
-     *如果传入参数version={2}则会启动增强版表格显示, 给某列提供isDummy属性, 可以将这一行内容显示在该行下方.例如:
-     *&#x60;&#x60;&#x60;
-     *var tableProps={
-          title:[&#x27;选择&#x27;,&#x27;源表名称&#x27;,&#x27;编码&#x27;,&#x27;名称&#x27;,&#x27;查询类型&#x27;,&#x27;枚举项&#x27;],
-          jsonKey:[&#x27;reportMetadataId&#x27;,&#x27;resourceTableName&#x27;,&#x27;reportMetadataCode&#x27;,&#x27;reportMetadataName&#x27;,&#x27;defaultQueryTypeShow&#x27;,&#x27;selectParam&#x27;],
-          data:this.state.data,
-          doList:this.doList,
-          pageSize:this.state.pageSize,
-          offset:this.state.offset, //page:this.state.offset
-          totalRows:this.state.totalRows,
-          checkType:&quot;checkbox&quot;,
-          isDummy:[true,,true,,,,],
-        };
+     *
+     * 注意:
+     * 1. 如果传入给某列提供isDummy属性, 可以将这一列的内容显示在目标行下方. 举例来说, 有些表格中&quot;地址&quot;很长, 可以将地址对应的列的isDummy设置为true, 点击表格中某一行(tr)时, 地址这个单元格的内容将显示在该行下方.
+     * 2. 该组件可以设置children, 如果这么做, 点击每一行时都会将children中的元素展示在该行下方.
      *&#x60;&#x60;&#x60;
      * @class TablePanel
      */
@@ -208,7 +201,7 @@ var TablePanel=React.createClass({
               $(&quot;.fix-head&quot;).css(&quot;left&quot;,fixHeadLeft-$(&quot;#page-wrapper&quot;).scrollLeft());
           })
           //拷贝表头
-          $(&quot;thead:eq(1) tr th&quot;).each(function(){
+          $(&quot;thead:eq(0) tr th&quot;).each(function(){
             var tmpNode = $(&quot;&lt;div&gt;&lt;/div&gt;&quot;);
             $(tmpNode).html($(this).html());
             var tmpCss = {
@@ -230,7 +223,8 @@ var TablePanel=React.createClass({
             $(&quot;.fix-head&quot;).append(tmpNode);
           });
         }
-        setTimeout(&quot;freezeTableHead()&quot;,0);
+        if($(&quot;#page-wrapper&quot;).length&gt;0)
+          setTimeout(&quot;freezeTableHead()&quot;,0);
     },
     componentDidUpdate: function(){
         freezeTableHead();

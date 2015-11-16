@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Textarea - Mimiron</title>
+    <title>components\etl\flowMaker.js - Mimiron</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -136,145 +136,184 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1>Textarea Class</h1>
-<div class="box meta">
+<h1 class="file-heading">File: components\etl\flowMaker.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+ *
+ * @module ETL
+ */
+
+var React = require(&#x27;react/addons&#x27;);
+var Tools = require(&quot;../utils/tools&quot;);
 
 
-        <div class="foundat">
-            Defined in: <a href="../files/components_html_textarea.js.html#l6"><code>components\html\textarea.js:6</code></a>
-        </div>
+/**
+ * 流程图生成组件
+ * &#x60;&#x60;&#x60;
+ * 示例:
+ * 
+ * &lt;FlowMaker elements=&quot;all&quot; onSave={this.FlowMakerSave}/&gt;
+ * 
+ * FlowMakerSave : function(data){
+        alert(data);
+    }
+ * 
+ * 
+ * 接收参数如下:
+ *  -onSave (function):保存时的回调函数, 带有一个参数data, data是用户构造的流程图XML表示, 不太好说清, 建议试试看.
+ *  -elements (array):构造流程图可用的参数, 包括:
+ *    --start
+ *    --end
+ *    --task
+ *    --custom
+ *    --subprocess
+ *    --decision
+ *    --fork
+ *    --join
+ *    可以传入&quot;all&quot;激活全部元素,(默认值为&quot;all&quot;)
+ * &#x60;&#x60;&#x60;
+ * @class FlowMaker
+ */
+var FlowMaker=React.createClass({
+	statics:{
+	},
+    getInitialState:function(){
+    	return{}
+    },
+    getDefaultProps: function(){
+        return{
+            basePath:&quot;/static&quot;,
+            elements:&quot;all&quot;,
+        }
+    },
+    componentWillMount:function(){
+    	if(!Mimiron.distPath){
+    		throw(&quot;组件FlowMaker依赖于Mimiron.distPath, 请先定义Mimiron.distPath为dist所在目录.&quot;)
+    	}
+    	var basePath = Mimiron.distPath;
+    	Tools.loadCSS(basePath+&quot;/vendors/snaker/snaker.css&quot;);
+    },
+    componentDidMount:function(){
+		var basePath = Mimiron.distPath;
+		var _this = this;
+		Tools.loadScript(basePath+&quot;/vendors/raphael/raphael-min.js&quot;, function(){
+			Tools.loadScript(basePath+&quot;/vendors/jquery-ui/jquery.min.js&quot;);
+	    	Tools.loadScript(basePath+&quot;/vendors/jquery-ui/jquery-ui.min.js&quot;,function(){
+	    		Tools.loadScript(basePath+&quot;/vendors/snaker/dialog.js&quot;);
+				Tools.loadScript(basePath+&quot;/vendors/snaker/snaker.designer.js&quot;, function(){
+		    		Tools.loadScript(basePath+&quot;/vendors/snaker/snaker.model.js&quot;);
+		    		Tools.loadScript(basePath+&quot;/vendors/snaker/snaker.editors.js&quot;);
+		    		var json=&quot;&quot;;
+					var model = &quot;&quot;;
+					if(json) {
+						model=eval(&quot;(&quot; + json + &quot;)&quot;);
+					}
+					$(&#x27;#snakerflow&#x27;).snakerflow({
+						basePath : basePath+&quot;/vendors/snaker/&quot;,
+			            ctxPath : basePath,
+						restore : model,
+			            formPath : &quot;forms/&quot;,
+						tools : {
+							save : {
+								onclick : function(data) {
+									_this.props.onSave(data);
+								}
+							}
+						}
+					});
+		    	});
+	    	});
+		});
+    },
+    render:function(){
+    	var basePath = Mimiron.distPath;
+    	var elements = [];
+    	if(this.props.elements==&quot;all&quot;){
+    		elements = (&lt;div&gt;
+    		&lt;div className=&quot;node state&quot; id=&quot;start&quot; type=&quot;start&quot;&gt;&lt;img
+				src={basePath+&quot;/vendors/snaker/images/16/start_event_empty.png&quot;} /&gt;&amp;nbsp;&amp;nbsp;start&lt;/div&gt;
+			&lt;div className=&quot;node state&quot; id=&quot;end&quot; type=&quot;end&quot;&gt;&lt;img
+				src={basePath+&quot;/vendors/snaker/images/16/end_event_terminate.png&quot;} /&gt;&amp;nbsp;&amp;nbsp;end&lt;/div&gt;
+			&lt;div className=&quot;node state&quot; id=&quot;task&quot; type=&quot;task&quot;&gt;&lt;img
+				src={basePath+&quot;/vendors/snaker/images/16/task_empty.png&quot;} /&gt;&amp;nbsp;&amp;nbsp;task&lt;/div&gt;
+			&lt;div className=&quot;node state&quot; id=&quot;custom&quot; type=&quot;custom&quot;&gt;&lt;img
+				src={basePath+&quot;/vendors/snaker/images/16/task_empty.png&quot;} /&gt;&amp;nbsp;&amp;nbsp;custom&lt;/div&gt;
+			&lt;div className=&quot;node state&quot; id=&quot;subprocess&quot; type=&quot;subprocess&quot;&gt;&lt;img
+				src={basePath+&quot;/vendors/snaker/images/16/task_empty.png&quot;} /&gt;&amp;nbsp;&amp;nbsp;subprocess&lt;/div&gt;
+			&lt;div className=&quot;node state&quot; id=&quot;decision&quot; type=&quot;decision&quot;&gt;&lt;img
+				src={basePath+&quot;/vendors/snaker/images/16/gateway_exclusive.png&quot;} /&gt;&amp;nbsp;&amp;nbsp;decision&lt;/div&gt;
+			&lt;div className=&quot;node state&quot; id=&quot;fork&quot; type=&quot;fork&quot;&gt;&lt;img
+				src={basePath+&quot;/vendors/snaker/images/16/gateway_parallel.png&quot;} /&gt;&amp;nbsp;&amp;nbsp;fork&lt;/div&gt;
+			&lt;div className=&quot;node state&quot; id=&quot;join&quot; type=&quot;join&quot;&gt;&lt;img
+				src={basePath+&quot;/vendors/snaker/images/16/gateway_parallel.png&quot;} /&gt;&amp;nbsp;&amp;nbsp;join&lt;/div&gt;
+			&lt;/div&gt;);
+    	}else{
+    		if(typeof this.props.elements==&quot;object&quot; &amp;&amp; this.props.elements.length&gt;0){
+    			for(var i in this.props.elements){
+    				switch(this.props.elements[i]){
+    					case &quot;start&quot;:
+    						elements.push(&lt;div className=&quot;node state&quot; id=&quot;start&quot; type=&quot;start&quot;&gt;&lt;img src={basePath+&quot;/vendors/snaker/images/16/start_event_empty.png&quot;} /&gt;&amp;nbsp;&amp;nbsp;start&lt;/div&gt;);
+    						break;
+    					case &quot;end&quot;:
+    						elements.push(&lt;div className=&quot;node state&quot; id=&quot;end&quot; type=&quot;end&quot;&gt;&lt;img src={basePath+&quot;/vendors/snaker/images/16/end_event_terminate.png&quot;} /&gt;&amp;nbsp;&amp;nbsp;end&lt;/div&gt;);
+    						break;
+    					case &quot;task&quot;:
+    						elements.push(&lt;div className=&quot;node state&quot; id=&quot;task&quot; type=&quot;task&quot;&gt;&lt;img src={basePath+&quot;/vendors/snaker/images/16/task_empty.png&quot;} /&gt;&amp;nbsp;&amp;nbsp;task&lt;/div&gt;);
+    						break;
+    					case &quot;custom&quot;:
+    						elements.push(&lt;div className=&quot;node state&quot; id=&quot;custom&quot; type=&quot;custom&quot;&gt;&lt;img src={basePath+&quot;/vendors/snaker/images/16/task_empty.png&quot;} /&gt;&amp;nbsp;&amp;nbsp;custom&lt;/div&gt;);
+    						break;
+    					case &quot;subprocess&quot;:
+    						elements.push(&lt;div className=&quot;node state&quot; id=&quot;subprocess&quot; type=&quot;subprocess&quot;&gt;&lt;img src={basePath+&quot;/vendors/snaker/images/16/task_empty.png&quot;} /&gt;&amp;nbsp;&amp;nbsp;subprocess&lt;/div&gt;);
+    					case &quot;decision&quot;:
+    						elements.push(&lt;div className=&quot;node state&quot; id=&quot;decision&quot; type=&quot;decision&quot;&gt;&lt;img src={basePath+&quot;/vendors/snaker/images/16/gateway_exclusive.png&quot;} /&gt;&amp;nbsp;&amp;nbsp;decision&lt;/div&gt;);
+    						break;
+    					case &quot;fork&quot;:
+    						elements.push(&lt;div className=&quot;node state&quot; id=&quot;fork&quot; type=&quot;fork&quot;&gt;&lt;img src={basePath+&quot;/vendors/snaker/images/16/gateway_parallel.png&quot;} /&gt;&amp;nbsp;&amp;nbsp;fork&lt;/div&gt;);
+    						break;
+    					case &quot;join&quot;:
+    						elements.push(&lt;div className=&quot;node state&quot; id=&quot;join&quot; type=&quot;join&quot;&gt;&lt;img src={basePath+&quot;/vendors/snaker/images/16/gateway_parallel.png&quot;} /&gt;&amp;nbsp;&amp;nbsp;join&lt;/div&gt;);
+    						break;
+    					default:
+    						throw(this.props.elements[i]+&quot;不是一个有效的FlowMaker元素类型.&quot;)
+    				}
+    			}
+    		}
+    	}
+        return(&lt;div&gt;
+            &lt;div id=&quot;toolbox&quot;&gt;
+			&lt;div id=&quot;toolbox_handle&quot;&gt;工具集&lt;/div&gt;
+			&lt;div className=&quot;node&quot; id=&quot;save&quot;&gt;&lt;img src={basePath+&quot;/vendors/snaker/images/save.gif&quot;} /&gt;&amp;nbsp;&amp;nbsp;保存&lt;/div&gt;
+			&lt;div&gt;
+			&lt;hr /&gt;
+			&lt;/div&gt;
+			&lt;div className=&quot;node selectable&quot; id=&quot;pointer&quot;&gt;
+			    &lt;img src={basePath+&quot;/vendors/snaker/images/select16.gif&quot;} /&gt;&amp;nbsp;&amp;nbsp;Select
+			&lt;/div&gt;
+			&lt;div className=&quot;node selectable&quot; id=&quot;path&quot;&gt;
+			    &lt;img src={basePath+&quot;/vendors/snaker/images/16/flow_sequence.png&quot;} /&gt;&amp;nbsp;&amp;nbsp;transition
+			&lt;/div&gt;
+			&lt;div&gt;
+			&lt;hr/&gt;
+			&lt;/div&gt;
+			{elements}
+			&lt;/div&gt;
 
-            Module: <a href="../modules/html.html">html</a>
+			&lt;div id=&quot;properties&quot;&gt;
+			&lt;div id=&quot;properties_handle&quot;&gt;属性&lt;/div&gt;
+			&lt;table className=&quot;properties_all&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;
+			&lt;/table&gt;
+			&lt;div&gt;&amp;nbsp;&lt;/div&gt;
+			&lt;/div&gt;
 
-</div>
-
-
-<div class="box intro">
-    <p>文本区</p>
-<pre class="code prettyprint"><code> &lt;Textarea rows=&quot;4&quot; onChange={this.textareaChange}&gt;
-       12234
-   &lt;/Textarea&gt;
-</code></pre>
-
-</div>
-
-
-<div id="classdocs" class="tabview">
-    <ul class="api-class-tabs">
-        <li class="api-class-tab index"><a href="#index">Index</a></li>
-
-            <li class="api-class-tab properties"><a href="#properties">Properties</a></li>
-    </ul>
-
-    <div>
-        <div id="index" class="api-class-tabpanel index">
-            <h2 class="off-left">Item Index</h2>
-
-
-                <div class="index-section properties">
-                    <h3>Properties</h3>
-
-                    <ul class="index-list properties">
-                            <li class="index-item property">
-                                <a href="#property_name 显示在左边的名称">name 显示在左边的名称</a>
-
-                            </li>
-                            <li class="index-item property">
-                                <a href="#property_onChange 文本编辑时的回调函数">onChange 文本编辑时的回调函数</a>
-
-                            </li>
-                            <li class="index-item property">
-                                <a href="#property_rows 行数">rows 行数</a>
-
-                            </li>
-                    </ul>
-                </div>
-
-
-        </div>
-
-
-            <div id="properties" class="api-class-tabpanel">
-                <h2 class="off-left">Properties</h2>
-
-<div id="property_name 显示在左边的名称" class="property item">
-    <h3 class="name"><code>name 显示在左边的名称</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-
-
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/components_html_textarea.js.html#l25"><code>components\html\textarea.js:25</code></a>
-        </p>
-
-
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-        <p><strong>Default:</strong> &quot;&quot;</p>
-
-
-</div>
-<div id="property_onChange 文本编辑时的回调函数" class="property item">
-    <h3 class="name"><code>onChange 文本编辑时的回调函数</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
-
-
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/components_html_textarea.js.html#l35"><code>components\html\textarea.js:35</code></a>
-        </p>
-
-
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-
-
-</div>
-<div id="property_rows 行数" class="property item">
-    <h3 class="name"><code>rows 行数</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-
-
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/components_html_textarea.js.html#l30"><code>components\html\textarea.js:30</code></a>
-        </p>
-
-
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-        <p><strong>Default:</strong> &quot;3&quot;</p>
-
-
-</div>
-            </div>
-
-
-    </div>
+			&lt;div id=&quot;snakerflow&quot;&gt;&lt;/div&gt;
+			&lt;/div&gt;);
+	}
+});
+module.exports=FlowMaker;
+    </pre>
 </div>
                     </div>
                 </div>

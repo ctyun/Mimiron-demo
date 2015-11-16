@@ -20,6 +20,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Demo",
         "ECharts",
         "ExpressionSelect",
+        "FlowMaker",
         "Grid",
         "Grid2",
         "Header",
@@ -53,6 +54,7 @@ YUI.add("yuidoc-meta", function(Y) {
     "modules": [
         "BSSFrame",
         "ECharts",
+        "ETL",
         "TencentMap",
         "demo",
         "html",
@@ -76,6 +78,10 @@ YUI.add("yuidoc-meta", function(Y) {
             "displayName": "ECharts",
             "name": "ECharts",
             "description": "ECharts 图表组件"
+        },
+        {
+            "displayName": "ETL",
+            "name": "ETL"
         },
         {
             "displayName": "html",

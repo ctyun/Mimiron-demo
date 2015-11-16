@@ -57,6 +57,7 @@
                                 <li><a href="../classes/Demo.html">Demo</a></li>
                                 <li><a href="../classes/ECharts.html">ECharts</a></li>
                                 <li><a href="../classes/ExpressionSelect.html">ExpressionSelect</a></li>
+                                <li><a href="../classes/FlowMaker.html">FlowMaker</a></li>
                                 <li><a href="../classes/Grid.html">Grid</a></li>
                                 <li><a href="../classes/Grid2.html">Grid2</a></li>
                                 <li><a href="../classes/Header.html">Header</a></li>
@@ -93,6 +94,7 @@
                                 <li><a href="../modules/BSSFrame.html">BSSFrame</a></li>
                                 <li><a href="../modules/demo.html">demo</a></li>
                                 <li><a href="../modules/ECharts.html">ECharts</a></li>
+                                <li><a href="../modules/ETL.html">ETL</a></li>
                                 <li><a href="../modules/html.html">html</a></li>
                                 <li><a href="../modules/message.html">message</a></li>
                                 <li><a href="../modules/page.html">page</a></li>
@@ -162,44 +164,36 @@ var Debug = require(&quot;../utils/debug&quot;);
  * 使用说明
  *
  * * &lt;BSSForm submitAction={this.submitAction} jsonFormat=true disabledName＝&quot;不可用&quot; disabledSubmitBtn＝“false” okButtonName=&quot;保存&quot;&gt;&lt;/BSSForm&gt;
- *  submitAction(必须）
+ *  -submitAction(必须）
  *   form表单按钮提交时回调方法, 携带一个参数param, 保存表单的内容
- *  jsonFormat  true|false
+ *  -jsonFormat  true|false
  *    form表单序列化数据是否为json格式
- *  okButtonName
- *   此参数非必须
- *  form表单按钮名称默认为查询
- *  disabledSubmitBtn:true|false 默认为false
+ *  -okButtonName
+ *   此参数非必须, form表单按钮名称默认为查询
+ *  -disabledSubmitBtn:true|false 默认为false
  *   此参数非必须
  *   是否在提交form表达时禁用提交按钮
- *  disabledName:
+ *  -disabledName:
  *   此参数非必须
  *   禁用提交按钮时显示的名称
+ *  -checkValid: 
+ *   如果为真, 则在提交时对所有Children元素进行表单验证, 默认值为false
  *
  * 此组件使用可参考QueryPanel使用
  *&#x60;&#x60;&#x60;
  * @class BSSForm
  */
 var BSSForm=React.createClass({
-    statics:{
-        errorObj:{},
-        cleanError:function(){
-            BSSForm.errorObj={};
-        },
-        setErrorMsg:function(name,msg){
-            var obj={
-                name:name,
-                errorMsg:msg
-            }
-
-
-            BSSForm.errorObj=obj;
-        }
-    },
     getInitialState : function(){
         return {
             elem:{}
 
+        };
+    },
+    getDefaultProps : function(){
+        return{
+            id:&quot;BSSForm-default-id&quot;,
+            checkValid:false,
         };
     },
     componentDidMount:function(){
@@ -208,23 +202,14 @@ var BSSForm=React.createClass({
     },
 
     _submitAction:function(){
-
-        var error=BSSForm.errorObj;
+        var node=this.state.elem;
+        if(this.props.checkValid &amp;&amp; $(node).children().hasClass(&quot;state-error&quot;)){
+            alert(&quot;表单存在错误&quot;); //这里使用MessageBox报type.toUpperCase is not a function
+            return;
+        }
 
         var param={};
-        if(error[&#x27;errorMsg&#x27;]&amp;&amp;error[&#x27;errorMsg&#x27;].length&gt;0){
-            param={
-                errorObj: error
-            };
-            if(this.props.submitAction){
-                this.props.submitAction(param);
-                return;
-            }
-
-        };
-       var node=this.state.elem;
         param=$(node).serialize();
-        window.node = node;
         if(this.props.submitAction){
             param=$(node).serialize();
             param=decodeURIComponent(param,true);
@@ -250,11 +235,12 @@ var BSSForm=React.createClass({
     render:function(){
         var okName=&quot;确定&quot;;
         var props=this.props;
+        var node=this.state.elem;
 
         if(this.props.okButtonName){
             okName=this.props.okButtonName;
         };
-        return (&lt;form  {...props}&gt;{this.props.children}{this.props.hideDefaultButton&amp;&amp;this.props.hideDefaultButton==true?null:&lt;Button btnName={okName} disabledName={this.props.disabledName} disabled={this.props.disabledSubmitBtn}   doAction={this._submitAction} type=&quot;submit&quot;/&gt;}&lt;span&gt;{BSSForm.errorMsg}&lt;/span&gt;&lt;/form&gt;);
+        return (&lt;form  {...props}&gt;{this.props.children}{this.props.hideDefaultButton&amp;&amp;this.props.hideDefaultButton==true?null:&lt;Button btnName={okName} disabledName={this.props.disabledName} disabled={this.props.disabledSubmitBtn}   doAction={this._submitAction} type=&quot;submit&quot;/&gt;}&lt;/form&gt;);
     }
 });
 module.exports=BSSForm;

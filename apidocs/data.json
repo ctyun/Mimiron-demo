@@ -153,6 +153,17 @@
             "fors": {},
             "namespaces": {}
         },
+        "components\\etl\\flowMaker.js": {
+            "name": "components\\etl\\flowMaker.js",
+            "modules": {
+                "ETL": 1
+            },
+            "classes": {
+                "FlowMaker": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "components\\html\\autocomplete.js": {
             "name": "components\\html\\autocomplete.js",
             "modules": {
@@ -480,7 +491,7 @@
             "namespaces": {},
             "tag": "module",
             "file": "components\\demo\\demo-all-components.js",
-            "line": 436
+            "line": 439
         },
         "ECharts": {
             "name": "ECharts",
@@ -506,6 +517,19 @@
             "line": 13,
             "description": "ECharts 图表组件",
             "author": "czdujianbin 2015-09-23 14:36:41"
+        },
+        "ETL": {
+            "name": "ETL",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "FlowMaker": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "components\\etl\\flowMaker.js",
+            "line": 10
         },
         "html": {
             "name": "html",
@@ -699,7 +723,7 @@
             "module": "demo",
             "namespace": "",
             "file": "components\\demo\\demo-all-components.js",
-            "line": 436,
+            "line": 439,
             "description": "基本组件演示, 请看源码.\n```\n示例:\n<Demo />\n```"
         },
         "BasicColumn": {
@@ -866,6 +890,20 @@
             "description": "EChart图表React实现，支持echart官方option设置,具体设置请查看官网\n```\n\nvar option = {\n        title : {\n               text: '未来一周气温变化',\n               subtext: '纯属虚构'\n           },\n           tooltip : {\n               trigger: 'axis'\n           },\n           legend: {\n               data:['最高气温','最低气温']\n           },\n           toolbox: {\n               show : true,\n               feature : {\n                   mark : {show: true},\n                   dataView : {show: true, readOnly: false},\n                   magicType : {show: true, type: ['line', 'bar']},\n                   restore : {show: true},\n                   saveAsImage : {show: true}\n               }\n           },\n           calculable : true,\n           xAxis : [\n               {\n                   type : 'category',\n                   boundaryGap : false,\n                   data : ['周一','周二','周三','周四','周五','周六','周日']\n               }\n           ],\n           yAxis : [\n               {\n                   type : 'value',\n                   axisLabel : {\n                       formatter: '{value} °C'\n                   }\n               }\n           ],\n           series : [\n               {\n                   name:'最高气温',\n                   type:'line',\n                   data:[11, 11, 15, 13, 12, 13, 10],\n                   markPoint : {\n                       data : [\n                           {type : 'max', name: '最大值'},\n                           {type : 'min', name: '最小值'}\n                       ]\n                   },\n                   markLine : {\n                       data : [\n                           {type : 'average', name: '平均值'}\n                       ]\n                   }\n               },\n               {\n                   name:'最低气温',\n                   type:'line',\n                   data:[1, -2, 2, 5, 3, 2, 0],\n                   markPoint : {\n                       data : [\n                           {name : '周最低', value : -2, xAxis: 1, yAxis: -1.5}\n                       ]\n                   },\n                   markLine : {\n                       data : [\n                           {type : 'average', name : '平均值'}\n                       ]\n                   }\n               }\n           ]\n       };\n\n   simple use:\n   <ECharts id=\"chart1\" height=\"800px\" width=\"100%\" option={option}/>\n   \n```",
             "extends": "AbstractECharts"
         },
+        "FlowMaker": {
+            "name": "FlowMaker",
+            "shortname": "FlowMaker",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ETL",
+            "namespace": "",
+            "file": "components\\etl\\flowMaker.js",
+            "line": 10,
+            "description": "流程图生成组件\n```\n示例:\n\n<FlowMaker elements=\"all\" onSave={this.FlowMakerSave}/>\n\nFlowMakerSave : function(data){\n       alert(data);\n   }\n\n\n接收参数如下:\n -onSave (function):保存时的回调函数, 带有一个参数data, data是用户构造的流程图XML表示, 不太好说清, 建议试试看.\n -elements (array):构造流程图可用的参数, 包括:\n   --start\n   --end\n   --task\n   --custom\n   --subprocess\n   --decision\n   --fork\n   --join\n   可以传入\"all\"激活全部元素,(默认值为\"all\")\n```"
+        },
         "Autocomplete": {
             "name": "Autocomplete",
             "shortname": "Autocomplete",
@@ -998,7 +1036,7 @@
             "namespace": "",
             "file": "components\\html\\form.js",
             "line": 10,
-            "description": "表单组件\n```\n使用方法\nvar React = require('react');\nvar components=require(\"components\");\nvar BSSForm=components.BSSForm;\nvar BSSFormDemo=React.createClass(\n    render:function(){\n        return ( <BSSForm submitAction={this.submitAction} jsonFormat=true disabledName＝\"不可用\" disabledSubmitBtn＝\"false\" okButtonName=\"保存\"></BSSForm>);\n    }\n);\n使用说明\n\n* <BSSForm submitAction={this.submitAction} jsonFormat=true disabledName＝\"不可用\" disabledSubmitBtn＝“false” okButtonName=\"保存\"></BSSForm>\n submitAction(必须）\n  form表单按钮提交时回调方法, 携带一个参数param, 保存表单的内容\n jsonFormat  true|false\n   form表单序列化数据是否为json格式\n okButtonName\n  此参数非必须\n form表单按钮名称默认为查询\n disabledSubmitBtn:true|false 默认为false\n  此参数非必须\n  是否在提交form表达时禁用提交按钮\n disabledName:\n  此参数非必须\n  禁用提交按钮时显示的名称\n\n此组件使用可参考QueryPanel使用\n```"
+            "description": "表单组件\n```\n使用方法\nvar React = require('react');\nvar components=require(\"components\");\nvar BSSForm=components.BSSForm;\nvar BSSFormDemo=React.createClass(\n    render:function(){\n        return ( <BSSForm submitAction={this.submitAction} jsonFormat=true disabledName＝\"不可用\" disabledSubmitBtn＝\"false\" okButtonName=\"保存\"></BSSForm>);\n    }\n);\n使用说明\n\n* <BSSForm submitAction={this.submitAction} jsonFormat=true disabledName＝\"不可用\" disabledSubmitBtn＝“false” okButtonName=\"保存\"></BSSForm>\n -submitAction(必须）\n  form表单按钮提交时回调方法, 携带一个参数param, 保存表单的内容\n -jsonFormat  true|false\n   form表单序列化数据是否为json格式\n -okButtonName\n  此参数非必须, form表单按钮名称默认为查询\n -disabledSubmitBtn:true|false 默认为false\n  此参数非必须\n  是否在提交form表达时禁用提交按钮\n -disabledName:\n  此参数非必须\n  禁用提交按钮时显示的名称\n -checkValid: \n  如果为真, 则在提交时对所有Children元素进行表单验证, 默认值为false\n\n此组件使用可参考QueryPanel使用\n```"
         },
         "Input": {
             "name": "Input",
@@ -1012,7 +1050,7 @@
             "namespace": "",
             "file": "components\\html\\input.js",
             "line": 27,
-            "description": "input输入组件\n  ```\n  使用方法\n var React = require('react');\n var components=require(\"components\");\n var Input=components.Input;\n var InputDemo=React.createClass(\n     render:function(){\n         return (<Input disName=\"名称\" doChange={this._doChange}  name=\"html_name\" />);\n     },\n     _doChange: function(obj){\n         \n     }\n );\n  使用说明\n  <Input disName=\"名称\" doChange={this._doChange}  />\n  disName:要显示的名称\n  doChange:值改变时调用的事件\n  onClick:点击时调用的事件\n  value:默认值\n  name: 同html的name\n  ```"
+            "description": "input输入组件\n  ```\n  使用方法\n var React = require('react');\n var components=require(\"components\");\n var Input=components.Input;\n var InputDemo=React.createClass(\n     render:function(){\n         return (<Input disName=\"名称\" doChange={this._doChange}  name=\"html_name\" value={this.state.inputValue}/>);\n     },\n     _doChange: function(obj){\n         \n     }\n );\n  使用说明:\n  <Input disName=\"名称\" doChange={this._doChange}  />\n  disName:要显示的名称\n  doChange:值改变时调用的事件\n  onClick:点击时调用的事件\n  value:默认值\n  name: 同html的name\n  valid :(Object) 表单验证配置\n    valid.type (String)类型, 可选值有:\n      noEmpty\n      int\n      string\n      email\n      mobile-phone\n    valid.maxlength (int)最大长度\n    valid.minlength (int)最小长度\n    valid.handleResult (function)验证结束回调函数, 带有一个参数, 为Boolean型验证结果.\n\n  注意:\n  由于React的数据单项绑定特性, 当input中value发生变化时, 新值不会体现在this.state.inputValue上, 如果需要取到当前用户输入, 可以在doChange方法中进行处理.\n  ```"
         },
         "Select": {
             "name": "Select",
@@ -1085,7 +1123,7 @@
             "namespace": "",
             "file": "components\\message\\modal.js",
             "line": 6,
-            "description": "```\n示例:\n<Modal id=\"addTableModal\" title=\"添加对话框\" submitAction={this.ModalHandler} jsonFormat={true}>\n <div className=\"content-left\">\n     <Input disName=\"名称: \" name=\"reportMetadataName\" value={this.state.reportMetadataName}/> <br/>\n     <Select disName=\" 元数据类型:\" name=\"defaultQueryType\" data={this.locals.selectMetaDataType} onSelect={this.onSelectMetaData} defaultValue={this.state.defaultQueryType}/> <br />\n </div>\n</Modal> \n参数:\nhideDefaultButton: 是否隐藏提交按钮\nid: 唯一id, Modal.show和hide方法调用时需要传入\ntitle: 标题\nsubmitAction: 点击提交后的回调函数\njsonFormat: 结果是否格式化为json\ncssClass:(string) 默认为空, 可以传入:\n     \"modal-lg\":\n     ...支持其他BSSform参数.\ndragable:(Boolean) 可拖拽, 默认为true\ndragEnd:(Function) 拖拽结束的回调函数,此函数返回两个参数,估计一般用不到,可以log出来看看, 也可以来问我. \n```\nTODO: footer \nModal组件"
+            "description": "```\n示例:\n<Modal id=\"addTableModal\" title=\"添加对话框\" submitAction={this.ModalHandler} jsonFormat={true}>\n <div className=\"content-left\">\n     <Input disName=\"名称: \" name=\"reportMetadataName\" value={this.state.reportMetadataName}/> <br/>\n     <Select disName=\" 元数据类型:\" name=\"defaultQueryType\" data={this.locals.selectMetaDataType} onSelect={this.onSelectMetaData} defaultValue={this.state.defaultQueryType}/> <br />\n </div>\n</Modal> \n参数:\nhideDefaultButton: 是否隐藏提交按钮\nid: 唯一id, Modal.show和hide方法调用时需要传入\ntitle: 标题\nsubmitAction: 点击提交后的回调函数\njsonFormat: 结果是否格式化为json\ncssClass:(string) 默认为空, 可以传入:\n     \"modal-lg\":\n     ...支持其他BSSform参数.\ndragable:(Boolean) 可拖拽, 默认为true\ndragEnd:(Function) 拖拽结束的回调函数,此函数返回两个参数,估计一般用不到,可以log出来看看, 也可以来问我. \n```\n注意:\n通过Modal.show(\"modalId\")打开模态框,尽量避免在同一页面打开多个模态框, 如果一定要这么做, 注意限制模态框内元素的高度."
         },
         "Grid": {
             "name": "Grid",
@@ -1199,7 +1237,7 @@
             "namespace": "",
             "file": "components\\panel\\panel.js",
             "line": 6,
-            "description": "基本的面板组件\n```\nvar React = components.React;\nvar BSSPanel=components.BSSPanel;\nvar QueryPanel=components.QueryPanel;\nvar Input=components.Input;\nvar ToolBarPanel=components.ToolBarPanel;\nvar Button=components.Button;\n\nvar BSSPanelDemo=React.createClass(\n    render:function(){\n        return ( <BSSPanel pageTitle = \"示例Panel\">\n                    <QueryPanel submitAction={this.queryMetadata} jsonFormat={true} okButtonName=\"查询(请看console)\">\n                       <Input disName=\" 示范输入:\" name=\"demoInput\"/>\n                    </QueryPanel>\n                    <ToolBarPanel>\n                       <Button btnName=\"增删查改\"/>\n                    </ToolBarPanel>\n                </BSSPanel>);\n    },\n    queryMetadata: function(){\n    }\n);\n```",
+            "description": "业务页面基本面板组件, <BSSPanel>框起来的范围是可见范围, 建议将默认隐藏的元素(<Modal>,<MessageBox>等移出此标签)\n```\nvar React = components.React;\nvar BSSPanel=components.BSSPanel;\nvar QueryPanel=components.QueryPanel;\nvar Input=components.Input;\nvar ToolBarPanel=components.ToolBarPanel;\nvar Button=components.Button;\n\nvar BSSPanelDemo=React.createClass(\n    render:function(){\n        return ( <BSSPanel pageTitle = \"示例Panel\">\n                    <QueryPanel submitAction={this.queryMetadata} jsonFormat={true} okButtonName=\"查询(请看console)\">\n                       <Input disName=\" 示范输入:\" name=\"demoInput\"/>\n                    </QueryPanel>\n                    <ToolBarPanel>\n                       <Button btnName=\"增删查改\"/>\n                    </ToolBarPanel>\n                </BSSPanel>);\n    },\n    queryMetadata: function(){\n    }\n);\n```",
             "uses": [
                 "Heafer"
             ]
@@ -1216,7 +1254,7 @@
             "namespace": "",
             "file": "components\\panel\\query-panel.js",
             "line": 8,
-            "description": "查询面板,包装了form表单\n```\n使用方法\nvar React = components.React;\nvar QueryPanel=components.QueryPanel;\nvar Input=components.Input;\nvar AutocompleteDemo=React.createClass(\n    render:function(){\n    return (<QueryPanel submitAction={queryMetadata} jsonFormat={true} okButtonName=\"查询(请看console)\">\n               <Input disName=\" 示范输入:\" name=\"demoInput\"/>\n          </QueryPanel>);\n    }\n);\n使用说明\n<QueryPanel submitAction={queryMetadata} jsonFormat={true} okButtonName=\"查询(请看console)\">\n     <Input disName=\" 示范输入:\" name=\"demoInput\"/>\n </QueryPanel>\n\n```"
+            "description": "查询面板,包装了form表单\n```\n使用方法\nvar React = components.React;\nvar QueryPanel=components.QueryPanel;\nvar Input=components.Input;\nvar AutocompleteDemo=React.createClass(\n    queryMetadata : function(params){\n        console.log(params);\n    },\n    render:function(){\n    return (<QueryPanel submitAction={this.queryMetadata} jsonFormat={true} okButtonName=\"查询(请看console)\">\n               <Input disName=\" 示范输入:\" name=\"demoInput\"/>\n          </QueryPanel>);\n    }\n);\n使用说明:\nsubmitAction为回调方法, 该方法携带一个参数, 为QueryPanel中所有可输入元素(input,select等)的键值对, 例如:\nparams={demoInput:\"1234\"}\n\n```"
         },
         "TablePanel": {
             "name": "TablePanel",
@@ -1230,7 +1268,7 @@
             "namespace": "",
             "file": "components\\panel\\table-panel.js",
             "line": 10,
-            "description": "封装表格面板组件\n```\n使用方法\n       var TablePanelDemo=React.createClass(\n            doList: function(currentPage,pageSize){\n                 //在这里通过currentPage和pageSize发送ajax请求获取数据, 然后写入tableProps.data, 注意先清空旧数据.\n                 console.log(currentPage,pageSize);\n            },\n            render:function(){\n                 var tableProps={\n                      title:['选项','标题1','标题2','标题3'],\n                      jsonKey:['id','t1','t2','t3'],\n                      data:[{id:1,\n                      t1:'测试1',\n                      t2:'测试2',\n                      t3:'测试3'}],\n                      doList:this.doList,\n                      pageSize:10,\n                      offset:1, //page:this.state.offset\n                      totalRows:1,\n                      checkType:\"radio\",\n                 }\n            return (<TablePanel {...tableProps}/>);\n       });\n```\n如果传入参数version={2}则会启动增强版表格显示, 给某列提供isDummy属性, 可以将这一行内容显示在该行下方.例如:\n```\nvar tableProps={\n         title:['选择','源表名称','编码','名称','查询类型','枚举项'],\n         jsonKey:['reportMetadataId','resourceTableName','reportMetadataCode','reportMetadataName','defaultQueryTypeShow','selectParam'],\n         data:this.state.data,\n         doList:this.doList,\n         pageSize:this.state.pageSize,\n         offset:this.state.offset, //page:this.state.offset\n         totalRows:this.state.totalRows,\n         checkType:\"checkbox\",\n         isDummy:[true,,true,,,,],\n       };\n```"
+            "description": "封装表格面板组件\n```\n使用方法\n       var TablePanelDemo=React.createClass(\n            doList: function(currentPage,pageSize){\n                 //在这里通过currentPage和pageSize发送ajax请求获取数据, 然后写入tableProps.data, 注意先清空旧数据.\n                 console.log(currentPage,pageSize);\n            },\n            render:function(){\n                 var tableProps={\n                      title:['选项','标题1','标题2','标题3'],\n                      jsonKey:['id','t1','t2','t3'],\n                      data:[{id:1,\n                      t1:'测试1',\n                      t2:'测试2',\n                      t3:'测试3'}],\n                      doList:this.doList,\n                      pageSize:10,\n                      offset:1, //page:this.state.offset\n                      totalRows:1,\n                      checkType:\"radio\",\n                      isDummy:[true,,true,,,,],\n                 }\n            return (<TablePanel {...tableProps}/>);\n       });\n\n注意:\n1. 如果传入给某列提供isDummy属性, 可以将这一列的内容显示在目标行下方. 举例来说, 有些表格中\"地址\"很长, 可以将地址对应的列的isDummy设置为true, 点击表格中某一行(tr)时, 地址这个单元格的内容将显示在该行下方.\n2. 该组件可以设置children, 如果这么做, 点击每一行时都会将children中的元素展示在该行下方.\n```"
         },
         "ToolBarPanel": {
             "name": "ToolBarPanel",
@@ -1244,7 +1282,7 @@
             "namespace": "",
             "file": "components\\panel\\tool-panel.js",
             "line": 6,
-            "description": "工具栏面板\n```\n使用方法\nvar React = require('react');\nvar components=require(\"components\");\nvar ToolBarPanel=components.ToolBarPanel;\nvar Button=components.Button;\nvar ToolBarPanelDemo=React.createClass(\n    render:function(){\n        return ( <ToolBarPanel><Button btnName=\"增删查改\"/></ToolBarPanel>);\n    }\n);\n使用说明\n <ToolBarPanel>\n<Button btnName=\"增删查改\"/>\n</ToolBarPanel>\n```"
+            "description": "工具栏面板\n```\n使用方法\nvar React = require('react');\nvar components=require(\"components\");\nvar ToolBarPanel=components.ToolBarPanel;\nvar Button=components.Button;\nvar ToolBarPanelDemo=React.createClass(\n    render:function(){\n        return ( <ToolBarPanel><Button btnName=\"增删查改\"/></ToolBarPanel>);\n    }\n);\n```"
         },
         "Tab": {
             "name": "Tab",
@@ -1797,7 +1835,7 @@
         },
         {
             "file": "components\\html\\input.js",
-            "line": 57,
+            "line": 70,
             "description": "不携带参数",
             "itemtype": "property",
             "name": "onClick 点击事件",
@@ -1807,7 +1845,7 @@
         },
         {
             "file": "components\\html\\input.js",
-            "line": 62,
+            "line": 75,
             "description": "默认样式\n```\n可选值:\n\"input-nm\":  普通(宽120px)\n\"input-md\":  较小(宽70px)\n\"input-xs\":  非常小(宽30px)\n```",
             "itemtype": "property",
             "name": "cssClass 用于css样式的class",
@@ -1818,7 +1856,7 @@
         },
         {
             "file": "components\\html\\input.js",
-            "line": 75,
+            "line": 88,
             "itemtype": "property",
             "name": "isPassword  是否为密码框",
             "type": "Boolean",
@@ -1828,7 +1866,7 @@
         },
         {
             "file": "components\\html\\input.js",
-            "line": 93,
+            "line": 108,
             "itemtype": "property",
             "name": "value 默认值",
             "type": "String",
@@ -1837,7 +1875,7 @@
         },
         {
             "file": "components\\html\\input.js",
-            "line": 148,
+            "line": 174,
             "itemtype": "property",
             "name": "errorMsg 错误提示信息",
             "type": "String",
@@ -1849,7 +1887,7 @@
         },
         {
             "file": "components\\html\\input.js",
-            "line": 152,
+            "line": 178,
             "description": "```\n可选值:\n\"number\" : 数字\n```",
             "itemtype": "property",
             "name": "reg 正则规则",
@@ -1859,7 +1897,7 @@
         },
         {
             "file": "components\\html\\input.js",
-            "line": 159,
+            "line": 185,
             "itemtype": "property",
             "name": "name 同html中的name",
             "type": "String",
@@ -1868,7 +1906,7 @@
         },
         {
             "file": "components\\html\\input.js",
-            "line": 162,
+            "line": 188,
             "itemtype": "property",
             "name": "placeholder 同html",
             "type": "String",
@@ -1877,7 +1915,7 @@
         },
         {
             "file": "components\\html\\textarea.js",
-            "line": 24,
+            "line": 25,
             "itemtype": "property",
             "name": "name 显示在左边的名称",
             "type": "String",
@@ -1887,7 +1925,7 @@
         },
         {
             "file": "components\\html\\textarea.js",
-            "line": 29,
+            "line": 30,
             "itemtype": "property",
             "name": "rows 行数",
             "type": "String",
@@ -1897,7 +1935,7 @@
         },
         {
             "file": "components\\html\\textarea.js",
-            "line": 34,
+            "line": 35,
             "itemtype": "property",
             "name": "onChange 文本编辑时的回调函数",
             "type": "Function",
@@ -2034,7 +2072,7 @@
         },
         {
             "file": "components\\message\\messageBox.js",
-            "line": 22,
+            "line": 23,
             "description": "显示对话框",
             "static": 1,
             "itemtype": "method",
@@ -2073,7 +2111,7 @@
         },
         {
             "file": "components\\message\\modal.js",
-            "line": 43,
+            "line": 42,
             "description": "隐藏对话框",
             "static": 1,
             "itemtype": "method",
@@ -2413,7 +2451,25 @@
         },
         {
             "file": "components\\utils\\tools.js",
-            "line": 311,
+            "line": 221,
+            "description": "前端权限验证方法",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "转向地址",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "验证结果",
+                "type": "Boolean"
+            },
+            "class": "",
+            "module": "utils"
+        },
+        {
+            "file": "components\\utils\\tools.js",
+            "line": 320,
             "description": "all GET props saved in $_GET\nfor example:\nin url http://127.0.0.1:8081/sample?id=1 you can use $_GET[\"id\"] to get \"1\"",
             "class": "",
             "module": "utils"
@@ -2426,11 +2482,15 @@
         },
         {
             "message": "unknown tag: defualt",
-            "line": " components\\html\\input.js:62"
+            "line": " components\\html\\input.js:75"
+        },
+        {
+            "message": "Missing item type\n前端权限验证方法",
+            "line": " components\\utils\\tools.js:221"
         },
         {
             "message": "Missing item type\nall GET props saved in $_GET\nfor example:\nin url http://127.0.0.1:8081/sample?id=1 you can use $_GET[\"id\"] to get \"1\"",
-            "line": " components\\utils\\tools.js:311"
+            "line": " components\\utils\\tools.js:320"
         }
     ]
 }

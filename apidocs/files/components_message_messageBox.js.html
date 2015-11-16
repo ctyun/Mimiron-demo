@@ -57,6 +57,7 @@
                                 <li><a href="../classes/Demo.html">Demo</a></li>
                                 <li><a href="../classes/ECharts.html">ECharts</a></li>
                                 <li><a href="../classes/ExpressionSelect.html">ExpressionSelect</a></li>
+                                <li><a href="../classes/FlowMaker.html">FlowMaker</a></li>
                                 <li><a href="../classes/Grid.html">Grid</a></li>
                                 <li><a href="../classes/Grid2.html">Grid2</a></li>
                                 <li><a href="../classes/Header.html">Header</a></li>
@@ -93,6 +94,7 @@
                                 <li><a href="../modules/BSSFrame.html">BSSFrame</a></li>
                                 <li><a href="../modules/demo.html">demo</a></li>
                                 <li><a href="../modules/ECharts.html">ECharts</a></li>
+                                <li><a href="../modules/ETL.html">ETL</a></li>
                                 <li><a href="../modules/html.html">html</a></li>
                                 <li><a href="../modules/message.html">message</a></li>
                                 <li><a href="../modules/page.html">page</a></li>
@@ -156,6 +158,7 @@ var Button=require(&quot;../html/button&quot;);
  * @class MessageBox
  */
 var MessageBox = React.createClass({
+	displayName:&#x27;MessageBox&#x27;,
 	statics:{
 		title : null,
 		message : null,
@@ -167,12 +170,12 @@ var MessageBox = React.createClass({
 		 * @param  {String} message 对话框内容
 		 */
 		show : function(title,message){
-			var mb = (&lt;Modal id=&quot;MessageBoxModal&quot; title={title} submitAction={Modal.hide.bind(null,&quot;MessageBoxModal&quot;)} &gt;
+			var mb = (&lt;Modal id=&quot;MessageBoxModal&quot; title={title} submitAction={Modal.hide.bind(null,&quot;MessageBoxModal&quot;)}  jsonFormat={true}&gt;
 			        &lt;span&gt;{message}&lt;/span&gt; &lt;br/&gt;
 					&lt;br/&gt;
 			      &lt;/Modal&gt;);
 			$(&quot;body&quot;).append(&quot;&lt;div id=&#x27;MessageBox&#x27;&gt;&lt;/div&gt;&quot;);
-			React.render(mb, document.getElementById(&quot;MessageBox&quot;)); /*使用$(&quot;#&quot;+this.props.uniqueID)会找不到节点, 原因不详*/
+			React.render(mb, document.getElementById(&quot;MessageBox&quot;)); 
 			$(&quot;#MessageBoxModal&quot;).modal();
 		}
 	},

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Textarea - Mimiron</title>
+    <title>FlowMaker - Mimiron</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -136,24 +136,42 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1>Textarea Class</h1>
+<h1>FlowMaker Class</h1>
 <div class="box meta">
 
 
         <div class="foundat">
-            Defined in: <a href="../files/components_html_textarea.js.html#l6"><code>components\html\textarea.js:6</code></a>
+            Defined in: <a href="../files/components_etl_flowMaker.js.html#l10"><code>components\etl\flowMaker.js:10</code></a>
         </div>
 
-            Module: <a href="../modules/html.html">html</a>
+            Module: <a href="../modules/ETL.html">ETL</a>
 
 </div>
 
 
 <div class="box intro">
-    <p>文本区</p>
-<pre class="code prettyprint"><code> &lt;Textarea rows=&quot;4&quot; onChange={this.textareaChange}&gt;
-       12234
-   &lt;/Textarea&gt;
+    <p>流程图生成组件</p>
+<pre class="code prettyprint"><code>示例:
+
+&lt;FlowMaker elements=&quot;all&quot; onSave={this.FlowMakerSave}/&gt;
+
+FlowMakerSave : function(data){
+       alert(data);
+   }
+
+
+接收参数如下:
+ -onSave (function):保存时的回调函数, 带有一个参数data, data是用户构造的流程图XML表示, 不太好说清, 建议试试看.
+ -elements (array):构造流程图可用的参数, 包括:
+   --start
+   --end
+   --task
+   --custom
+   --subprocess
+   --decision
+   --fork
+   --join
+   可以传入&quot;all&quot;激活全部元素,(默认值为&quot;all&quot;)
 </code></pre>
 
 </div>
@@ -163,7 +181,6 @@
     <ul class="api-class-tabs">
         <li class="api-class-tab index"><a href="#index">Index</a></li>
 
-            <li class="api-class-tab properties"><a href="#properties">Properties</a></li>
     </ul>
 
     <div>
@@ -171,107 +188,11 @@
             <h2 class="off-left">Item Index</h2>
 
 
-                <div class="index-section properties">
-                    <h3>Properties</h3>
-
-                    <ul class="index-list properties">
-                            <li class="index-item property">
-                                <a href="#property_name 显示在左边的名称">name 显示在左边的名称</a>
-
-                            </li>
-                            <li class="index-item property">
-                                <a href="#property_onChange 文本编辑时的回调函数">onChange 文本编辑时的回调函数</a>
-
-                            </li>
-                            <li class="index-item property">
-                                <a href="#property_rows 行数">rows 行数</a>
-
-                            </li>
-                    </ul>
-                </div>
 
 
         </div>
 
 
-            <div id="properties" class="api-class-tabpanel">
-                <h2 class="off-left">Properties</h2>
-
-<div id="property_name 显示在左边的名称" class="property item">
-    <h3 class="name"><code>name 显示在左边的名称</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-
-
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/components_html_textarea.js.html#l25"><code>components\html\textarea.js:25</code></a>
-        </p>
-
-
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-        <p><strong>Default:</strong> &quot;&quot;</p>
-
-
-</div>
-<div id="property_onChange 文本编辑时的回调函数" class="property item">
-    <h3 class="name"><code>onChange 文本编辑时的回调函数</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
-
-
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/components_html_textarea.js.html#l35"><code>components\html\textarea.js:35</code></a>
-        </p>
-
-
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-
-
-</div>
-<div id="property_rows 行数" class="property item">
-    <h3 class="name"><code>rows 行数</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-
-
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/components_html_textarea.js.html#l30"><code>components\html\textarea.js:30</code></a>
-        </p>
-
-
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-        <p><strong>Default:</strong> &quot;3&quot;</p>
-
-
-</div>
-            </div>
 
 
     </div>

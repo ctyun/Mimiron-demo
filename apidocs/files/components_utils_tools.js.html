@@ -57,6 +57,7 @@
                                 <li><a href="../classes/Demo.html">Demo</a></li>
                                 <li><a href="../classes/ECharts.html">ECharts</a></li>
                                 <li><a href="../classes/ExpressionSelect.html">ExpressionSelect</a></li>
+                                <li><a href="../classes/FlowMaker.html">FlowMaker</a></li>
                                 <li><a href="../classes/Grid.html">Grid</a></li>
                                 <li><a href="../classes/Grid2.html">Grid2</a></li>
                                 <li><a href="../classes/Header.html">Header</a></li>
@@ -93,6 +94,7 @@
                                 <li><a href="../modules/BSSFrame.html">BSSFrame</a></li>
                                 <li><a href="../modules/demo.html">demo</a></li>
                                 <li><a href="../modules/ECharts.html">ECharts</a></li>
+                                <li><a href="../modules/ETL.html">ETL</a></li>
                                 <li><a href="../modules/html.html">html</a></li>
                                 <li><a href="../modules/message.html">message</a></li>
                                 <li><a href="../modules/page.html">page</a></li>
@@ -161,6 +163,7 @@ var Tools = {
 
         if(typeof(obj) != &#x27;object&#x27;) return obj; 
         if(obj == null) return obj; 
+        if(obj.constructor == RegExp) return obj;
 
         if(obj instanceof Array){
             var newObj = []
@@ -168,13 +171,14 @@ var Tools = {
             var newObj = {}; 
         }
         
-
         for(var i in obj){
-            newObj[i] = this.clone(obj[i]); 
+            newObj[i] = Tools.clone(obj[i]); 
         } 
 
         return newObj; 
     },
+
+
 
     loadScript : function(url, callback) {
         var script = document.createElement(&quot;script&quot;);
@@ -354,14 +358,14 @@ var Tools = {
         // }
         document.body.appendChild(script);
         $(&quot;#page-wrapper&quot;).html(&#x27;&lt;div class=&quot;spinner&quot;&gt;&lt;/div&gt;&#x27;)
-        window.Mimiron.runScripts();
+        //window.Mimiron.runScripts();
     },
+    /**
+     * 前端权限验证方法
+     * @param  {String} url 转向地址
+     * @return {Boolean}     验证结果
+     */
     authorize: function(url){
-
-        if(window.Mimiron.debugMode){
-            return true;
-        }
-
         var tester = Mimiron.RouteConfig[url];
         var allowURLs = window.Mimiron.authorization.allowURLs;
         for(var i in allowURLs){
@@ -388,6 +392,10 @@ var Tools = {
             return;
         }
 
+        if(window.Mimiron.debugMode){
+                Tools.appendJSX(url);
+                return; //调试模式，直接放行
+        }
         if(window.location.pathname == &quot;/login&quot; || window.location.hash == &#x27;#/login&#x27;) {
                 Tools.appendJSX(url);
                 return; //登录界面，直接放行
@@ -426,8 +434,10 @@ var Tools = {
         for(var i in RouteConfig){
             if(RouteConfig[i].test(url)){
                 this.loadJSX(i);
+                return 
             }
         }
+        console.info(url+&quot;匹配不到任何现有路由!&quot;);
     },
     handleA: function(key){
         var key = key||&quot;data-tohash&quot;;
@@ -440,6 +450,7 @@ var Tools = {
             for(var i in RouteConfig){
                 if(RouteConfig[i].test(href)){
                     components.Tools.loadJSX(i);
+                    window.Mimiron.runScripts();
                 }
             }
             return false;
@@ -464,7 +475,7 @@ window.$_GET = (function(){
             get[j[0]] = j[1];
         }
         return get;
-    } else {
+    } else { 
         return {};
     }
 })();

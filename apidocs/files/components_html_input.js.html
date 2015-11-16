@@ -57,6 +57,7 @@
                                 <li><a href="../classes/Demo.html">Demo</a></li>
                                 <li><a href="../classes/ECharts.html">ECharts</a></li>
                                 <li><a href="../classes/ExpressionSelect.html">ExpressionSelect</a></li>
+                                <li><a href="../classes/FlowMaker.html">FlowMaker</a></li>
                                 <li><a href="../classes/Grid.html">Grid</a></li>
                                 <li><a href="../classes/Grid2.html">Grid2</a></li>
                                 <li><a href="../classes/Header.html">Header</a></li>
@@ -93,6 +94,7 @@
                                 <li><a href="../modules/BSSFrame.html">BSSFrame</a></li>
                                 <li><a href="../modules/demo.html">demo</a></li>
                                 <li><a href="../modules/ECharts.html">ECharts</a></li>
+                                <li><a href="../modules/ETL.html">ETL</a></li>
                                 <li><a href="../modules/html.html">html</a></li>
                                 <li><a href="../modules/message.html">message</a></li>
                                 <li><a href="../modules/page.html">page</a></li>
@@ -174,19 +176,32 @@ var RegUtils = require(&#x27;../utils/reg-utils&#x27;);
  * var Input=components.Input;
  * var InputDemo=React.createClass(
  *     render:function(){
- *         return (&lt;Input disName=&quot;名称&quot; doChange={this._doChange}  name=&quot;html_name&quot; /&gt;);
+ *         return (&lt;Input disName=&quot;名称&quot; doChange={this._doChange}  name=&quot;html_name&quot; value={this.state.inputValue}/&gt;);
  *     },
  *     _doChange: function(obj){
  *         
  *     }
  * );
- *  使用说明
+ *  使用说明:
  *  &lt;Input disName=&quot;名称&quot; doChange={this._doChange}  /&gt;
  *  disName:要显示的名称
  *  doChange:值改变时调用的事件
  *  onClick:点击时调用的事件
  *  value:默认值
  *  name: 同html的name
+ *  valid :(Object) 表单验证配置
+ *    valid.type (String)类型, 可选值有:
+ *      noEmpty
+ *      int
+ *      string
+ *      email
+ *      mobile-phone
+ *    valid.maxlength (int)最大长度
+ *    valid.minlength (int)最小长度
+ *    valid.handleResult (function)验证结束回调函数, 带有一个参数, 为Boolean型验证结果.
+ *
+ *  注意:
+ *  由于React的数据单项绑定特性, 当input中value发生变化时, 新值不会体现在this.state.inputValue上, 如果需要取到当前用户输入, 可以在doChange方法中进行处理.
  *  &#x60;&#x60;&#x60;
  *  @class Input
  */
@@ -217,13 +232,15 @@ var Input=React.createClass({
              * @default false
              */
             isPassword: false,
+            valid:null,
 
         };
     },
     getInitialState:function(){
         return {
             dis:false,
-            defValue:&quot;&quot;
+            defValue:&quot;&quot;,
+            validCss:&quot;&quot;
         };
     },
 
@@ -255,15 +272,19 @@ var Input=React.createClass({
             defValue:v
         });
 
-        if(this.props.reg){
-            if(!RegUtils.validate(this.props.reg,v)){
-                BSSForm.setErrorMsg(n,this.props.errorMsg);
+        if(this.props.valid){
+            if(!RegUtils.validate(this.props.valid,v)){
+                if(this.props.valid.handleResult)
+                    this.props.valid.handleResult(false);
+                this.setState({validCss:&quot;invalid&quot;});
             } else{
-                BSSForm.setErrorMsg(n,&quot;&quot;);
+                if(this.props.valid.handleResult)
+                    this.props.valid.handleResult(true);
+                this.setState({validCss:&quot;valid&quot;});
             }
         }else{
-            BSSForm.setErrorMsg(n,&quot;&quot;);
-        };
+            this.setState({validCss:&quot;&quot;});
+        }
         if(n){
             obj[n]=v;
         }else{
@@ -285,6 +306,13 @@ var Input=React.createClass({
         };
         var v=this.state.defValue;
         var className = &quot;form-control &quot;+this.props.cssClass;
+        var errorLable = this.state.validCss == &quot;invalid&quot;?&lt;em className=&quot;invalid&quot;&gt;{this.props.valid.errorMsg||&quot;输入有误&quot;}&lt;/em&gt;:null;
+        var spanCss = &quot;&quot;;
+        if(this.state.validCss == &quot;valid&quot;){
+            spanCss = &quot;state-success&quot;;
+        }else if(this.state.validCss == &quot;invalid&quot;){
+            spanCss = &quot;state-error&quot;;
+        }
         /**
          * @property {String} errorMsg 错误提示信息
          * @uses BSSForm
@@ -302,7 +330,11 @@ var Input=React.createClass({
         /**
          * @property {String} placeholder 同html
          */
-        return &lt;span&gt;{name}&lt;input  id={this.props.id} name={this.props.name} errorMsg={this.props.errorMsg} reg={this.props.reg} className={className} onChange={this._onChange} onClick={this.props.onClick}   value={v}  type={this.props.isPassword?&quot;password&quot;:null} placeholder={this.props.placeholder}/&gt;&lt;/span&gt;;
+        return &lt;span className={spanCss}&gt;
+                {name}
+                &lt;input  id={this.props.id} name={this.props.name} reg={this.props.reg} className={className} onChange={this._onChange} onClick={this.props.onClick}   value={v}  type={this.props.isPassword?&quot;password&quot;:null} placeholder={this.props.placeholder} valid={this.state.validCss}/&gt;
+                    {errorLable}
+                &lt;/span&gt;;
     }
 });
 module.exports=Input;

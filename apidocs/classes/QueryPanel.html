@@ -57,6 +57,7 @@
                                 <li><a href="../classes/Demo.html">Demo</a></li>
                                 <li><a href="../classes/ECharts.html">ECharts</a></li>
                                 <li><a href="../classes/ExpressionSelect.html">ExpressionSelect</a></li>
+                                <li><a href="../classes/FlowMaker.html">FlowMaker</a></li>
                                 <li><a href="../classes/Grid.html">Grid</a></li>
                                 <li><a href="../classes/Grid2.html">Grid2</a></li>
                                 <li><a href="../classes/Header.html">Header</a></li>
@@ -93,6 +94,7 @@
                                 <li><a href="../modules/BSSFrame.html">BSSFrame</a></li>
                                 <li><a href="../modules/demo.html">demo</a></li>
                                 <li><a href="../modules/ECharts.html">ECharts</a></li>
+                                <li><a href="../modules/ETL.html">ETL</a></li>
                                 <li><a href="../modules/html.html">html</a></li>
                                 <li><a href="../modules/message.html">message</a></li>
                                 <li><a href="../modules/page.html">page</a></li>
@@ -154,16 +156,18 @@ var React = components.React;
 var QueryPanel=components.QueryPanel;
 var Input=components.Input;
 var AutocompleteDemo=React.createClass(
+    queryMetadata : function(params){
+        console.log(params);
+    },
     render:function(){
-    return (&lt;QueryPanel submitAction={queryMetadata} jsonFormat={true} okButtonName=&quot;查询(请看console)&quot;&gt;
+    return (&lt;QueryPanel submitAction={this.queryMetadata} jsonFormat={true} okButtonName=&quot;查询(请看console)&quot;&gt;
                &lt;Input disName=&quot; 示范输入:&quot; name=&quot;demoInput&quot;/&gt;
           &lt;/QueryPanel&gt;);
     }
 );
-使用说明
-&lt;QueryPanel submitAction={queryMetadata} jsonFormat={true} okButtonName=&quot;查询(请看console)&quot;&gt;
-     &lt;Input disName=&quot; 示范输入:&quot; name=&quot;demoInput&quot;/&gt;
- &lt;/QueryPanel&gt;
+使用说明:
+submitAction为回调方法, 该方法携带一个参数, 为QueryPanel中所有可输入元素(input,select等)的键值对, 例如:
+params={demoInput:&quot;1234&quot;}
 
 </code></pre>
 

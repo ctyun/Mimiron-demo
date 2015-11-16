@@ -57,6 +57,7 @@
                                 <li><a href="../classes/Demo.html">Demo</a></li>
                                 <li><a href="../classes/ECharts.html">ECharts</a></li>
                                 <li><a href="../classes/ExpressionSelect.html">ExpressionSelect</a></li>
+                                <li><a href="../classes/FlowMaker.html">FlowMaker</a></li>
                                 <li><a href="../classes/Grid.html">Grid</a></li>
                                 <li><a href="../classes/Grid2.html">Grid2</a></li>
                                 <li><a href="../classes/Header.html">Header</a></li>
@@ -93,6 +94,7 @@
                                 <li><a href="../modules/BSSFrame.html">BSSFrame</a></li>
                                 <li><a href="../modules/demo.html">demo</a></li>
                                 <li><a href="../modules/ECharts.html">ECharts</a></li>
+                                <li><a href="../modules/ETL.html">ETL</a></li>
                                 <li><a href="../modules/html.html">html</a></li>
                                 <li><a href="../modules/message.html">message</a></li>
                                 <li><a href="../modules/page.html">page</a></li>
@@ -156,8 +158,8 @@ var AutoSelect = require(&quot;../html/autoselect&quot;);
 var BSSForm = require(&quot;../html/form&quot;);
 var CascadeSelect = require(&quot;../html/cascadeselect&quot;);
 var Checkbox = require(&quot;../html/checkbox&quot;);
-var CheckboxGroup = require(&quot;../html/checkboxgroup&quot;);
-var DatePicker = require(&quot;../html/datepicker&quot;);
+var CheckboxGroup = require(&quot;../html/checkboxGroup&quot;);
+var DatePicker = require(&quot;../html/datePicker&quot;);
 var ExpressionSelect = require(&quot;../html/expression&quot;);
 var Select = require(&quot;../html/select&quot;);
 var Textarea = require(&quot;../html/textarea&quot;);
@@ -183,7 +185,7 @@ var TencentMap = require(&quot;../tencentMap/map&quot;);
 
 
 //echarts
-var ZRender = require(&#x27;../vendors/zrender/index&#x27;);
+var ZRender = require(&#x27;../../static/vendors/zrender/index&#x27;);
 var ECharts = require(&#x27;../echarts/echarts&#x27;);
 var BasicLine = require(&#x27;../echarts/components/line/BasicLine&#x27;);
 var StackedLine = require(&#x27;../echarts/components/line/StackedLine&#x27;);
@@ -197,6 +199,9 @@ var WordCloud = require(&#x27;../echarts/components/wordCloud/WordCloud&#x27;);
 
 //resources
 var Uploader = require(&quot;../resources/uploader&quot;);
+
+//ETL
+var FlowMaker = require(&quot;../etl/flowMaker&quot;);
 
 
 //code
@@ -539,8 +544,8 @@ var tree1Data = {
 
 
   	var infoCSS = {
-  		&quot;margin-top&quot;:&quot;10px&quot;,
-  		&quot;margin-bottom&quot;:&quot;10px&quot;,
+  		&quot;marginTop&quot;:&quot;10px&quot;,
+  		&quot;marginBottom&quot;:&quot;10px&quot;,
   		&quot;color&quot;:&quot;blue&quot;
   	};
 
@@ -586,7 +591,8 @@ var Demo = React.createClass({
 
 	getInitialState:function(){
 		return {
-		  
+		    canSubmit:false,
+            textareaValue:&quot;123&quot;,
 		}
 	},
 
@@ -606,15 +612,34 @@ var Demo = React.createClass({
 		alert(&quot;onSelectAction&quot;);
 	},
 
-	doChangeAction:function(){
-		alert(&quot;doChangeAction&quot;);
+	doChangeAction:function(param){
+		alert(&quot;doChangeAction&quot;+param);
 	},
 
 	treeTableCheck:function(){
 		alert(&quot;treeTableCheck&quot;);
 	},
+    validTurn: function(bool){
+        console.log(bool);
+    },
+    AddHandler: function(params){
+        console.log(params);
+    },
+    changeTa : function(){
+        this.setState({textareaValue:&quot;345&quot;});
+    },
+    FlowMakerSave : function(data){
+        alert(data);
+    },
   	render:function(){
+        var formValid = {
+            type:&quot;noEmpty&quot;,
+           // maxlength:5,
+            errorMsg : &quot;不能为空&quot;,
+            handleResult:this.validTurn,
+        };
 
+        console.log(this.state.textareaValue);
 
 	    return (
 	        &lt;div style={{padding:&quot;10px 20px&quot;}}&gt;
@@ -648,12 +673,6 @@ var Demo = React.createClass({
 
 	              	&lt;Tab title=&quot;html&quot; id=&quot;html&quot;&gt;
 
-	              		&lt;div style={infoCSS}&gt;Autocomplete&lt;/div&gt;
-	                  	&lt;Autocomplete name=&quot;动态下拉&quot; url=&quot;/api/test/ajax&quot; /&gt;
-
-	              		&lt;div style={infoCSS}&gt;AutoSelect&lt;/div&gt;
-	                  	&lt;AutoSelect url=&quot;api/test/autoselect&quot; disName=&quot;动态select&quot; onSelect={this.autoSeleect} defaultValue=&quot;333&quot; /&gt;
-
 	                  	&lt;div style={infoCSS}&gt;BSSForm&lt;/div&gt;
 	                  	&lt;BSSForm submitAction={this.submitAction} jsonFormat={true} disabledName=&quot;不可用&quot; disabledSubmitBtn={false} okButtonName=&quot;保存&quot;&gt;
                             &lt;Input disName=&quot;输入&quot; name=&quot;input2&quot; /&gt;
@@ -683,14 +702,17 @@ var Demo = React.createClass({
                         &lt;div style={infoCSS}&gt;Select&lt;/div&gt;
                         &lt;Select data={[{value:&#x27;1&#x27;,text:&#x27;显示2&#x27;},{value:&#x27;2&#x27;,text:&#x27;显示1&#x27;}]} defaultValue=&quot;2&quot; onSelect={this.onSelectAction}/&gt;
 
-
-                     
-
 						&lt;div style={infoCSS}&gt;Textarea&lt;/div&gt;
 					    &lt;Textarea rows=&quot;4&quot; onChange={this.doChangeAction}&gt;
-					       12234
+					       {this.state.textareaValue}
 					    &lt;/Textarea&gt;
+                        &lt;Button btnName=&quot;改变textarea的值&quot; doAction={this.changeTa}&gt;&lt;/Button&gt;
 
+                        &lt;div style={infoCSS}&gt;Form Validation&lt;/div&gt;
+                        &lt;BSSForm checkValid={true}&gt;
+                            &lt;Input disName=&quot;非空:  &quot; valid={formValid}  /&gt;&lt;br/&gt;
+                            &lt;Input disName=&quot;Email: &quot; valid={{type:&quot;email&quot;,errorMsg:&quot;请输入有效Email地址&quot;}}  /&gt;&lt;br/&gt;
+                        &lt;/BSSForm&gt;
 	              	&lt;/Tab&gt;
 
 
@@ -698,6 +720,18 @@ var Demo = React.createClass({
 
 						&lt;div style={infoCSS}&gt;MessageBox&lt;/div&gt;
 					    &lt;Button btnName=&quot;触发MessageBox&quot; doAction={MessageBox.show.bind(null,&quot;i am title&quot;,&quot;i am message&quot;)} cssClass=&quot;btn-info&quot; /&gt;
+                        &lt;div style={infoCSS}&gt;Modal&lt;/div&gt;
+                        &lt;Button btnName=&quot;触发Modal&quot; doAction={Modal.show.bind(null,&quot;addTableModal&quot;) } cssClass=&quot;btn-info&quot; /&gt;
+                        &lt;Modal id=&quot;addTableModal&quot; title=&quot;添加对话框&quot; submitAction={this.AddHandler} jsonFormat={true} cssClass=&quot;modal-lg&quot;&gt;
+                          &lt;div className=&quot;content-left&quot;&gt;
+                              &lt;Input disName=&quot;id: &quot; name=&quot;reportMetadataId&quot;/&gt; &lt;br/&gt;
+                              &lt;Input disName=&quot;源表名称: &quot; name=&quot;resourceTableName&quot;/&gt; &lt;br/&gt;
+                              &lt;Input disName=&quot;编码: &quot; name=&quot;reportMetadataCode&quot;/&gt; &lt;br/&gt;
+                              &lt;Input disName=&quot;名称: &quot; name=&quot;reportMetadataName&quot;/&gt; &lt;br/&gt;
+                              &lt;Input disName=&quot;查询类型: &quot; name=&quot;defaultQueryTypeShow&quot;/&gt; &lt;br/&gt;
+                              &lt;Input disName=&quot;枚举项: &quot; name=&quot;selectParam&quot;/&gt; &lt;br/&gt;
+                          &lt;/div&gt;
+                        &lt;/Modal&gt; 
 
 	              	&lt;/Tab&gt;
 
@@ -746,6 +780,9 @@ var Demo = React.createClass({
                         &lt;Uploader /&gt;
                     &lt;/Tab&gt;
 
+                    &lt;Tab title=&quot;ETL&quot; id=&quot;ETL&quot;&gt;
+                        &lt;FlowMaker elements=&quot;all&quot; onSave={this.FlowMakerSave}/&gt;
+                    &lt;/Tab&gt;
 
 	            &lt;/Tabs&gt;
 

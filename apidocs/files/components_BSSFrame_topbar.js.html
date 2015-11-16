@@ -57,6 +57,7 @@
                                 <li><a href="../classes/Demo.html">Demo</a></li>
                                 <li><a href="../classes/ECharts.html">ECharts</a></li>
                                 <li><a href="../classes/ExpressionSelect.html">ExpressionSelect</a></li>
+                                <li><a href="../classes/FlowMaker.html">FlowMaker</a></li>
                                 <li><a href="../classes/Grid.html">Grid</a></li>
                                 <li><a href="../classes/Grid2.html">Grid2</a></li>
                                 <li><a href="../classes/Header.html">Header</a></li>
@@ -93,6 +94,7 @@
                                 <li><a href="../modules/BSSFrame.html">BSSFrame</a></li>
                                 <li><a href="../modules/demo.html">demo</a></li>
                                 <li><a href="../modules/ECharts.html">ECharts</a></li>
+                                <li><a href="../modules/ETL.html">ETL</a></li>
                                 <li><a href="../modules/html.html">html</a></li>
                                 <li><a href="../modules/message.html">message</a></li>
                                 <li><a href="../modules/page.html">page</a></li>
@@ -178,6 +180,8 @@ var TopBar = React.createClass({
     _logout: function(e){
     	e.preventDefault();
     	H5.localStorage.clear(&quot;SideBar&quot;);
+    	//清理前端权限
+    	window.Mimiron.authorization =null;
     	if(this.props.logout){
     		this.props.logout()
     		return
@@ -191,7 +195,7 @@ var TopBar = React.createClass({
     render: function () {
         return (&lt;div&gt;
 		    &lt;div id=&quot;header-topbar-option-demo&quot; className=&quot;page-header-topbar&quot;&gt;
-		        &lt;nav id=&quot;topbar&quot; role=&quot;navigation&quot; style={{&quot;margin-bottom&quot;: 0, &quot;z-index&quot;: 2}} className=&quot;navbar navbar-default navbar-static-top&quot;&gt;
+		        &lt;nav id=&quot;topbar&quot; role=&quot;navigation&quot; style={{&quot;marginBottom&quot;: 0, &quot;zIndex&quot;: 2}} className=&quot;navbar navbar-default navbar-static-top&quot;&gt;
 		            &lt;div className=&quot;navbar-header&quot;&gt;
 		                &lt;button type=&quot;button&quot; data-toggle=&quot;collapse&quot; data-target=&quot;.sidebar-collapse&quot; className=&quot;navbar-toggle&quot;&gt;&lt;span className=&quot;sr-only&quot;&gt;Toggle navigation&lt;/span&gt;&lt;span className=&quot;icon-bar&quot;&gt;&lt;/span&gt;&lt;span className=&quot;icon-bar&quot;&gt;&lt;/span&gt;&lt;span className=&quot;icon-bar&quot;&gt;&lt;/span&gt;&lt;/button&gt;
 		                &lt;a id=&quot;logo&quot; href=&quot;index.html&quot; className=&quot;navbar-brand&quot;&gt;&lt;span className=&quot;fa fa-rocket&quot;&gt;&lt;/span&gt;&lt;span className=&quot;logo-text&quot;&gt;{this.props.title}&lt;/span&gt;&lt;span style={{&quot;display&quot;: &quot;none&quot;}} className=&quot;logo-text-icon&quot;&gt;CT&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
