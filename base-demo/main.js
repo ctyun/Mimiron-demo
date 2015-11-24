@@ -3,14 +3,18 @@
  * 
  */
 var React = components.React;
-var Button = components.Button;
+var Tools = components.Tools;
 var Demo = components.Demo;
 
-var ThisPage = React.createClass({
+window.Mimiron.distPath="../dist";
 
+var ThisPage = React.createClass({
+	componentDidMount: function(){
+	    Tools.loadScript("../dist/frame/theme.js");
+	},
     render: function(){
         return(<Demo/>);
     }
 });
 
-React.render(<ThisPage />, document.getElementById('demo-wrapper'));
+React.render(<ThisPage />, document.getElementById('content'));
