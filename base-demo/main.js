@@ -6,7 +6,7 @@ var React = components.React;
 var Tools = components.Tools;
 var Demo = components.Demo;
 
-window.Mimiron.distPath="../dist";
+window.Mimiron.distPath="../static/dist";
 
 var ThisPage = React.createClass({
 	componentDidMount: function(){
