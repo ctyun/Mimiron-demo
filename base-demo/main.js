@@ -10,7 +10,7 @@ window.Mimiron.distPath="../static/dist";
 
 var ThisPage = React.createClass({
 	componentDidMount: function(){
-	    Tools.loadScript("../dist/frame/theme.js");
+	    Tools.loadScript("../static/dist/UI/theme.js");
 	},
     render: function(){
         return(<Demo/>);
