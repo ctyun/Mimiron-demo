@@ -1,4 +1,5 @@
-(function(snaker){
+Mimiron.snaker_designer = function(){
+    var snaker = jQuery;
 	var designer={};
 	designer.config={
 		editable:true,
@@ -1101,11 +1102,13 @@
 			}
 		});
 		snaker(document).click(function(){
-			snaker(_r).data("currNode",null);
-			snaker(_r).trigger("click",{
-				getId:function(){return ""}
-			});
-			snaker(_r).trigger("showprops",[designer.config.props.props,{getId:function(){return ""}}])
+            if(!Mimiron["currentAssistInput"]){
+                snaker(_r).data("currNode",null);
+                snaker(_r).trigger("click",{
+                    getId:function(){return ""}
+                });
+                snaker(_r).trigger("showprops",[designer.config.props.props,{getId:function(){return ""}}])
+            }
 		});
 		var removeHandler = function(e, src){
 			if(!designer.config.editable){return}
@@ -1268,4 +1271,6 @@
 			designer.init(this,c)
 		})
 	};
-	snaker.snakerflow=designer})(jQuery);
+	snaker.snakerflow=designer};
+
+Mimiron.snaker_designer();
